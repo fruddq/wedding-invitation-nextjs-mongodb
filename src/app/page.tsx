@@ -1,5 +1,6 @@
 // pages/login.js
 
+import prisma from "@/db";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import "../app/loginPage.scss";
@@ -8,8 +9,15 @@ const handleLogin = async (data: FormData) => {
   "use server";
 
   const password = data.get("password");
+  const email = data.get("email") as string;
 
-  password === process.env.LOGIN_PASSWORD && redirect("/admin");
+  const existingUser = await prisma.eventPlannerUser.findUnique({
+    where: { email },
+  });
+
+  if (existingUser) {
+    password === existingUser.password && redirect("/admin");
+  }
 };
 
 export default function LoginPage() {

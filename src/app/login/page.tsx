@@ -15,10 +15,10 @@ import styles from "./page.module.css"
 //   console.log(response)
 // }
 
-export default function Home() {
+export default function Login() {
   return (
     <>
-      <h1>Hello</h1>
+      <h1>Login Page</h1>
     </>
   )
 }
