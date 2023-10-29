@@ -4,6 +4,7 @@ import prisma from "@/db";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import "../app/loginPage.scss";
+import Image from "next/image";
 
 const handleLogin = async (data: FormData) => {
   "use server";
@@ -22,34 +23,50 @@ const handleLogin = async (data: FormData) => {
 
 export default function LoginPage() {
   return (
-    <section className="wrapper">
-      <h1 className="header">FIX HEADER SOMETHING HERE</h1>
-      <article className="welcome-text">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque minus minima,
-          vel autem, tempore, veniam saepe aliquid mollitia laboriosam officiis possimus
-          quibusdam deleniti accusantium reiciendis itaque? Neque ex nemo possimus?
-        </p>
-      </article>
-      <form action={handleLogin} className="login-form">
-        <div className="form-field">
-          <label htmlFor="email">Email:</label>
-          <input type="email" id="email" name="email" required />
+    <>
+      <div className="wrapper">
+        <div className="second-wrapper">
+          <section className="container">
+            <h1 className="header">FIX HEADER SOMETHING HERE</h1>
+            <article className="welcome-text">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque minus
+                minima, vel autem, tempore, veniam saepe aliquid mollitia laboriosam
+                officiis possimus quibusdam deleniti accusantium reiciendis itaque? Neque ex
+                nemo possimus?
+              </p>
+            </article>
+            <form action={handleLogin} className="login-form">
+              <div className="form-field">
+                <label htmlFor="email">Email:</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+              <div className="form-field">
+                <label htmlFor="password">Password:</label>
+                <input type="password" id="password" name="password" required />
+              </div>
+              <button type="submit" className="login-btn">
+                Login
+              </button>
+              <Link href="/register" className="register-user">
+                Register
+              </Link>
+            </form>
+          </section>
+          <section>
+            <Image
+              src="/champagne-and-bottle.png"
+              alt="Champagne glass with popped champagne bottle"
+              width={500}
+              height={650}
+            />
+          </section>
         </div>
-        <div className="form-field">
-          <label htmlFor="password">Password:</label>
-          <input type="password" id="password" name="password" required />
-        </div>
-        <button type="submit" className="login-btn">
-          Login
-        </button>
-        <Link href="/register" className="register-user">
-          Register
-        </Link>
-      </form>
-      <article className="links">
-        <Link href="/about">About</Link>
-      </article>
-    </section>
+
+        <article className="links">
+          <Link href="/about">About</Link>
+        </article>
+      </div>
+    </>
   );
 }
