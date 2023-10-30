@@ -62,7 +62,6 @@ export default function LoginPage() {
             />
           </section>
         </div>
-
         <article className="links">
           <Link href="/about">About</Link>
         </article>
