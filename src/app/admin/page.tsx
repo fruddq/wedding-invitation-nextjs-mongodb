@@ -16,30 +16,37 @@ export default function Info() {
         <article>
           <button>+ Create event</button>
         </article>
-        <article className="current-events">
-          <h2>Current events</h2>
-          <ul>
-            <li>
-              current event
-              <div className="icons">
-                <Image src="edit-icon.svg" alt="Trash can icon" width={30} height={30} />
-                <Image src="trash-can.svg" alt="Trash can icon" width={30} height={30} />
-              </div>
-            </li>
-          </ul>
-        </article>
-        <article className="past-events">
-          <h2>Past events</h2>
-          <ul>
-            <li>
-              past event
-              <div className="icons">
-                <Image src="preview-icon.svg" alt="Trash can icon" width={30} height={30} />
-                <Image src="trash-can.svg" alt="Trash can icon" width={30} height={30} />
-              </div>
-            </li>
-          </ul>
-        </article>
+        <div className="events">
+          <article className="current-events">
+            <h2>Current events</h2>
+            <ul>
+              <li>
+                current event
+                <div className="icons">
+                  <Image src="edit-icon.svg" alt="Trash can icon" width={30} height={30} />
+                  <Image src="trash-can.svg" alt="Trash can icon" width={30} height={30} />
+                </div>
+              </li>
+            </ul>
+          </article>
+          <article className="past-events">
+            <h2>Past events</h2>
+            <ul>
+              <li>
+                past event
+                <div className="icons">
+                  <Image
+                    src="preview-icon.svg"
+                    alt="Trash can icon"
+                    width={30}
+                    height={30}
+                  />
+                  <Image src="trash-can.svg" alt="Trash can icon" width={30} height={30} />
+                </div>
+              </li>
+            </ul>
+          </article>
+        </div>
       </section>
     </>
   );

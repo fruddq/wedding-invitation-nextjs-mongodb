@@ -29,28 +29,46 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
 
-  .current-events {
-    border: 1px solid blue;
-    width: 60%;
-  }
+  .events {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 
-  .past-events {
-    border: 1px solid red;
-    width: 60%;
-  }
+    .current-events {
+      border: 1px solid blue;
+      width: 100%;
+    }
 
-  .icons {
-    float: right;
+    .past-events {
+      border: 1px solid red;
+      width: 100%;
+    }
 
-    img {
-      margin-left: 10px;
-      cursor: pointer;
+    .icons {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
 
-      &:hover {
-        transform: scale(1.2);
+      img {
+        margin-left: 10px;
+        cursor: pointer;
+
+        &:hover {
+          transform: scale(1.2);
+        }
       }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper {
+    flex-direction: column;
+    .events {
+      flex-direction: row;
+      justify-content: space-between;
+      width: 90%;
     }
   }
 }
