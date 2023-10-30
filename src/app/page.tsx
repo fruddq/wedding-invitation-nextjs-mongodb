@@ -27,7 +27,6 @@ export default function LoginPage() {
       <div className="wrapper">
         <div className="second-wrapper">
           <section className="container">
-            <h1 className="header">FIX HEADER SOMETHING HERE</h1>
             <article className="welcome-text">
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque minus

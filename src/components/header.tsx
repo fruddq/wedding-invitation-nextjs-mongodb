@@ -1,5 +1,12 @@
+import Image from "next/image";
+import "./styles/header.scss";
+
 const Header = () => {
-  return <header>WEDDING INVITE 2024</header>;
+  return (
+    <header className="header">
+      <Image src="header.svg" alt="Nani & Frudd" width={500} height={200} />
+    </header>
+  );
 };
 
 export default Header;
