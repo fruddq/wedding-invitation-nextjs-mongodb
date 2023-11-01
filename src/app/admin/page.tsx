@@ -1,9 +1,11 @@
+
 import "./style.scss";
 import Image from "next/image";
 
 import next from "next";
 
-export default function Info() {
+export default function Admin() {
+
   return (
     <>
       <h1>

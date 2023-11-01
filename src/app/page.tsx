@@ -1,28 +1,41 @@
 // pages/login.js
 
-import prisma from "@/db";
-import Link from "next/link";
-import { redirect } from "next/navigation";
-import "../app/loginPage.scss";
+
+import prisma from "@/db"
+import Link from "next/link"
+import { redirect } from "next/navigation"
+import "../app/loginPage.scss"
+import { getServerSession } from "next-auth/next"
+import { options } from "./api/auth/[...nextauth]/options"
+
+
+
+
 import Image from "next/image";
 
-const handleLogin = async (data: FormData) => {
-  "use server";
 
-  const password = data.get("password");
-  const email = data.get("email") as string;
+// http://localhost:3000/api/auth/signout
+const handleLogin = async (data: FormData) => {
+  "use server"
+
+  const password = data.get("password")
+  const email = data.get("email") as string
 
   const existingUser = await prisma.eventPlannerUser.findUnique({
     where: { email },
-  });
+  })
 
   if (existingUser) {
-    password === existingUser.password && redirect("/admin");
+    password === existingUser.password && redirect("/admin")
   }
-};
+}
 
-export default function LoginPage() {
+export default async function LoginPage() {
+  const session = await getServerSession(options)
+  console.log(session, "this is my session")
+
   return (
+
     <>
       <div className="wrapper">
         <div className="second-wrapper">
@@ -67,4 +80,5 @@ export default function LoginPage() {
       </div>
     </>
   );
+
 }
