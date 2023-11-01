@@ -1,34 +1,41 @@
 // pages/login.js
 
-import prisma from "@/db";
-import Link from "next/link";
-import { redirect } from "next/navigation";
-import "../app/loginPage.scss";
+import prisma from "@/db"
+import Link from "next/link"
+import { redirect } from "next/navigation"
+import "../app/loginPage.scss"
+import { getServerSession } from "next-auth/next"
+import { options } from "./api/auth/[...nextauth]/options"
 
+// http://localhost:3000/api/auth/signout
 const handleLogin = async (data: FormData) => {
-  "use server";
+  "use server"
 
-  const password = data.get("password");
-  const email = data.get("email") as string;
+  const password = data.get("password")
+  const email = data.get("email") as string
 
   const existingUser = await prisma.eventPlannerUser.findUnique({
     where: { email },
-  });
+  })
 
   if (existingUser) {
-    password === existingUser.password && redirect("/admin");
+    password === existingUser.password && redirect("/admin")
   }
-};
+}
 
-export default function LoginPage() {
+export default async function LoginPage() {
+  const session = await getServerSession(options)
+  console.log(session, "this is my session")
+
   return (
     <section className="wrapper">
       <h1 className="header">FIX HEADER SOMETHING HERE</h1>
       <article className="welcome-text">
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque minus minima,
-          vel autem, tempore, veniam saepe aliquid mollitia laboriosam officiis possimus
-          quibusdam deleniti accusantium reiciendis itaque? Neque ex nemo possimus?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
+          minus minima, vel autem, tempore, veniam saepe aliquid mollitia
+          laboriosam officiis possimus quibusdam deleniti accusantium reiciendis
+          itaque? Neque ex nemo possimus?
         </p>
       </article>
       <form action={handleLogin} className="login-form">
@@ -51,5 +58,5 @@ export default function LoginPage() {
         <Link href="/about">About</Link>
       </article>
     </section>
-  );
+  )
 }
