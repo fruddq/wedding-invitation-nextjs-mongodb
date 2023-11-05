@@ -49,20 +49,24 @@
     }
   }
 }
+
 @media (min-width: 1024px) {
   .container {
     h1 {
       font-size: 3rem;
     }
+
     .info-text {
       font-size: 1.5rem;
     }
+
     .form-container {
       form {
         div {
           label {
             font-size: 1.5rem;
           }
+
           input {
             font-size: 1.3rem;
             background-color: transparent;
@@ -70,6 +74,7 @@
             border-bottom: 1px solid #034a44;
           }
         }
+
         .login-btn {
           width: 150px;
           height: 40px;
