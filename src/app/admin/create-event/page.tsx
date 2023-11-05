@@ -43,7 +43,7 @@ export default async function CreateEvent() {
           </div>
           <div>
             <label htmlFor="event-date">Event Date:</label>
-            <input type="date" name="event-date" placeholder="Given password" />
+            <input type="date" name="event-date" />
           </div>
           <button className="submit-btn" type="submit">
             Submit
