@@ -2,6 +2,7 @@ import { getServerSession } from "next-auth"
 import { options } from "@/app/api/auth/[...nextauth]/options"
 import prisma from "@/db"
 import { redirect, useRouter } from "next/navigation"
+import getUserId from "@/utils/getUserId"
 
 // http://localhost:3000/api/auth/signout
 const handleCreateEvent = async (data: FormData) => {
@@ -10,27 +11,19 @@ const handleCreateEvent = async (data: FormData) => {
   const eventName = data.get("event-name") as string
   const eventDate = data.get("event-date") as string
 
-  const session = await getServerSession(options)
-  if (session && session.user && session.user.email) {
-    const userId = await prisma.eventPlannerUser.findUnique({
-      where: { email: session.user.email },
-      select: { id: true },
+  const userId = await getUserId()
+
+  if (userId) {
+    const newEvent = await prisma.event.create({
+      data: {
+        eventName,
+        eventDate: new Date(eventDate),
+        eventPlannerUserId: userId,
+      },
     })
 
-    if (userId) {
-      const { id } = userId
-      console.log(session, "this is my session")
-      const newEvent = await prisma.event.create({
-        data: {
-          eventName,
-          eventDate: new Date(eventDate),
-          eventPlannerUserId: id,
-        },
-      })
-
-      if (newEvent) {
-        redirect(`/admin/event/${eventName}`)
-      }
+    if (newEvent) {
+      redirect(`/admin/event/${eventName}`)
     }
   }
 }
