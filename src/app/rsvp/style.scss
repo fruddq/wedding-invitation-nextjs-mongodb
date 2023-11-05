@@ -1,0 +1,34 @@
+h1 {
+  font-size: 2rem;
+}
+
+form {
+  border: 1px solid blue;
+  font-size: 1.5rem;
+  padding: 5%;
+
+  .guest-name {
+    border: 1px solid red;
+  }
+
+  .attending {
+    border: 1px solid green;
+  }
+
+  .diet {
+    border: 1px solid orange;
+  }
+
+  .allergies {
+    border: 1px solid purple;
+  }
+
+  .else {
+    border: 1px solid pink;
+  }
+
+  .submit-btn {
+    background-color: green;
+    margin-top: 5%;
+  }
+}
