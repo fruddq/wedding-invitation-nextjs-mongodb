@@ -11,6 +11,13 @@ export default function ProposalPage() {
           infront of the Balliagio fountain and asked Nani to marry him... and she said yes!
         </p>
       </section>
+      <Image
+        className="hide-mobile"
+        src="/proposal-people 1.png"
+        alt="Champagne glass with popped champagne bottle"
+        width={500}
+        height={750}
+      />
     </>
   );
 }
