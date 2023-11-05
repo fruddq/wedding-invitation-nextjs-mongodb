@@ -1,0 +1,46 @@
+h1 {
+  font-size: 2rem;
+  text-align: center;
+}
+
+form {
+  //   border: 1px solid blue;
+  font-size: 1.5rem;
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .guest-name,
+  .attending,
+  .diet,
+  .allergies,
+  .else {
+    display: flex;
+    flex-direction: row;
+
+    .checkbox-option {
+      font-size: 1.3rem;
+      color: rgb(99, 99, 99);
+    }
+
+    input {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid grey;
+      font-size: 1.3rem;
+    }
+
+    // input[type="checkbox"] {
+    //   width: 36px;
+    //   height: 36px;
+    // }
+  }
+
+  .submit-btn {
+    background-color: green;
+    margin-top: 5%;
+    height: 30px;
+    width: 100px;
+  }
+}
