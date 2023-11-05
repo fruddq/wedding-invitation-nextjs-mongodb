@@ -29,18 +29,17 @@ model Event {
 }
 
 model Guest {
-  id              String   @id @default(auto()) @map("_id") @db.ObjectId
-  firstName       String
-  lastName        String
-  email           String?
-  phoneNumber     Int?
-  diet            String?
-  comments        String?
-  eventId         String   @db.ObjectId
-  event           Event    @relation(fields: [eventId], references: [id])
-  additionalGuest Int      @default(0)
-  RSVPDate        DateTime
-  attending       Boolean  @default(false)
-  hasResponded    Boolean  @default(false)
-  inviteSent      Boolean  @default(false)
+  id               String  @id @default(auto()) @map("_id") @db.ObjectId
+  firstName        String
+  lastName         String
+  email            String?
+  phoneNumber      Int?
+  diet             String?
+  comments         String?
+  eventId          String  @db.ObjectId
+  event            Event   @relation(fields: [eventId], references: [id])
+  additionalGuests Int     @default(0)
+  attending        Boolean @default(false)
+  hasResponded     Boolean @default(false)
+  inviteSent       Boolean @default(false)
 }

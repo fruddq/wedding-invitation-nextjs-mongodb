@@ -1,110 +1,26 @@
 .wrapper {
   display: flex;
   flex-direction: column;
+  background-image: url("../../public/champagne-and-bottle.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 90%;
 }
-.wrapper .second-wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-.wrapper .second-wrapper .container {
+.wrapper .container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  padding: 5%;
 }
-.wrapper .second-wrapper .container .header {
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-.wrapper .second-wrapper .container .welcome-text {
-  background-color: #e9ca8f;
-  max-width: 800px;
+.wrapper .container .welcome-text {
+  background-color: rgba(233, 202, 143, 0.5254901961);
+  padding: 5%;
   font-size: 1.5rem;
-  padding: 20px;
-  margin: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  width: 400px;
+  text-align: center;
 }
-.wrapper .second-wrapper .container .login-form {
-  font-size: 1.5rem;
-  padding: 20px;
-  margin: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 400px;
-  background-color: #e9ca8f;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-}
-.wrapper .second-wrapper .container .login-form .form-field {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin: 10px 0 20px;
-  height: 60px;
-}
-.wrapper .second-wrapper .container .login-form .form-field label {
-  font-weight: bold;
-  font-size: 1.3rem;
-  text-transform: uppercase;
-  width: 120px;
-  padding-right: 10px;
-}
-.wrapper .second-wrapper .container .login-form .form-field input {
-  flex: 1;
-  width: 70%;
-  padding: 10px;
-  font-size: 1rem;
-  height: 100%;
-  border: none;
-  background-color: #e9ca8f;
-  border-bottom: 2px solid #034a44;
-}
-.wrapper .second-wrapper .container .login-form .login-btn {
-  margin-top: 20px;
-  height: 50px;
-  width: 50%;
-  border: none;
-  background-color: #034a44;
-  color: #ffffff;
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-.wrapper .second-wrapper .container .login-form .login-btn:hover {
-  background-color: #028037;
-}
-.wrapper .second-wrapper .container .login-form .register-user {
-  margin-top: 20px;
-  font-size: 1rem;
-  cursor: pointer;
-  color: #034a44;
-}
-.wrapper .second-wrapper .container .login-form .register-user:hover {
-  text-decoration: underline;
-}
-.wrapper .second-wrapper .container .links {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.wrapper .second-wrapper .container .links a {
-  text-decoration: none;
-  color: #034a44;
-  margin: 5px;
-}
-.wrapper .second-wrapper .container .links a:hover {
-  text-decoration: underline;
-}
-
-@media screen and (max-width: 768px) {
-  .wrapper .second-wrapper {
-    flex-direction: column;
-  }
+.wrapper .login {
+  margin-top: 5%;
+  background-color: rgba(233, 202, 143, 0.5254901961);
+  padding: 5%;
+  text-align: center;
 }/*# sourceMappingURL=loginPage.css.map */
