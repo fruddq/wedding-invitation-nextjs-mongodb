@@ -1,10 +1,29 @@
+import "./style.scss"
+import Image from "next/image"
 
-import "./style.scss";
-import Image from "next/image";
+import next from "next"
+import { getServerSession } from "next-auth"
+import { options } from "../api/auth/[...nextauth]/options"
+import Link from "next/link"
+// http://localhost:3000/api/auth/signout
+// const handleLogin = async (data: FormData) => {
+//   "use server"
 
-import next from "next";
+//   const password = data.get("password")
+//   const email = data.get("email") as string
 
-export default function Admin() {
+//   const existingUser = await prisma.eventPlannerUser.findUnique({
+//     where: { email },
+//   })
+
+//   if (existingUser) {
+//     password === existingUser.password && redirect("/admin")
+//   }
+// }
+
+export default async function Admin() {
+  const session = await getServerSession(options)
+  console.log(session, "this is my session")
 
   return (
     <>
@@ -16,7 +35,7 @@ export default function Admin() {
       </h1>
       <section className="wrapper">
         <article>
-          <button>+ Create event</button>
+          <Link href="/admin/create-event">Create Event</Link>
         </article>
         <div className="events">
           <article className="current-events">
@@ -25,8 +44,18 @@ export default function Admin() {
               <li>
                 current event
                 <div className="icons">
-                  <Image src="edit-icon.svg" alt="Trash can icon" width={30} height={30} />
-                  <Image src="trash-can.svg" alt="Trash can icon" width={30} height={30} />
+                  <Image
+                    src="edit-icon.svg"
+                    alt="Trash can icon"
+                    width={30}
+                    height={30}
+                  />
+                  <Image
+                    src="trash-can.svg"
+                    alt="Trash can icon"
+                    width={30}
+                    height={30}
+                  />
                 </div>
               </li>
             </ul>
@@ -43,7 +72,12 @@ export default function Admin() {
                     width={30}
                     height={30}
                   />
-                  <Image src="trash-can.svg" alt="Trash can icon" width={30} height={30} />
+                  <Image
+                    src="trash-can.svg"
+                    alt="Trash can icon"
+                    width={30}
+                    height={30}
+                  />
                 </div>
               </li>
             </ul>
@@ -51,5 +85,5 @@ export default function Admin() {
         </div>
       </section>
     </>
-  );
+  )
 }
