@@ -1,6 +1,7 @@
 import type { NextAuthOptions } from 'next-auth'
 import GitHubProvider from 'next-auth/providers/github'
 import CredentialsProvider from 'next-auth/providers/credentials'
+import prisma from '@/db'
 
 export const options: NextAuthOptions = {
     providers: [
@@ -15,13 +16,12 @@ export const options: NextAuthOptions = {
                 password: { label: 'Password', type: 'password' }
             },
             async authorize(credentials) {
-                // ADD LOGIC TO FETCH USER
-                const user = {
-                    id: '653eafef06dd5a489221a85c',
-                    email: "hello@gmail.com",
-                    password: "HELLOHELLO"
-                }
-                if (credentials?.email === user.email && credentials?.password === user.password) {
+
+                const user = await prisma.eventPlannerUser.findUnique({
+                    where: { email: credentials?.email },
+                })
+
+                if (credentials?.email === user?.email && credentials?.password === user?.password) {
                     return user
                 } else {
                     return null
