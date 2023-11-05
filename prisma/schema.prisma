@@ -23,8 +23,8 @@ model Event {
   RSVPDate           DateTime?
   eventPlannerUserId String           @db.ObjectId
   eventPlannerUser   EventPlannerUser @relation(fields: [eventPlannerUserId], references: [id])
-  password           String
-  inviteLink         String
+  password           String?
+  inviteLink         String?
   guestlist          Guest[]
 }
 
