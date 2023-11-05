@@ -8,19 +8,24 @@ export default function Rsvp() {
         <h1>Attending?</h1>
         <form>
           <div className="guest-name">
-            <label htmlFor="guest-name">Guest name:</label>
+            <label htmlFor="guest-name">Guest:</label>
             <input type="text" name="guest-name" placeholder="Guest name" required />
           </div>
           <div className="attending">
             <label htmlFor="attending">Attending:</label>
-            <input type="checkbox" name="attending" /> Yes
-            <input type="checkbox" name="attending" /> No
+            <input type="checkbox" name="attending" />{" "}
+            <span className="checkbox-option">Yes</span>
+            <input type="checkbox" name="attending" />{" "}
+            <span className="checkbox-option">No</span>
           </div>
           <div className="diet">
             <label htmlFor="diet">Diet:</label>
-            <input type="checkbox" name="diet" /> Meat
-            <input type="checkbox" name="diet" /> Vegetarian
-            <input type="checkbox" name="diet" /> Vegan
+            <input type="checkbox" name="diet" />
+            <span className="checkbox-option">Meat</span>
+            <input type="checkbox" name="diet" />{" "}
+            <span className="checkbox-option">Vegetarian</span>
+            <input type="checkbox" name="diet" />{" "}
+            <span className="checkbox-option">Vegan</span>
           </div>
           <div className="allergies">
             <label htmlFor="allergies">Allergies:</label>
