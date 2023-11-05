@@ -65,3 +65,18 @@
     }
   }
 }
+
+@media (min-width: 870px) {
+  .wrapper {
+    flex-direction: row;
+    justify-content: space-around;
+
+    .info {
+      width: 50%;
+
+      .info-address {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
