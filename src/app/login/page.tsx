@@ -31,11 +31,11 @@ export default function Login() {
         <form>
           <div>
             <label htmlFor="name">Name:</label>
-            <input type="text" name="name" placeholder="Name" />
+            <input type="text" name="name" placeholder="Guest name" />
           </div>
           <div>
             <label htmlFor="password">Password:</label>
-            <input type="password" name="password" placeholder="Password" />
+            <input type="password" name="password" placeholder="Given password" />
           </div>
           <button className="login-btn">Login</button>
         </form>
