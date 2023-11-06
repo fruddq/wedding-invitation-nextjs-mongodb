@@ -22,8 +22,8 @@ import Link from "next/link"
 // }
 
 export default async function Admin() {
-  const session = await getServerSession(options)
-  console.log(session, "this is my session")
+  // const session = await getServerSession(options)
+  // console.log(session, "this is my session")
 
   return (
     <>

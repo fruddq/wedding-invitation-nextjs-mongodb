@@ -85,7 +85,7 @@ export default async function Event({
               parseInt(data.get("additional-guests") as string) || undefined
 
             const updatedEvent = await prisma.event.update({
-              where: { id: "6547d7a3b08406f29b036a86" }, // Replace with the actual ID of the event you want to update
+              where: { id }, // Replace with the actual ID of the event you want to update
               data: {
                 guestlist: {
                   create: [
