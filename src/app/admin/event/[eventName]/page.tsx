@@ -14,14 +14,31 @@ export default async function Event({
   const event = await getEvent(eventName)
 
   if (event) {
-    const { guestlist, RSVPDate, id, eventName, eventDate, password } = event
+    const {
+      guestlist,
+      RSVPDate,
+      id,
+      eventName,
+      eventDate,
+      password,
+      inviteLink,
+    } = event
 
+    // await prisma.event.update({
+    //   where: {
+    //     id,
+    //   },
+    //   data: {
+    //     inviteLink: "NaniFruddWedding2024",
+    //   },
+    // })
     return (
       <div>
         <h1>Event: {eventName}</h1>
 
         <p>Event Date: {eventDate.toLocaleDateString()}</p>
         <p>RSVP Date: {RSVPDate?.toLocaleDateString() || "N/A"}</p>
+        <p>Invite Link: {inviteLink}</p>
 
         <form
           action={async (data: FormData) => {
