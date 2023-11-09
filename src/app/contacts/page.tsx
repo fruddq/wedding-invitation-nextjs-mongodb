@@ -64,15 +64,6 @@ export default function Contacts() {
           </article>
         </div>
       </section>
-      {/* <section>
-        <Image
-          className="extra-pic"
-          src="/balloons.png"
-          alt="Champagne glass with popped champagne bottle"
-          width={750}
-          height={550}
-        />
-      </section> */}
     </>
   );
 }
