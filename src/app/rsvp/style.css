@@ -1,0 +1,44 @@
+h1 {
+  font-size: 2rem;
+  text-align: center;
+}
+
+form {
+  font-size: 1.5rem;
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+form .guest-name,
+form .attending,
+form .diet,
+form .allergies,
+form .else {
+  display: flex;
+  flex-direction: row;
+}
+form .guest-name .checkbox-option,
+form .attending .checkbox-option,
+form .diet .checkbox-option,
+form .allergies .checkbox-option,
+form .else .checkbox-option {
+  font-size: 1.3rem;
+  color: rgb(99, 99, 99);
+}
+form .guest-name input,
+form .attending input,
+form .diet input,
+form .allergies input,
+form .else input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid grey;
+  font-size: 1.3rem;
+}
+form .submit-btn {
+  background-color: green;
+  margin-top: 5%;
+  height: 30px;
+  width: 100px;
+}/*# sourceMappingURL=style.css.map */

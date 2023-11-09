@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  background-image: url("../../public/champagne-and-bottle.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 90%;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    padding: 5%;
+
+    .welcome-text {
+      background-color: #e9ca8f86;
+      padding: 5%;
+      font-size: 1.5rem;
+      text-align: center;
+    }
+  }
+
+  .login {
+    margin-top: 5%;
+    background-color: #e9ca8f86;
+    padding: 5%;
+    text-align: center;
+  }
+}
