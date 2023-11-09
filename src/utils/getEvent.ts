@@ -1,6 +1,4 @@
-import { options } from "@/app/api/auth/[...nextauth]/options";
 import prisma from "@/db";
-import { getServerSession } from "next-auth";
 import getUserId from "./getUserId";
 
 const getEvent = async (eventName: string) => {
