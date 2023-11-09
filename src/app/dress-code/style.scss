@@ -1,0 +1,53 @@
+:root {
+  background-color: #fbdfbd;
+}
+
+.wrapper {
+  background-image: url("../../../public/attire.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #fbdfbd;
+  height: 80vh;
+  padding: 5%;
+
+  .dress-code {
+    background-color: #fff2e292;
+    border-radius: 15px;
+    padding: 5%;
+
+    h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    .tips {
+      margin-top: 30%;
+    }
+  }
+
+  .hide-mobile {
+    display: none;
+  }
+}
+
+@media (min-width: 800px) {
+  .wrapper {
+    background-image: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    .dress-code {
+      height: 50%;
+
+      h1 {
+        font-size: 3rem;
+      }
+    }
+
+    .hide-mobile {
+      display: block;
+    }
+  }
+}
