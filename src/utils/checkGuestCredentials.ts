@@ -22,14 +22,9 @@ const checkGuestCredentials = async ({ firstName, lastName, password: inputPassw
             guest.lastName === lastName
     );
 
-    const matchingPasssword = password === inputPassword;
-    // @TODO FIX THIS, Change schema additionalguests should be an array of objects
-    // @TODO make admin/event/eventName accept additional guests input 
+    const matchingPassword = password === inputPassword;
 
-    console.log(matchingGuest, "matching guest");
-    console.log(matchingPasssword, "matching password");
-
-    return matchingGuest ? true : false;
+    return matchingGuest && matchingPassword ? matchingGuest : undefined;
 };
 
 export default checkGuestCredentials;

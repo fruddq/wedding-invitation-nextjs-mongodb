@@ -1,42 +1,23 @@
-import prisma from "@/db"
+import { GuestInterface } from "@/app/invitation/[inviteCode]/page"
 import checkGuestCredentials from "@/utils/checkGuestCredentials"
-import getEventFromInviteLink from "@/utils/getEventFromInviteLink"
 
 interface LoginFormProps {
-  setIsLoggedIn: (isLoggedIn: boolean) => void
+  setGuest: (guest: GuestInterface | null) => void
 }
-
-interface Guest {
-  firstName: string
-  lastName: string
-  password: string
-}
-
-const checkGuest = async ({ firstName, lastName, password }: Guest) => {
-  console.log(firstName, lastName, password)
-  await getEventFromInviteLink()
-
-  //   const event = await prisma.event.findFirst({
-  //     where: {
-  //         eventName,
-  //         eventPlannerUserId: userId, // Optionally filter by eventPlannerUserId if needed
-  //     },
-  //     include: { guestlist: true },
-  // })
-}
-
-export const LoginForm: React.FC<LoginFormProps> = ({ setIsLoggedIn }) => {
+export const LoginForm: React.FC<LoginFormProps> = ({ setGuest }) => {
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+
     const formData = new FormData(e.currentTarget)
     const firstName = formData.get("firstName") as string
     const lastName = formData.get("lastName") as string
     const password = formData.get("password") as string // Add this line
 
-    const test = await checkGuestCredentials({ firstName, lastName, password })
+    const guest = await checkGuestCredentials({ firstName, lastName, password })
 
-    console.log(test)
-    setIsLoggedIn(true)
+    if (guest) {
+      setGuest(guest)
+    }
   }
 
   return (
@@ -55,11 +36,21 @@ export const LoginForm: React.FC<LoginFormProps> = ({ setIsLoggedIn }) => {
         <form onSubmit={handleLogin}>
           <div>
             <label htmlFor="firstName">First Name:</label>
-            <input type="text" name="firstName" placeholder="Your first name" />
+            <input
+              type="text"
+              name="firstName"
+              placeholder="Your first name"
+              defaultValue="Jens"
+            />
           </div>
           <div>
             <label htmlFor="lastName">Last Name:</label>
-            <input type="text" name="lastName" placeholder="Your last name" />
+            <input
+              type="text"
+              name="lastName"
+              placeholder="Your last name"
+              defaultValue="Persson"
+            />
           </div>
           <div>
             {" "}
@@ -69,6 +60,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ setIsLoggedIn }) => {
               type="password"
               name="password"
               placeholder="Your password"
+              defaultValue="NaniFruddIDo2024!"
             />
           </div>
           <button className="login-btn" type="submit">

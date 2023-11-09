@@ -98,10 +98,19 @@ export default async function Event({
             "use server"
             const firstName = data.get("first-name") as string
             const lastName = data.get("last-name") as string
-            const additionalGuests =
-              parseInt(data.get("additional-guests") as string) || undefined
+            const additionalGuestFirstName = data.get(
+              "additional-guest-first-name"
+            ) as string
+            const additionalGuestLastName = data.get(
+              "additional-guest-first-name"
+            ) as string
 
-            const updatedEvent = await prisma.event.update({
+            const additionalGuests = {
+              firstName: additionalGuestFirstName,
+              lastName: additionalGuestLastName,
+            }
+
+            await prisma.event.update({
               where: { id }, // Replace with the actual ID of the event you want to update
               data: {
                 guestlist: {
@@ -129,11 +138,22 @@ export default async function Event({
           </div>
 
           <div className="form-field">
-            <label htmlFor="additional-guests">Additional Guests: </label>
+            <label htmlFor="additional-guest-first-name">
+              Additional Guest First name:
+            </label>
             <input
-              type="number"
-              id="additional-guests"
-              name="additional-guests"
+              id="additional-guest-first-name"
+              name="additional-guest-first-name"
+            />
+          </div>
+
+          <div className="form-field">
+            <label htmlFor="additional-guest-last-name">
+              Additional Guest Last name:
+            </label>
+            <input
+              id="additional-guest-last-name"
+              name="additional-guest-last-name"
             />
           </div>
 
@@ -190,10 +210,6 @@ export default async function Event({
               <hr
                 style={{ borderTop: "1px solid #ddd", margin: "5px 0" }}
               />{" "}
-              {/* Add line after Comments */}
-              <p style={{ margin: 0 }}>
-                Additional Guests: {guest.additionalGuests}
-              </p>
               <hr style={{ borderTop: "1px solid #ddd", margin: "5px 0" }} />{" "}
               {/* Add line after Additional Guests */}
               <p style={{ margin: 0 }}>
@@ -209,6 +225,21 @@ export default async function Event({
               <p style={{ margin: 0 }}>
                 Invite Sent: {guest.inviteSent ? "Yes" : "No"}
               </p>
+              {guest.additionalGuests.length > 0 && (
+                <div>
+                  <p style={{ fontWeight: "bold", margin: 0 }}>
+                    Additional Guests:
+                  </p>
+                  {guest.additionalGuests.map((additionalGuest, index) => (
+                    <ul key={index}>
+                      <li>First Name: {additionalGuest.firstName}</li>
+                      <li>Last Name: {additionalGuest.lastName}</li>
+                      <li>Diet: {additionalGuest.diet || "N/A"}</li>
+                      <li>Comment: {additionalGuest.comments || "N/A"}</li>
+                    </ul>
+                  ))}
+                </div>
+              )}
             </div>
           ))}
         </div>
