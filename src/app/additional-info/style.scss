@@ -1,0 +1,21 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 10px;
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+  }
+
+  div {
+    background-color: #fbdfbd6d;
+    padding: 2px 10px 5px 10px;
+    border-radius: 15px;
+
+    p {
+      font-size: 1.1rem;
+    }
+  }
+}
