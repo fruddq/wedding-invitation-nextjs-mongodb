@@ -2,6 +2,7 @@
 import { useState } from "react"
 import LoginForm from "@/components/loginForm"
 import WelcomePage from "@/components/welcomePage"
+import Rsvp from "@/components/rsvp"
 
 type AdditionalGuest = {
   firstName: string
@@ -35,6 +36,10 @@ export default function Invitation() {
 
   if (guest) {
     return <WelcomePage guest={guest} />
+  }
+
+  if (guest) {
+    return <Rsvp guest={guest} />
   }
 
   if (!guest) {
