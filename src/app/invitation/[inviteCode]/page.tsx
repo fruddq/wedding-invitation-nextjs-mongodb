@@ -34,7 +34,7 @@ export default function Invitation() {
   }
 
   if (guest) {
-    return <WelcomePage />
+    return <WelcomePage guest={guest} />
   }
 
   if (!guest) {
