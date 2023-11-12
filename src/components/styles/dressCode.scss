@@ -1,6 +1,6 @@
-:root {
-  background-color: #fbdfbd;
-}
+// :root {
+//   background-color: #fbdfbd;
+// }
 
 .wrapper {
   background-image: url("../../../public/attire.png");
@@ -8,13 +8,15 @@
   background-repeat: no-repeat;
   background-position: center;
   background-color: #fbdfbd;
-  height: 80vh;
+  background-size: 60vh;
+  height: 100vh;
   padding: 5%;
 
   .dress-code {
     background-color: #fff2e292;
     border-radius: 15px;
     padding: 5%;
+    margin-top: 150px;
 
     h1 {
       font-size: 2.5rem;

@@ -86,7 +86,7 @@ export default function Invitation() {
         {showTheProposal && <Proposal />}
         {showSaveTheDate && <SaveTheDate />}
         {showTheBigDay && <TheBigDay />}
-        {/* {showDressCode && <DressCode />} */}
+        {showDressCode && <DressCode />}
         {/* {showAdditionalInformation && <AdditionalInfo />} */}
         {/* {showContacts && <Contacts />} */}
         {/* {showRsvp && <Rsvp />} */}
