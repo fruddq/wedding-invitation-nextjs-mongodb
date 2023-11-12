@@ -1,0 +1,42 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .text-container {
+    padding: 25px;
+    text-align: center;
+    border-radius: 15px;
+
+    h1 {
+      font-size: 2rem;
+      color: #034a44;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #8e630e;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .wrapper {
+    flex-direction: row;
+
+    img {
+      width: 850px;
+      height: 600px;
+    }
+
+    .text-container {
+      h1 {
+        font-size: 3rem;
+      }
+      p {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}

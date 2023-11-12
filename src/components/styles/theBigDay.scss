@@ -1,0 +1,33 @@
+:root {
+  background-image: url("../../../public/plate-less-opacity.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.container {
+  padding-left: 5%;
+  padding-right: 5%;
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .evening-info {
+    background-color: #fbda9c81;
+    padding: 5%;
+    border-radius: 15px;
+    color: rgb(96, 54, 54);
+  }
+}
+
+@media (min-width: 800px) {
+  .container {
+    h1 {
+      font-size: 3rem;
+    }
+
+    .evening-info {
+      font-size: 1.3rem;
+    }
+  }
+}
