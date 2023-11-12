@@ -33,6 +33,7 @@ type AdditionalGuests {
   lastName  String
   comments  String?
   diet      String?
+  attending Boolean @default(false)
 }
 
 model Guest {

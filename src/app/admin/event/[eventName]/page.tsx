@@ -102,7 +102,7 @@ export default async function Event({
               "additional-guest-first-name"
             ) as string
             const additionalGuestLastName = data.get(
-              "additional-guest-first-name"
+              "additional-guest-last-name"
             ) as string
 
             const additionalGuests = {
