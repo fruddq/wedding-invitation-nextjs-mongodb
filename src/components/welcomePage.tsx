@@ -1,4 +1,4 @@
-import "./style.scss"
+import "./styles/welcomePage.scss"
 
 export default function WelcomePage() {
   return (

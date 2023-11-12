@@ -1,6 +1,7 @@
 "use client"
 import { useState } from "react"
 import LoginForm from "@/components/loginForm"
+import WelcomePage from "@/components/welcomePage"
 
 type AdditionalGuest = {
   firstName: string
@@ -33,7 +34,7 @@ export default function Invitation() {
   }
 
   if (guest) {
-    return <p>You are logged in as {guest.firstName}</p>
+    return <WelcomePage />
   }
 
   if (!guest) {

@@ -1,0 +1,26 @@
+:root {
+    background-image: url("../../../public/flower-border-mobile.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #fbdfbd;
+    height: 100%;
+  }
+  
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 25%;
+  }
+  
+  @media (min-width: 1024px) {
+    :root {
+      background-image: url("../../../public/flower-border-desktop.png");
+    }
+  
+    .wrapper {
+      margin-top: 5%;
+    }
+  }
+  
