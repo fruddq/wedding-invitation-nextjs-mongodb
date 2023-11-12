@@ -84,7 +84,7 @@ export default function Invitation() {
         />
         {showWelcomePage && <WelcomePage guest={guest} />}
         {showTheProposal && <Proposal />}
-        {/* {showSaveTheDate && <SaveTheDate />} */}
+        {showSaveTheDate && <SaveTheDate />}
         {/* {showTheBigDay && <TheBigDay />} */}
         {/* {showDressCode && <DressCode />} */}
         {/* {showAdditionalInformation && <AdditionalInfo />} */}
