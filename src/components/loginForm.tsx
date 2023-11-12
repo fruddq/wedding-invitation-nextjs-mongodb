@@ -16,10 +16,10 @@ export const LoginForm: React.FC<LoginFormProps> = ({ setGuest }) => {
     const guest = await checkGuestCredentials({ firstName, lastName, password })
 
     if (guest) {
+      localStorage.setItem("guest", JSON.stringify(guest))
       setGuest(guest)
     }
   }
-
   return (
     <section className="container">
       <h1>

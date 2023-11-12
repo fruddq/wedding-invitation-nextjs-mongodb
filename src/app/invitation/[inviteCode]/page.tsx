@@ -1,12 +1,13 @@
 "use client"
 import { useState } from "react"
 import LoginForm from "@/components/loginForm"
+import WelcomePage from "@/components/welcomePage"
 
 type AdditionalGuest = {
   firstName: string
   lastName: string
-  comments: string | undefined
-  diet: string | undefined
+  comments: string | null
+  diet: string | null
 }
 export interface GuestInterface {
   id: string
@@ -20,18 +21,25 @@ export interface GuestInterface {
   attending: boolean
   hasResponded: boolean
   inviteSent: boolean
+  additionalGuests: AdditionalGuest[]
 }
 export default function Invitation() {
   const [guest, setGuest] = useState<GuestInterface | null>(null)
-  console.log(guest)
 
-  return (
-    <>
-      {guest ? (
-        <p>You are logged in as {guest.firstName}</p>
-      ) : (
-        <LoginForm setGuest={setGuest} />
-      )}
-    </>
-  )
+  const storedGuestJSON = localStorage.getItem("guest")
+  const storedGuest = storedGuestJSON ? JSON.parse(storedGuestJSON) : null
+
+  if (storedGuest && !guest) {
+    setGuest(storedGuest)
+  }
+
+  if (guest) {
+    return <WelcomePage />
+  }
+
+  if (!guest) {
+    return <LoginForm setGuest={setGuest} />
+  }
+
+  return null // Add a default return statement if necessary
 }

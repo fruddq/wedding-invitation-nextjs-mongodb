@@ -28,7 +28,7 @@ model Event {
   guestlist          Guest[]
 }
 
-type AdditionalGuest {
+type AdditionalGuests {
   firstName String
   lastName  String
   comments  String?
@@ -36,17 +36,17 @@ type AdditionalGuest {
 }
 
 model Guest {
-  id               String            @id @default(auto()) @map("_id") @db.ObjectId
+  id               String             @id @default(auto()) @map("_id") @db.ObjectId
   firstName        String
   lastName         String
   email            String?
   phoneNumber      Int?
   diet             String?
   comments         String?
-  eventId          String            @db.ObjectId
-  event            Event             @relation(fields: [eventId], references: [id])
-  additionalGuests AdditionalGuest[]
-  attending        Boolean           @default(false)
-  hasResponded     Boolean           @default(false)
-  inviteSent       Boolean           @default(false)
+  eventId          String             @db.ObjectId
+  event            Event              @relation(fields: [eventId], references: [id])
+  additionalGuests AdditionalGuests[]
+  attending        Boolean            @default(false)
+  hasResponded     Boolean            @default(false)
+  inviteSent       Boolean            @default(false)
 }
