@@ -5,7 +5,7 @@ import "./styles/contacts.scss";
 
 export default function Contacts() {
   return (
-    <>
+    <div className="contacts">
       <h1>contacts</h1>
       <p className="info">
         If you have any questions related to the wedding please contact our toastmadame or
@@ -63,6 +63,6 @@ export default function Contacts() {
           </article>
         </div>
       </section>
-    </>
+    </div>
   );
 }

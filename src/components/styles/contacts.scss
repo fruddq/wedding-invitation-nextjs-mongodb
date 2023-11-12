@@ -1,79 +1,80 @@
-:root {
+.contacts {
   background-color: #f7e4cd;
-}
+  height: 100vh;
 
-h1 {
-  font-size: 3rem;
-  color: #034a44;
-  text-align: center;
-  margin: 0;
-}
+  h1 {
+    font-size: 3rem;
+    color: #034a44;
+    text-align: center;
+    margin: 0;
+  }
 
-p.info {
-  padding: 15px;
-  text-align: center;
-  margin: 0;
-}
-
-.wrapper {
-  border: 3px solid transparent;
-  background-image: url("../../../public/frame-mobile.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-
-  min-height: 100vh;
-
-  .bg {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-
+  p.info {
     padding: 15px;
-    margin-top: 70px;
+    text-align: center;
+    margin: 0;
+  }
 
-    hr {
-      border: 1px solid #f9d4a6;
-      width: 200px;
-      margin: 10px 0 10px 0;
-      padding: 0;
-    }
+  .wrapper {
+    border: 3px solid transparent;
+    background-image: url("../../../public/frame-mobile.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 
-    .toastmadame,
-    .toastmaster {
+    min-height: 100vh;
+
+    .bg {
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
+      gap: 20px;
 
-      div {
-        text-align: center;
+      padding: 15px;
+      margin-top: 70px;
+
+      hr {
+        border: 1px solid #f9d4a6;
+        width: 200px;
+        margin: 10px 0 10px 0;
+        padding: 0;
       }
 
-      h3,
-      h4 {
-        color: #034a44;
-        text-transform: uppercase;
-        margin-bottom: 0;
-      }
+      .toastmadame,
+      .toastmaster {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
-      p {
-        margin: 0;
-        color: #034a44;
-        text-transform: uppercase;
-      }
+        div {
+          text-align: center;
+        }
 
-      p.name {
-        color: #d59f35;
-        font-size: 2.1rem;
-        text-transform: uppercase;
-        margin: 0;
-      }
+        h3,
+        h4 {
+          color: #034a44;
+          text-transform: uppercase;
+          margin-bottom: 0;
+        }
 
-      img {
-        width: 100px;
-        height: 100px;
+        p {
+          margin: 0;
+          color: #034a44;
+          text-transform: uppercase;
+        }
+
+        p.name {
+          color: #d59f35;
+          font-size: 2.1rem;
+          text-transform: uppercase;
+          margin: 0;
+        }
+
+        img {
+          width: 100px;
+          height: 100px;
+        }
       }
     }
   }
