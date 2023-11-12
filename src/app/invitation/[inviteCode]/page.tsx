@@ -1,45 +1,50 @@
-"use client"
-import { useState } from "react"
-import LoginForm from "@/components/loginForm"
-import WelcomePage from "@/components/welcomePage"
+"use client";
+import { useState } from "react";
+import LoginForm from "@/components/loginForm";
+import WelcomePage from "@/components/welcomePage";
+import Rsvp from "@/components/rsvp";
 
 type AdditionalGuest = {
-  firstName: string
-  lastName: string
-  comments: string | null
-  diet: string | null
-}
+  firstName: string;
+  lastName: string;
+  comments: string | null;
+  diet: string | null;
+};
 export interface GuestInterface {
-  id: string
-  firstName: string
-  lastName: string
-  email: string | null
-  phoneNumber: number | null
-  diet: string | null
-  comments: string | null
-  eventId: string
-  attending: boolean
-  hasResponded: boolean
-  inviteSent: boolean
-  additionalGuests: AdditionalGuest[]
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string | null;
+  phoneNumber: number | null;
+  diet: string | null;
+  comments: string | null;
+  eventId: string;
+  attending: boolean;
+  hasResponded: boolean;
+  inviteSent: boolean;
+  additionalGuests: AdditionalGuest[];
 }
 export default function Invitation() {
-  const [guest, setGuest] = useState<GuestInterface | null>(null)
+  const [guest, setGuest] = useState<GuestInterface | null>(null);
 
-  const storedGuestJSON = localStorage.getItem("guest")
-  const storedGuest = storedGuestJSON ? JSON.parse(storedGuestJSON) : null
+  const storedGuestJSON = localStorage.getItem("guest");
+  const storedGuest = storedGuestJSON ? JSON.parse(storedGuestJSON) : null;
 
   if (storedGuest && !guest) {
-    setGuest(storedGuest)
+    setGuest(storedGuest);
   }
 
   if (guest) {
-    return <WelcomePage />
+    return <WelcomePage />;
+  }
+
+  if (guest) {
+    return <Rsvp />;
   }
 
   if (!guest) {
-    return <LoginForm setGuest={setGuest} />
+    return <LoginForm setGuest={setGuest} />;
   }
 
-  return null // Add a default return statement if necessary
+  return null; // Add a default return statement if necessary
 }
