@@ -3,7 +3,7 @@ import "./styles/additional-info.scss";
 export default function AdditionalInfo() {
   return (
     <>
-      <section className="wrapper">
+      <section className="wrapper-additionalinfo">
         <article className="gift">
           <h1>Gifting</h1>
           <div className="gift-info">

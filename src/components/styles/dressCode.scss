@@ -1,20 +1,18 @@
-:root {
-  background-color: #fbdfbd;
-}
-
-.wrapper {
+.wrapper-dresscode {
   background-image: url("../../../public/attire.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-color: #fbdfbd;
-  height: 80vh;
+  background-size: 60vh;
+  height: 100vh;
   padding: 5%;
 
   .dress-code {
     background-color: #fff2e292;
     border-radius: 15px;
     padding: 5%;
+    margin-top: 150px;
 
     h1 {
       font-size: 2.5rem;
@@ -32,14 +30,14 @@
 }
 
 @media (min-width: 800px) {
-  .wrapper {
+  .wrapper-dresscode {
     background-image: none;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 
     .dress-code {
-      height: 50%;
+      max-height: 50%;
 
       h1 {
         font-size: 3rem;
@@ -48,6 +46,7 @@
 
     .hide-mobile {
       display: block;
+      margin-top: 130px;
     }
   }
 }

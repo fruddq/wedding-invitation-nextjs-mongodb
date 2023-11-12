@@ -4,6 +4,9 @@
   align-items: center;
   padding: 5%;
 
+  img {
+    margin-top: 100px;
+  }
   .info {
     display: flex;
     flex-direction: column;
@@ -62,6 +65,10 @@
       background-color: #e9ca8f;
       text-align: center;
       border-radius: 15px;
+
+      p:last-child {
+        margin-top: 0;
+      }
     }
   }
 }

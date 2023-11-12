@@ -6,7 +6,7 @@ import "./styles/dressCode.scss";
 
 export default function DressCode() {
   return (
-    <section className="wrapper">
+    <section className="wrapper-dresscode">
       <article className="dress-code">
         <h1>
           Wedding <br />

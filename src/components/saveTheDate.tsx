@@ -29,8 +29,7 @@ export default function SaveTheDate() {
             </div>
           </div>
           <div className="info-address">
-            {/* TODO: ADD ADDRESS LINK BELOW */}
-            <p>Address, Stockholm</p>
+            <p>Music restaurang, Hemvärnsgatan 15, Solna Strand</p>
             <p>Parking available outside</p>
           </div>
         </article>
