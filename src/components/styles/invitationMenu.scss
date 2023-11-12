@@ -1,0 +1,95 @@
+.menu {
+  position: fixed; /* Add this line to make the menu position fixed */
+  top: 0; /* Adjust the top value as needed */
+  left: 0; /* Adjust the left value as needed */
+  display: none;
+  transition: transform 0.3s ease;
+  justify-content: center; // Add this line to center the items horizontally
+  align-items: center; //
+
+  &.open {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translateX(0);
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px; /* Add some padding for better visibility */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  button {
+    margin: 10px;
+    padding: 12px 24px;
+    border: 2px solid #e2dbe4; /* Soft lavender-gray border */
+    background-color: #e2dbe4; /* Soft lavender-gray background */
+    color: #4d4b5e; /* Deep gray text color for contrast */
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+  
+    &:hover {
+      background-color: #c1b8d4; /* Darker shade on hover */
+      border-color: #c1b8d4; /* Darker shade for border on hover */
+      box-shadow: 0 4px 8px rgba(194, 185, 207, 0.4);
+    }
+
+    &.active {
+      background-color: #c1b8d4; /* Highlight color for active button */
+      border-color: #c1b8d4; /* Highlight color for border of active button */
+      color: #fff; /* Text color for active button */
+    }
+  }
+}
+
+.hamburger-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 30px;
+  height: 25px;
+  cursor: pointer;
+  z-index: 999;
+
+  .line {
+    width: 100%;
+    height: 2px;
+    background-color: #333;
+    margin: 2px 0;
+    transition: transform 0.3s ease;
+
+    &:first-child {
+      transform-origin: top left;
+    }
+
+    &:last-child {
+      transform-origin: bottom left;
+    }
+  }
+
+  &.open {
+    .line {
+      &:first-child {
+        transform: rotate(45deg);
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+      }
+
+      &:last-child {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}
