@@ -56,6 +56,7 @@ export default function InvitationMenu({
     showContacts && setShowContacts(false)
     showRsvp && setShowRsvp(false)
     showSeeYou && setShowSeeYou(false)
+    setHamburgerMenuOpen(!isHamburgerMenuOpen)
   }
   const handleProposal = () => {
     !showTheProposal && setShowTheProposal(true)
@@ -67,6 +68,7 @@ export default function InvitationMenu({
     showContacts && setShowContacts(false)
     showRsvp && setShowRsvp(false)
     showSeeYou && setShowSeeYou(false)
+    setHamburgerMenuOpen(!isHamburgerMenuOpen)
   }
 
   const handleSaveTheDate = () => {
@@ -79,6 +81,7 @@ export default function InvitationMenu({
     showContacts && setShowContacts(false)
     showRsvp && setShowRsvp(false)
     showSeeYou && setShowSeeYou(false)
+    setHamburgerMenuOpen(!isHamburgerMenuOpen)
   }
 
   const handleTheBigDay = () => {
@@ -91,6 +94,7 @@ export default function InvitationMenu({
     showContacts && setShowContacts(false)
     showRsvp && setShowRsvp(false)
     showSeeYou && setShowSeeYou(false)
+    setHamburgerMenuOpen(!isHamburgerMenuOpen)
   }
 
   const handleDressCode = () => {
@@ -103,6 +107,7 @@ export default function InvitationMenu({
     showContacts && setShowContacts(false)
     showRsvp && setShowRsvp(false)
     showSeeYou && setShowSeeYou(false)
+    setHamburgerMenuOpen(!isHamburgerMenuOpen)
   }
 
   const handleAdditionalInfo = () => {
@@ -115,6 +120,7 @@ export default function InvitationMenu({
     showContacts && setShowContacts(false)
     showRsvp && setShowRsvp(false)
     showSeeYou && setShowSeeYou(false)
+    setHamburgerMenuOpen(!isHamburgerMenuOpen)
   }
 
   const handleContacts = () => {
@@ -127,6 +133,7 @@ export default function InvitationMenu({
     showAdditionalInformation && setShowAdditionalInformation(false)
     showRsvp && setShowRsvp(false)
     showSeeYou && setShowSeeYou(false)
+    setHamburgerMenuOpen(!isHamburgerMenuOpen)
   }
 
   const handleRSVP = () => {
@@ -139,6 +146,7 @@ export default function InvitationMenu({
     showAdditionalInformation && setShowAdditionalInformation(false)
     showContacts && setShowContacts(false)
     showSeeYou && setShowSeeYou(false)
+    setHamburgerMenuOpen(!isHamburgerMenuOpen)
   }
 
   const handleSeeYou = () => {
@@ -151,6 +159,7 @@ export default function InvitationMenu({
     showAdditionalInformation && setShowAdditionalInformation(false)
     showContacts && setShowContacts(false)
     showRsvp && setShowRsvp(false)
+    setHamburgerMenuOpen(!isHamburgerMenuOpen)
   }
 
   return (

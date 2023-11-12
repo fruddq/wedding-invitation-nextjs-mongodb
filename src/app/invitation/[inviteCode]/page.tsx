@@ -2,8 +2,15 @@
 import { useState } from "react"
 import LoginForm from "@/components/loginForm"
 import WelcomePage from "@/components/welcomePage"
-import Rsvp from "@/components/rsvp"
 import InvitationMenu from "@/components/invitationMenu"
+import Proposal from "@/components/proposal"
+import SaveTheDate from "@/components/saveTheDate"
+import TheBigDay from "@/components/theBigDay"
+import DressCode from "@/components/dressCode"
+import AdditionalInfo from "@/components/additional-info"
+import Contacts from "@/components/contacts"
+import Rsvp from "@/components/rsvp"
+import Outro from "@/components/outro"
 
 type AdditionalGuest = {
   firstName: string
@@ -38,7 +45,8 @@ export default function Invitation() {
   const [showRsvp, setShowRsvp] = useState(false)
   const [showSeeYou, setShowSeeYou] = useState(false)
 
-  const storedGuestJSON = localStorage.getItem("guest")
+  const storedGuestJSON =
+    typeof window !== "undefined" ? localStorage.getItem("guest") : null
   const storedGuest = storedGuestJSON ? JSON.parse(storedGuestJSON) : null
 
   if (storedGuest && !guest) {
@@ -50,6 +58,15 @@ export default function Invitation() {
   if (!guest) {
     return <LoginForm setGuest={setGuest} />
   }
+  console.log("showWelcomePage:", showWelcomePage)
+  console.log("showTheProposal:", showTheProposal)
+  console.log("showSaveTheDate:", showSaveTheDate)
+  console.log("showTheBigDay:", showTheBigDay)
+  console.log("showDressCode:", showDressCode)
+  console.log("showAdditionalInformation:", showAdditionalInformation)
+  console.log("showContacts:", showContacts)
+  console.log("showRsvp:", showRsvp)
+  console.log("showSeeYou:", showSeeYou)
 
   if (guest) {
     return (
@@ -75,21 +92,17 @@ export default function Invitation() {
           setShowSeeYou={setShowSeeYou}
         />
         {showWelcomePage && <WelcomePage guest={guest} />}
+        {showTheProposal && <Proposal />}
+        {showSaveTheDate && <SaveTheDate />}
+        {showTheBigDay && <TheBigDay />}
+        {showDressCode && <DressCode />}
+        {showAdditionalInformation && <AdditionalInfo />}
+        {showContacts && <Contacts />}
+        {showRsvp && <Rsvp />}
+        {showSeeYou && <Outro />}
       </>
     )
   }
 
   return null
 }
-
-// Logout-btn
-// Menu navigation
-// 1. Welcome page
-// 2. THE PROPOSAL
-// 3. Save The date
-// 4. THE BIG DAY
-// 5. Dress code
-// 6. Addtional information
-// 7. contacts
-// 8. RSVP
-// 9. See you

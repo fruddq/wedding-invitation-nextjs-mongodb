@@ -12,19 +12,21 @@ export default function WelcomePage({ guest }: { guest: GuestInterface }) {
           <span>
             {guest.additionalGuests && guest.additionalGuests.length > 0 && (
               <>
-                <ul>
-                  {guest.firstName} {guest.lastName} <br />
-                  and
-                  {guest.additionalGuests.map((additionalGuest) => (
-                    <li key={additionalGuest.firstName}>
-                      {additionalGuest.firstName} {additionalGuest.lastName}
-                    </li>
-                  ))}
-                </ul>
+                {guest.firstName} {guest.lastName} <br />
+                and
               </>
             )}
           </span>
         </p>
+        {guest.additionalGuests && guest.additionalGuests.length > 0 && (
+          <ul>
+            {guest.additionalGuests.map((additionalGuest) => (
+              <li key={additionalGuest.firstName}>
+                {additionalGuest.firstName} {additionalGuest.lastName}
+              </li>
+            ))}
+          </ul>
+        )}
       </section>
     </>
   )
