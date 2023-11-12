@@ -88,7 +88,7 @@ export default function Invitation() {
         {showTheBigDay && <TheBigDay />}
         {showDressCode && <DressCode />}
         {showAdditionalInformation && <AdditionalInfo />}
-        {/* {showContacts && <Contacts />} */}
+        {showContacts && <Contacts />}
         {/* {showRsvp && <Rsvp />} */}
         {/* {showSeeYou && <Outro />} */}
       </>
