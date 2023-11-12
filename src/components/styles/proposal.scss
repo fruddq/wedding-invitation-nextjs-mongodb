@@ -9,7 +9,7 @@
   flex-direction: column;
   height: 100vh;
 
-  .wrapper-left {
+  .wrapper-proposal-left {
     .info {
       h1 {
         font-size: 2.8rem;
@@ -34,16 +34,16 @@
 }
 
 @media (min-width: 870px) {
-  .container {
+  .container-proposal {
     flex-direction: row;
     background-image: none;
 
-    .wrapper-left {
+    .wrapper-proposal-left {
       background-image: none;
       height: auto;
     }
 
-    .wrapper-right {
+    .wrapper-proposal-right {
       margin-top: 90px;
     }
 

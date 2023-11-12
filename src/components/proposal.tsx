@@ -4,7 +4,7 @@ import "./styles/proposal.scss";
 export default function Proposal() {
   return (
     <div className="container-proposal">
-      <section className="wrapper-left">
+      <section className="wrapper-proposal-left">
         <div className="info">
           <h1>Frudd proposed</h1>
           <p>
@@ -14,7 +14,7 @@ export default function Proposal() {
           </p>
         </div>
       </section>
-      <section className="wrapper-right">
+      <section className="wrapper -proposal-right">
         <Image
           className="hide-mobile"
           src="/proposal-people 1.png"
