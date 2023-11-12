@@ -12,11 +12,12 @@ import Contacts from "@/components/contacts"
 import Rsvp from "@/components/rsvp"
 import Outro from "@/components/outro"
 
-type AdditionalGuest = {
+export type AdditionalGuest = {
   firstName: string
   lastName: string
   comments: string | null
   diet: string | null
+  attending: boolean
 }
 export interface GuestInterface {
   id: string
@@ -44,6 +45,7 @@ export default function Invitation() {
   const [showContacts, setShowContacts] = useState(false)
   const [showRsvp, setShowRsvp] = useState(false)
   const [showSeeYou, setShowSeeYou] = useState(false)
+  const [loading, setLoading] = useState(true) // Add loading state
 
   useEffect(() => {
     const storedGuestJSON = localStorage.getItem("guest")
@@ -52,7 +54,12 @@ export default function Invitation() {
     if (storedGuest && !guest) {
       setGuest(storedGuest)
     }
-  }, [guest, setGuest])
+    setLoading(false) // Set loading to false after fetching guest
+  }, [guest, setGuest, setLoading])
+
+  if (loading) {
+    return <div>Loading...</div> // Show loading indicator while fetching guest
+  }
 
   if (!guest) {
     return <LoginForm setGuest={setGuest} />
@@ -88,7 +95,7 @@ export default function Invitation() {
         {showDressCode && <DressCode />}
         {showAdditionalInformation && <AdditionalInfo />}
         {showContacts && <Contacts />}
-        {showRsvp && <Rsvp />}
+        {showRsvp && <Rsvp guest={guest} />}
         {showSeeYou && <Outro />}
       </>
     )
