@@ -3,7 +3,7 @@ import "./styles/proposal.scss";
 
 export default function Proposal() {
   return (
-    <div className="container">
+    <div className="container-proposal">
       <section className="wrapper-left">
         <div className="info">
           <h1>Frudd proposed</h1>
