@@ -18,9 +18,9 @@ export default function AdditionalInfo() {
           </div>
         </article>
         <article className="speech">
-          <h1>Speach? Performance?</h1>
-          <div>
-            <p className="speech-info">
+          <h1>Speech? Performance?</h1>
+          <div className="speech-info">
+            <p>
               We would be truly honored if you would like to contribute a speech or share a
               performance number during our reception. To make sure everything goes
               smoothly, please inform our Toastmadame or Toastmaster in advance.
