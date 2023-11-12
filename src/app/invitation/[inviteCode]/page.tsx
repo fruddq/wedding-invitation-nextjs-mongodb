@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import LoginForm from "@/components/loginForm"
 import WelcomePage from "@/components/welcomePage"
 import InvitationMenu from "@/components/invitationMenu"
@@ -45,28 +45,18 @@ export default function Invitation() {
   const [showRsvp, setShowRsvp] = useState(false)
   const [showSeeYou, setShowSeeYou] = useState(false)
 
-  const storedGuestJSON =
-    typeof window !== "undefined" ? localStorage.getItem("guest") : null
-  const storedGuest = storedGuestJSON ? JSON.parse(storedGuestJSON) : null
+  useEffect(() => {
+    const storedGuestJSON = localStorage.getItem("guest")
+    const storedGuest = storedGuestJSON ? JSON.parse(storedGuestJSON) : null
 
-  if (storedGuest && !guest) {
-    setGuest(storedGuest)
-  }
-
-  // return <InvitationMenu />
+    if (storedGuest && !guest) {
+      setGuest(storedGuest)
+    }
+  }, [guest, setGuest])
 
   if (!guest) {
     return <LoginForm setGuest={setGuest} />
   }
-  console.log("showWelcomePage:", showWelcomePage)
-  console.log("showTheProposal:", showTheProposal)
-  console.log("showSaveTheDate:", showSaveTheDate)
-  console.log("showTheBigDay:", showTheBigDay)
-  console.log("showDressCode:", showDressCode)
-  console.log("showAdditionalInformation:", showAdditionalInformation)
-  console.log("showContacts:", showContacts)
-  console.log("showRsvp:", showRsvp)
-  console.log("showSeeYou:", showSeeYou)
 
   if (guest) {
     return (
