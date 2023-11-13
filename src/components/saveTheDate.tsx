@@ -4,8 +4,9 @@ import Image from "next/image";
 export default function SaveTheDate() {
   return (
     <>
-      <section className="wrapper">
+      <section className="wrapper-savedate">
         <Image
+          className="savedate-img"
           src="/save-the-date.png"
           alt="Two people with a save the date banner"
           width={320}
@@ -29,7 +30,10 @@ export default function SaveTheDate() {
             </div>
           </div>
           <div className="info-address">
-            <p>Music restaurang, Hemvärnsgatan 15, Solna Strand</p>
+            <p>
+              Music restaurang, <br />
+              Hemvärnsgatan 15, Solna Strand
+            </p>
             <p>Parking available outside</p>
           </div>
         </article>

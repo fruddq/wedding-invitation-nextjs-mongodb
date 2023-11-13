@@ -1,4 +1,4 @@
-.wrapper {
+.wrapper-invitation {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -33,7 +33,7 @@
 }
 
 @media (min-width: 1024px) {
-  .wrapper {
+  .wrapper-invitation {
     background-image: url("../../../public/flower-border-desktop.png");
   }
 }

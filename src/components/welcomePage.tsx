@@ -4,7 +4,7 @@ import { GuestInterface } from "@/app/invitation/[inviteCode]/page";
 export default function WelcomePage({ guest }: { guest: GuestInterface }) {
   return (
     <>
-      <section className="wrapper">
+      <section className="wrapper-invitation">
         <h1>Welcome to our wedding</h1>
         <h4>2024</h4>
         <p>A special invitation to:</p>
