@@ -14,7 +14,7 @@ export default function Proposal() {
           </p>
         </div>
       </section>
-      <section className="wrapper -proposal-right">
+      <section className="wrapper-proposal-right">
         <Image
           className="hide-mobile"
           src="/proposal-people 1.png"

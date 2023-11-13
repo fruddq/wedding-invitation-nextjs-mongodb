@@ -1,12 +1,14 @@
 .contacts {
   background-color: #f7e4cd;
-  height: 100vh;
+  height: 125vh;
+  margin-top: -70px;
 
   h1 {
     font-size: 3rem;
     color: #034a44;
     text-align: center;
     margin: 0;
+    padding-top: 90px;
   }
 
   p.info {
@@ -15,7 +17,7 @@
     margin: 0;
   }
 
-  .wrapper {
+  .wrapper-contacts {
     border: 3px solid transparent;
     background-image: url("../../../public/frame-mobile.png");
     background-size: cover;
@@ -47,7 +49,7 @@
         justify-content: center;
         align-items: center;
 
-        div {
+        .wrapper-toast {
           text-align: center;
         }
 
@@ -71,7 +73,7 @@
           margin: 0;
         }
 
-        img {
+        .pic {
           width: 100px;
           height: 100px;
         }
@@ -80,66 +82,82 @@
   }
 }
 
-@media (min-width: 480px) {
-  h1 {
-    font-size: 3rem;
-    color: #034a44;
-    text-align: center;
-    margin: 0;
-  }
+@media (min-width: 1024px) {
+  .contacts {
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-  p.info {
-    padding: 15px;
-    text-align: center;
-    margin: 0;
-    font-size: 1.2rem;
-  }
+    h1 {
+      font-size: 3rem;
+      color: #034a44;
+      text-align: center;
+      margin: 0;
+      margin-top: 250px;
+    }
 
-  .wrapper {
-    background-image: url("../../../public/frame-desktop.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    min-height: 70vh;
+    p.info {
+      // padding: 15px;
+      text-align: center;
+      margin: 0;
+      font-size: 1.2rem;
+    }
 
-    .bg {
-      flex-direction: row;
-      justify-content: center;
-      gap: 10%;
+    .wrapper-contacts {
+      // background-image: url("../../../public/frame-desktop.png");
+      // background-size: cover;
+      // background-repeat: no-repeat;
+      // background-position: center;
+      // background-size: 90%;
+      // min-height: auto;
+      // max-height: 60vh;
+      // max-width: 1200px;
+      // min-height: 70vh;
+      background-image: none;
+      max-height: 100vh;
 
-      hr {
-        display: none;
-      }
-
-      .toastmadame,
-      .toastmaster {
-        display: flex;
-        flex-direction: column;
+      .bg {
+        flex-direction: row;
         justify-content: center;
-        align-items: center;
+        margin: 0;
+        gap: 40%;
 
-        div {
-          text-align: left;
-          width: 100%;
-        }
-        h3 {
-          font-size: 1.7rem;
-        }
-        h4 {
-          font-size: 1.5rem;
+        hr {
+          display: none;
         }
 
-        p.name {
-          font-size: 3rem;
-        }
+        .toastmadame,
+        .toastmaster {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
 
-        p.phone,
-        p.email {
-          font-size: 1.2rem;
-        }
-        img {
-          width: 150px;
-          height: 150px;
+          .wrapper-toast {
+            height: auto;
+            // width: 100%;
+          }
+          h3 {
+            font-size: 1.7rem;
+          }
+          h4 {
+            font-size: 1.5rem;
+          }
+
+          p.name {
+            font-size: 3rem;
+          }
+
+          p.phone,
+          p.email {
+            font-size: 1.2rem;
+          }
+          .pic {
+            width: 150px;
+            height: 150px;
+          }
         }
       }
     }

@@ -11,7 +11,7 @@ export default function Contacts() {
         If you have any questions related to the wedding please contact our toastmadame or
         toastmaster.{" "}
       </p>
-      <section className="wrapper">
+      <section className="wrapper-contacts">
         <div className="bg">
           <article className="toastmadame">
             <Image
@@ -21,18 +21,18 @@ export default function Contacts() {
               width={150}
               height={150}
             />
-            <div>
+            <div className="wrapper-toast">
               <h3>Toastmadame</h3>
               <p className="name">
                 Susanna <br />
                 Charboti
               </p>
             </div>
-            <div>
+            <div className="wrapper-toast">
               <h4>Phone</h4>
               <p className="phone">+46 73 966 68 10</p>
             </div>
-            <div>
+            <div className="wrapper-toast">
               <h4>E-mail</h4>
               <p className="email">Nfz2A@example.com</p>
             </div>
@@ -46,17 +46,17 @@ export default function Contacts() {
               width={150}
               height={150}
             />
-            <div>
+            <div className="wrapper-toast">
               <h3>Toastmaster</h3>
               <p className="name">
                 David <br /> Tran
               </p>
             </div>
-            <div>
+            <div className="wrapper-toast">
               <h4>Phone</h4>
               <p className="phone">+46 73 755 44 04</p>
             </div>
-            <div>
+            <div className="wrapper-toast">
               <h4>E-mail</h4>
               <p className="email">Nfz2A@example.com</p>
             </div>

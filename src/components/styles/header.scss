@@ -1,9 +1,12 @@
 .header {
-  position: fixed;
   height: 70px;
-  top: 5px;
-  left: 50%;
-  transform: translateX(-50%);
+  background-color: transparent; /* Set the background to transparent */
+  text-align: center; /* Center the content */
+}
+
+/* Optional: Add padding or other styling if needed */
+.header img {
+  padding: 10px; /* Example padding */
 }
 
 // @media (min-width: 1024px) {
