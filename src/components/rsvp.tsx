@@ -50,6 +50,40 @@ export default function Rsvp({
       setGuest(updatedGuest)
     }
   }
+
+  if (guest.hasResponded) {
+    return (
+      <section className="container-rsvp">
+        <h1>Response Received</h1>
+        <div>
+          <p>
+            Guest: {guest.firstName} {guest.lastName}
+          </p>
+          <p>Email: {guest.email}</p>
+          <p>Phone Number: {guest.phoneNumber}</p>
+          <p>Diet: {guest.diet}</p>
+          <p>Allergies: {guest.allergies}</p>
+          <p>Comments: {guest.comments}</p>
+          <p>Attending: {guest.attending ? "Yes" : "No"}</p>
+          {/* Display additional guests info */}
+          {guest.additionalGuests &&
+            guest.additionalGuests.map((additionalGuest, index) => (
+              <div key={index}>
+                <h2>Additional Guest {index + 1}</h2>
+                <p>
+                  Name: {additionalGuest.firstName} {additionalGuest.lastName}
+                </p>
+                <p>Diet: {additionalGuest.diet}</p>
+                <p>Allergies: {additionalGuest.allergies}</p>
+                <p>Comments: {additionalGuest.comments}</p>
+                <p>Attending: {additionalGuest.attending ? "Yes" : "No"}</p>
+              </div>
+            ))}
+        </div>
+      </section>
+    )
+  }
+
   return (
     <>
       <section className="container-rsvp">
