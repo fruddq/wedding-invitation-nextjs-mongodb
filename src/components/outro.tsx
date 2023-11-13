@@ -4,7 +4,7 @@ import "./styles/outro.scss";
 export default function Outro() {
   return (
     <>
-      <section className="wrapper">
+      <section className="wrapper-outro">
         <article className="text-container">
           <h1>See you on our big day!</h1>
           <p>Your presence will mean so much to us</p>

@@ -97,7 +97,7 @@ export default function Invitation() {
         {showAdditionalInformation && <AdditionalInfo />}
         {showContacts && <Contacts />}
         {showRsvp && <Rsvp guest={undefined} />}
-        {/* {showSeeYou && <Outro />} */}
+        {showSeeYou && <Outro />}
       </>
     );
   }
