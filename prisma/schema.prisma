@@ -33,6 +33,7 @@ type AdditionalGuests {
   lastName  String
   comments  String?
   diet      String?
+  allergies String?
   attending Boolean @default(false)
 }
 
@@ -44,6 +45,7 @@ model Guest {
   phoneNumber      Int?
   diet             String?
   comments         String?
+  allergies        String?
   eventId          String             @db.ObjectId
   event            Event              @relation(fields: [eventId], references: [id])
   additionalGuests AdditionalGuests[]
