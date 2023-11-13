@@ -96,7 +96,7 @@ export default function Invitation() {
         {showDressCode && <DressCode />}
         {showAdditionalInformation && <AdditionalInfo />}
         {showContacts && <Contacts />}
-        {/* {showRsvp && <Rsvp />} */}
+        {showRsvp && <Rsvp guest={undefined} />}
         {/* {showSeeYou && <Outro />} */}
       </>
     );
