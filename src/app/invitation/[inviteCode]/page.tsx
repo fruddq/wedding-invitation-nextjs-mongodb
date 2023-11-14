@@ -12,6 +12,7 @@ import Contacts from "@/components/contacts"
 import Rsvp from "@/components/rsvp"
 import Outro from "@/components/outro"
 import Header from "@/components/header"
+import { PreviousAndNextBtn } from "@/components/previousAndNextBtn"
 
 export type AdditionalGuest = {
   firstName: string
@@ -101,6 +102,29 @@ export default function Invitation() {
         {showContacts && <Contacts />}
         {showRsvp && <Rsvp guest={guest} setGuest={setGuest} />}
         {showSeeYou && <Outro />}
+
+        <article className="btns">
+          <PreviousAndNextBtn
+            showWelcomePage={showWelcomePage}
+            setShowWelcomePage={setShowWelcomePage}
+            showTheProposal={showTheProposal}
+            setShowTheProposal={setShowTheProposal}
+            showSaveTheDate={showSaveTheDate}
+            setShowSaveTheDate={setShowSaveTheDate}
+            showTheBigDay={showTheBigDay}
+            setShowTheBigDay={setShowTheBigDay}
+            showDressCode={showDressCode}
+            setShowDressCode={setShowDressCode}
+            showAdditionalInformation={showAdditionalInformation}
+            setShowAdditionalInformation={setShowAdditionalInformation}
+            showContacts={showContacts}
+            setShowContacts={setShowContacts}
+            showRsvp={showRsvp}
+            setShowRsvp={setShowRsvp}
+            showSeeYou={showSeeYou}
+            setShowSeeYou={setShowSeeYou}
+          />
+        </article>
       </>
     )
   }
