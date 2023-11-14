@@ -1,5 +1,6 @@
 import Image from "next/image";
 import "./styles/proposal.scss";
+import { PreviousAndNextBtn } from "./previousAndNextBtn";
 
 export default function Proposal() {
   return (
@@ -22,6 +23,9 @@ export default function Proposal() {
           width={400}
           height={400}
         />
+      </section>
+      <section>
+        <PreviousAndNextBtn />
       </section>
     </div>
   );

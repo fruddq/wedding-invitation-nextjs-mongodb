@@ -1,5 +1,6 @@
 import Image from "next/image";
 import "./styles/outro.scss";
+import { PreviousAndNextBtn } from "./previousAndNextBtn";
 
 export default function Outro() {
   return (
@@ -17,6 +18,9 @@ export default function Outro() {
             width={400}
             height={300}
           />
+        </article>
+        <article>
+          <PreviousAndNextBtn />
         </article>
       </section>
     </>

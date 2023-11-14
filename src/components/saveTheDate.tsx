@@ -1,3 +1,4 @@
+import { PreviousAndNextBtn } from "./previousAndNextBtn";
 import "./styles/saveTheDate.scss";
 import Image from "next/image";
 
@@ -36,6 +37,9 @@ export default function SaveTheDate() {
             </p>
             <p>Parking available outside</p>
           </div>
+        </article>
+        <article>
+          <PreviousAndNextBtn />
         </article>
       </section>
     </>
