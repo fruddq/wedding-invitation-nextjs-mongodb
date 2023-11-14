@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import "./styles/dressCode.scss";
+import { PreviousAndNextBtn } from "./previousAndNextBtn";
 
 export default function DressCode() {
   return (
@@ -22,6 +23,9 @@ export default function DressCode() {
       </article>
       <article className="hide-mobile">
         <Image src="/dresscode.png" alt="Dress code" width={500} height={600} />
+      </article>
+      <article>
+        <PreviousAndNextBtn />
       </article>
     </section>
   );
