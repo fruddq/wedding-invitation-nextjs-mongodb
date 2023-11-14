@@ -1,6 +1,6 @@
-import { PreviousAndNextBtn } from "./previousAndNextBtn";
-import "./styles/welcomePage.scss";
-import { GuestInterface } from "@/app/invitation/[inviteCode]/page";
+import { PreviousAndNextBtn } from "./previousAndNextBtn"
+import "./styles/welcomePage.scss"
+import { GuestInterface } from "@/app/invitation/[inviteCode]/page"
 
 export default function WelcomePage({ guest }: { guest: GuestInterface }) {
   return (
@@ -24,10 +24,7 @@ export default function WelcomePage({ guest }: { guest: GuestInterface }) {
             </>
           )}
         </span>
-        <article>
-          <PreviousAndNextBtn />
-        </article>
       </section>
     </>
-  );
+  )
 }

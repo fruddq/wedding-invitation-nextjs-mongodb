@@ -1,6 +1,6 @@
-import Image from "next/image";
-import "./styles/proposal.scss";
-import { PreviousAndNextBtn } from "./previousAndNextBtn";
+import Image from "next/image"
+import "./styles/proposal.scss"
+import { PreviousAndNextBtn } from "./previousAndNextBtn"
 
 export default function Proposal() {
   return (
@@ -9,9 +9,9 @@ export default function Proposal() {
         <div className="info">
           <h1>Frudd proposed</h1>
           <p>
-            On august 3rd 2023, <br /> Frudd got down on one knee in the restaurant Spagio
-            infront of the Balliagio fountain and asked Nani to marry him... and she said
-            yes!
+            On august 3rd 2023, <br /> Frudd got down on one knee in the
+            restaurant Spagio infront of the Balliagio fountain and asked Nani
+            to marry him... and she said yes!
           </p>
         </div>
       </section>
@@ -24,9 +24,6 @@ export default function Proposal() {
           height={400}
         />
       </section>
-      <section>
-        <PreviousAndNextBtn />
-      </section>
     </div>
-  );
+  )
 }
