@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unescaped-entities */
+import { PreviousAndNextBtn } from "./previousAndNextBtn";
 import "./styles/theBigDay.scss";
 
 export default function TheBigDay() {
@@ -27,6 +29,9 @@ export default function TheBigDay() {
           </p>
         </article>
       </div>
+      <article>
+        <PreviousAndNextBtn />
+      </article>
     </section>
   );
 }
