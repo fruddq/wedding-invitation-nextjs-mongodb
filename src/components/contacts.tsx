@@ -2,6 +2,7 @@
 import Image from "next/image";
 
 import "./styles/contacts.scss";
+import { PreviousAndNextBtn } from "./previousAndNextBtn";
 
 export default function Contacts() {
   return (
@@ -63,6 +64,9 @@ export default function Contacts() {
           </article>
         </div>
       </section>
+      <article className="btns">
+        <PreviousAndNextBtn />
+      </article>
     </div>
   );
 }
