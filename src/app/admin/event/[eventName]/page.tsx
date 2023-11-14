@@ -1,5 +1,7 @@
+import InviteSentButton from "@/components/inviteSentButton"
 import prisma from "@/db"
 import getEvent from "@/utils/getEvent"
+import updateInviteSent from "@/utils/updateInviteSent"
 
 export default async function Event({
   params: { eventName },
@@ -221,10 +223,7 @@ export default async function Event({
                 Has Responded: {guest.hasResponded ? "Yes" : "No"}
               </p>
               <hr style={{ borderTop: "1px solid #ddd", margin: "5px 0" }} />{" "}
-              {/* Add line after Has Responded */}
-              <p style={{ margin: 0 }}>
-                Invite Sent: {guest.inviteSent ? "Yes" : "No"}
-              </p>
+              Invite Sent: <InviteSentButton guest={guest} />
               {guest.additionalGuests.length > 0 && (
                 <div>
                   <p style={{ fontWeight: "bold", margin: 0 }}>
