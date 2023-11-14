@@ -1,3 +1,4 @@
+import { PreviousAndNextBtn } from "./previousAndNextBtn";
 import "./styles/additional-info.scss";
 
 export default function AdditionalInfo() {
@@ -29,6 +30,9 @@ export default function AdditionalInfo() {
               appreciate your thoughtful involvement in making our day memorable
             </p>
           </div>
+        </article>
+        <article>
+          <PreviousAndNextBtn />
         </article>
       </section>
     </>
