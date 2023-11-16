@@ -67,16 +67,17 @@ export const PreviousAndNextBtn = ({
 
   return (
     <div className="wrapper-btns">
-      {!showWelcomePage && (
-        <button className="previous-btn" onClick={handlePrevious}>
-          &larr;
-        </button>
-      )}
-      {!showSeeYou && (
-        <button className="next-btn" onClick={handleNext}>
-          &rarr;
-        </button>
-      )}
+      <button
+        className="previous-btn"
+        onClick={handlePrevious}
+        disabled={showWelcomePage}
+      >
+        &larr;
+      </button>
+
+      <button className="next-btn" onClick={handleNext} disabled={showSeeYou}>
+        &rarr;
+      </button>
     </div>
   )
 }

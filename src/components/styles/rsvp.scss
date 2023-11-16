@@ -1,27 +1,45 @@
 .container-rsvp {
-  background-color: antiquewhite;
-  margin-top: -100px;
+  margin-top: -130px;
   height: 100vh;
+  padding: 5%;
 
-  h1 {
+   .guest-info {
+    background-color: #fbdfbd;
+    // padding-left: 11%;
+    border-radius: 15px;
+    color: rgb(96, 54, 54);
+    font-size: 1.2rem;
+  }
+    
+  .title-rsvp {
     font-size: 2rem;
     text-align: center;
     padding-top: 120px;
   }
 
-  form {
-    //   border: 1px solid blue;
-    font-size: 1.5rem;
-    padding: 5%;
+  .form-rsvp {
+    margin-top: -10px;
+    font-size: 1.3rem;
     display: flex;
     flex-direction: column;
     gap: 10px;
 
-    .guest-name,
+ 
+
+    .additional-guest {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .guest-name-container,
     .attending,
     .diet,
     .allergies,
-    .else {
+    .comments,
+    .email,
+    .phoneNumber {
       display: flex;
       flex-direction: row;
 
@@ -30,24 +48,38 @@
         color: rgb(99, 99, 99);
       }
 
-      input {
+      .text-input {
         background: transparent;
         border: none;
         border-bottom: 1px solid grey;
         font-size: 1.3rem;
+        width: 100%;
       }
 
-      // input[type="checkbox"] {
-      //   width: 36px;
-      //   height: 36px;
-      // }
+   label {
+     margin-right: 7px;
+   }
     }
 
-    .submit-btn {
-      background-color: green;
-      margin-top: 5%;
-      height: 30px;
-      width: 100px;
+    .submit-btn-container {
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+      
+      .submit-btn {
+        margin-top: 5%;
+        height: 50px;
+        width: 90vw;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 1.4rem;
+        cursor: pointer;
+        background-color: #7bb07b;
+        transition: ease-in-out 0.3s;        
+        &:hover {
+          background-color: #5f895f;
+        }
+      }
     }
   }
 }
