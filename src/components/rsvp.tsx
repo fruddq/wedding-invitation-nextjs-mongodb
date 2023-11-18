@@ -51,46 +51,17 @@ export default function Rsvp({
     }
   }
 
-  if (guest.hasResponded) {
-    return (
-      <section className="container-rsvp">
-        <h1>Response Received</h1>
-        <div className="guest-info">
-          <p>
-            Guest: {guest.firstName} {guest.lastName}
-          </p>
-          <p>Email: {guest.email}</p>
-          <p>Phone: {guest.phoneNumber}</p>
-          <p>Diet: {guest.diet}</p>
-          <p>Allergies: {guest.allergies}</p>
-          <p>Comments: {guest.comments}</p>
-          <p>Attending: {guest.attending ? "Yes" : "No"}</p>
-          {/* Display additional guests info */}
-          {guest.additionalGuests &&
-            guest.additionalGuests.map((additionalGuest, index) => (
-              <div key={index}>
-                <h2> &</h2>
-                <p>
-                  Name: {additionalGuest.firstName} {additionalGuest.lastName}
-                </p>
-                <p>Diet: {additionalGuest.diet}</p>
-                <p>Allergies: {additionalGuest.allergies}</p>
-                <p>Comments: {additionalGuest.comments}</p>
-                <p>Attending: {additionalGuest.attending ? "Yes" : "No"}</p>
-              </div>
-            ))}
-        </div>
-      </section>
-    )
-  }
-
   return (
     <>
       <section className="container-rsvp">
-        <h1 className="title-rsvp">Attending?</h1>
+        <h1 className="title-rsvp">
+          {guest.hasResponded ? "Response Received" : "Attending?"}
+        </h1>
         <form className="form-rsvp" onSubmit={handleSubmit}>
           <div className="guest-name-container">
-            <label htmlFor="guest-name">Guest:</label>
+            <label className="guest-label" htmlFor="guest-name">
+              Guest:
+            </label>
             {guest ? (
               <span className="guest-name">
                 <b>
@@ -109,59 +80,105 @@ export default function Rsvp({
 
           <div className="attending">
             <label htmlFor="attending">Attending:</label>
-            <input type="radio" name="attending" value="true" />
+            <input
+              type="radio"
+              name="attending"
+              value="true"
+              disabled={guest.hasResponded}
+              defaultChecked={guest.attending}
+            />
             <span className="checkbox-option">Yes</span>
-            <input type="radio" name="attending" value="false" />
+            <input
+              type="radio"
+              name="attending"
+              value="false"
+              disabled={guest.hasResponded}
+              defaultChecked={!guest.attending}
+            />
             <span className="checkbox-option">No</span>
           </div>
 
           <div className="phoneNumber">
-            <label htmlFor="phoneNumber">Phone:</label>
+            <label className="guest-label" htmlFor="phoneNumber">
+              Phone:
+            </label>
             <input
               className="text-input"
               type="text"
               name="phoneNumber"
               placeholder="07XX XXX XXX"
+              disabled={guest.hasResponded}
+              value={guest.phoneNumber ?? ""}
             />
           </div>
 
           <div className="email">
-            <label htmlFor="email">Email:</label>
+            <label className="guest-label" htmlFor="email">
+              Email:
+            </label>
             <input
               className="text-input"
               type="email"
               name="email"
               placeholder="name@example.com"
+              disabled={guest.hasResponded}
+              value={guest.email ?? ""}
             />
           </div>
 
           <div className="diet">
             <label htmlFor="diet">Diet:</label>
-            <input type="radio" name="diet" value="meat" defaultChecked />
+            <input
+              type="radio"
+              name="diet"
+              value="meat"
+              defaultChecked={guest.diet === "meat"}
+              disabled={guest.hasResponded}
+            />
             <span className="checkbox-option">Meat</span>
-            <input type="radio" name="diet" value="vegetarian" />
+            <input
+              type="radio"
+              name="diet"
+              value="vegetarian"
+              defaultChecked={guest.diet === "vegetarian"}
+              disabled={guest.hasResponded}
+            />
             <span className="checkbox-option">Vegetarian</span>
-            <input type="radio" name="diet" value="vegan" />
+            <input
+              type="radio"
+              name="diet"
+              value="vegan"
+              defaultChecked={guest.diet === "vegan"}
+              disabled={guest.hasResponded}
+            />
             <span className="checkbox-option">Vegan</span>
           </div>
 
           <div className="allergies">
-            <label htmlFor="allergies">Allergies:</label>
+            <label className="guest-label" htmlFor="allergies">
+              Allergies:
+            </label>
             <input
               className="text-input"
               type="text"
               name="allergies"
               placeholder="Allergies"
+              value={guest.allergies ?? ""}
+              disabled={guest.hasResponded}
             />
           </div>
 
           <div className="comments">
-            <label htmlFor="comments">Info:</label>
+            <label className="guest-label" htmlFor="comments">
+              Info:
+            </label>
             <input
               className="text-input"
               type="text"
               name="comments"
               placeholder="Additional info"
+              value={guest.comments ?? ""}
+              disabled={guest.hasResponded}
             />
           </div>
 
@@ -172,7 +189,10 @@ export default function Rsvp({
                 {guest.additionalGuests.map((additionalGuest, index) => (
                   <div key={index} className="additional-guest">
                     <div className="guest-name-container">
-                      <label htmlFor={`additional-guest-name-${index}`}>
+                      <label
+                        className="guest-label"
+                        htmlFor={`additional-guest-name-${index}`}
+                      >
                         Guest:
                       </label>
                       <span>
@@ -194,6 +214,8 @@ export default function Rsvp({
                         id={`additional-guest-attending-${index + 1}`}
                         name={`additional-guest-attending-${index + 1}`}
                         value="true"
+                        disabled={guest.hasResponded}
+                        defaultChecked={additionalGuest.attending}
                       />
                       <span className="checkbox-option">Yes</span>
                       <input
@@ -201,36 +223,48 @@ export default function Rsvp({
                         id={`additional-guest-not-attending-${index + 1}`}
                         name={`additional-guest-attending`}
                         value="false"
+                        disabled={guest.hasResponded}
+                        defaultChecked={!additionalGuest.attending}
                       />
                       <span className="checkbox-option">No</span>
                     </div>
 
                     <div className="diet">
-                      <label htmlFor={`additional-guest-diet-${index + 1}`}>
+                      <label
+                        className="guest-label"
+                        htmlFor={`additional-guest-diet-${index + 1}`}
+                      >
                         Diet:
                       </label>
                       <input
                         type="radio"
                         name={`additional-guest-diet-${index + 1}`}
                         value="meat"
-                        defaultChecked
+                        defaultChecked={additionalGuest.diet === "meat"}
+                        disabled={guest.hasResponded}
                       />
                       <span className="checkbox-option">Meat</span>
                       <input
                         type="radio"
                         name={`additional-guest-diet-${index + 1}`}
                         value="vegetarian"
+                        disabled={guest.hasResponded}
+                        defaultChecked={additionalGuest.diet === "vegetarian"}
                       />
                       <span className="checkbox-option">Vegetarian</span>
                       <input
                         type="radio"
                         name={`additional-guest-diet-${index + 1}`}
                         value="vegan"
+                        disabled={guest.hasResponded}
+                        defaultChecked={additionalGuest.diet === "vegan"}
                       />
                       <span className="checkbox-option">Vegan</span>
                     </div>
+
                     <div className="allergies">
                       <label
+                        className="guest-label"
                         htmlFor={`additional-guest-allergies-${index + 1}`}
                       >
                         Allergies:
@@ -240,10 +274,15 @@ export default function Rsvp({
                         type="text"
                         name={`additional-guest-allergies-${index + 1}`}
                         placeholder="Allergies"
+                        disabled={guest.hasResponded}
+                        value={additionalGuest.allergies ?? ""}
                       />
                     </div>
                     <div className="comments">
-                      <label htmlFor={`additional-guest-comments-${index + 1}`}>
+                      <label
+                        className="guest-label"
+                        htmlFor={`additional-guest-comments-${index + 1}`}
+                      >
                         Info:
                       </label>
                       <input
@@ -251,6 +290,8 @@ export default function Rsvp({
                         type="text"
                         name={`additional-guest-comments-${index + 1}`}
                         placeholder="Additional info"
+                        disabled={guest.hasResponded}
+                        value={additionalGuest.comments ?? ""}
                       />
                     </div>
                   </div>
@@ -258,11 +299,13 @@ export default function Rsvp({
               </>
             )}
 
-          <div className="submit-btn-container">
-            <button className="submit-btn" type="submit">
-              Send
-            </button>
-          </div>
+          {!guest.hasResponded && (
+            <div className="submit-btn-container">
+              <button className="submit-btn" type="submit">
+                Send
+              </button>
+            </div>
+          )}
         </form>
       </section>
     </>
