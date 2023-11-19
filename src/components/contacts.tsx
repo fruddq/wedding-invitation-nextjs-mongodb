@@ -2,12 +2,11 @@
 import Image from "next/image"
 
 import "./styles/contacts.scss"
-import { PreviousAndNextBtn } from "./previousAndNextBtn"
 
 export default function Contacts() {
   return (
     <div className="contacts">
-      <h1>contacts</h1>
+      <h1>Contacts</h1>
       <p className="info">
         If you have any questions related to the wedding please contact our
         toastmadame or toastmaster.{" "}
@@ -64,9 +63,6 @@ export default function Contacts() {
           </article>
         </div>
       </section>
-      {/* <article className="btns">
-        <PreviousAndNextBtn />
-      </article> */}
     </div>
   )
 }

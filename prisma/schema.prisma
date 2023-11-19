@@ -42,7 +42,7 @@ model Guest {
   firstName        String
   lastName         String
   email            String?
-  phoneNumber      Int?
+  phoneNumber      String?
   diet             String?
   comments         String?
   allergies        String?
