@@ -13,10 +13,10 @@ export default function WelcomePage({ guest }: { guest: GuestInterface }) {
           {guest.additionalGuests && guest.additionalGuests.length > 0 && (
             <>
               {guest.firstName} {guest.lastName} <br />
-              and
               <ul>
                 {guest.additionalGuests.map((additionalGuest) => (
                   <li key={additionalGuest.firstName}>
+                    {additionalGuest.firstName.length > 0 && "and"} <br />
                     {additionalGuest.firstName} {additionalGuest.lastName}
                   </li>
                 ))}

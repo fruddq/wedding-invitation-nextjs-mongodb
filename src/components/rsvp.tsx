@@ -33,16 +33,6 @@ export default function Rsvp({
       formValues[key] = value
     })
 
-    const attendingValues = Object.values(formValues).filter(
-      (value: any) => value === "true" || value === "false"
-    )
-
-    if (attendingValues.length !== guest.additionalGuests.length + 1) {
-      // @TODO make a proper error message if user does not click attending
-      alert("Please select an option for Attending.")
-      return
-    }
-
     const updatedGuest = await updateGuest(formValues, guest)
 
     if (updatedGuest) {
@@ -85,7 +75,7 @@ export default function Rsvp({
               name="attending"
               value="true"
               disabled={guest.hasResponded}
-              defaultChecked={guest.attending}
+              defaultChecked={guest.attending === guest.hasResponded}
             />
             <span className="checkbox-option">Yes</span>
             <input
@@ -93,7 +83,7 @@ export default function Rsvp({
               name="attending"
               value="false"
               disabled={guest.hasResponded}
-              defaultChecked={!guest.attending}
+              defaultChecked={!guest.attending === guest.hasResponded}
             />
             <span className="checkbox-option">No</span>
           </div>
@@ -108,7 +98,7 @@ export default function Rsvp({
               name="phoneNumber"
               placeholder="07XX XXX XXX"
               disabled={guest.hasResponded}
-              value={guest.phoneNumber ?? ""}
+              defaultValue={guest.phoneNumber ?? ""}
             />
           </div>
 
@@ -122,7 +112,7 @@ export default function Rsvp({
               name="email"
               placeholder="name@example.com"
               disabled={guest.hasResponded}
-              value={guest.email ?? ""}
+              defaultValue={guest.email ?? ""}
             />
           </div>
 
@@ -132,7 +122,7 @@ export default function Rsvp({
               type="radio"
               name="diet"
               value="meat"
-              defaultChecked={guest.diet === "meat"}
+              defaultChecked={guest.diet === "meat" || guest.diet === null}
               disabled={guest.hasResponded}
             />
             <span className="checkbox-option">Meat</span>
@@ -163,8 +153,9 @@ export default function Rsvp({
               type="text"
               name="allergies"
               placeholder="Allergies"
-              value={guest.allergies ?? ""}
+              defaultValue={guest.allergies ?? ""}
               disabled={guest.hasResponded}
+              maxLength={24}
             />
           </div>
 
@@ -177,14 +168,15 @@ export default function Rsvp({
               type="text"
               name="comments"
               placeholder="Additional info"
-              value={guest.comments ?? ""}
+              defaultValue={guest.comments ?? ""}
               disabled={guest.hasResponded}
+              maxLength={24}
             />
           </div>
 
           {guest &&
             guest.additionalGuests &&
-            guest.additionalGuests.length > 0 && (
+            guest.additionalGuests[0].firstName.length > 0 && (
               <>
                 {guest.additionalGuests.map((additionalGuest, index) => (
                   <div key={index} className="additional-guest">
@@ -275,7 +267,8 @@ export default function Rsvp({
                         name={`additional-guest-allergies-${index + 1}`}
                         placeholder="Allergies"
                         disabled={guest.hasResponded}
-                        value={additionalGuest.allergies ?? ""}
+                        defaultValue={additionalGuest.allergies ?? ""}
+                        maxLength={24}
                       />
                     </div>
                     <div className="comments">
@@ -291,7 +284,8 @@ export default function Rsvp({
                         name={`additional-guest-comments-${index + 1}`}
                         placeholder="Additional info"
                         disabled={guest.hasResponded}
-                        value={additionalGuest.comments ?? ""}
+                        defaultValue={additionalGuest.comments ?? ""}
+                        maxLength={24}
                       />
                     </div>
                   </div>

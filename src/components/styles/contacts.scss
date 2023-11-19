@@ -1,7 +1,8 @@
 .contacts {
   // background-color: #f7e4cd;
-  height: 125vh;
+  height: 100vh;
   margin-top: -70px;
+  // overflow: scroll;
 
   h1 {
     font-size: 3rem;
@@ -24,7 +25,7 @@
     background-repeat: no-repeat;
     background-position: center;
 
-    min-height: 100vh;
+    min-height: 105vh;
 
     .bg {
       display: flex;
@@ -80,10 +81,10 @@
       }
     }
   }
-  .btns {
-    position: relative;
-    bottom: 0;
-  }
+  // .btns {
+  //   position: relative;
+  //   bottom: 0;
+  // }
 }
 
 @media (min-width: 1024px) {
