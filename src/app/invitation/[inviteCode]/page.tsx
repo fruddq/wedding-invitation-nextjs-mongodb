@@ -28,7 +28,7 @@ export interface GuestInterface {
   firstName: string
   lastName: string
   email: string | null
-  phoneNumber: number | null
+  phoneNumber: string | null
   diet: string | null
   comments: string | null
   eventId: string
