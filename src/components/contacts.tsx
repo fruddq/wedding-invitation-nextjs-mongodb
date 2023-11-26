@@ -16,7 +16,7 @@ export default function Contacts() {
           <article className="toastmadame">
             <Image
               className="pic"
-              src="/toastmadame.png"
+              src="/toastmadame-profile-pic.png"
               alt="Toastmasdame"
               width={150}
               height={150}
@@ -41,7 +41,7 @@ export default function Contacts() {
           <article className="toastmaster">
             <Image
               className="pic"
-              src="/toastmaster.png"
+              src="/toastmaster-profile-pic.png"
               alt="Toastmaster"
               width={150}
               height={150}
