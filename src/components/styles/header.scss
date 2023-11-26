@@ -1,13 +1,12 @@
 .header {
-  height: 70px;
-  background-color: transparent; /* Set the background to transparent */
-  text-align: center; /* Center the content */
+  height: auto;
+  background-color: transparent;
+  text-align: center;
   z-index: 100;
 }
 
-/* Optional: Add padding or other styling if needed */
 .header img {
-  padding: 10px; /* Example padding */
+  padding: 10px;
 }
 
 // @media (min-width: 1024px) {

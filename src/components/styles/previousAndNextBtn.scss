@@ -4,7 +4,7 @@
   justify-content: center;
   z-index: 100;
 
-  position: absolute;
+  position: relative;
   bottom: 0px;
   left: 50%;
   transform: translateX(-50%);
@@ -24,6 +24,7 @@
     background-color: transparent;
     font-size: 1.5rem;
     color: #4d3e25;
+
     transition: ease-in-out 0.3s;
     cursor: pointer;
 
