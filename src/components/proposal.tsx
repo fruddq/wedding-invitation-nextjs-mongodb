@@ -5,7 +5,7 @@ export default function Proposal() {
   return (
     <div className="container-proposal">
       <section className="wrapper-proposal-left">
-        <div className="info">
+        <div className="proposal-info">
           <h1 className="proposal-title">Frudd proposed</h1>
           <div className="proposal-wrapper">
             <p className="proposal-text top-border">
