@@ -14,7 +14,7 @@
   padding: 15px;
 
   .welcome-title {
-    margin: 50% 0 0;
+    margin: 200px 0 0;
     font-size: 2rem;
   }
 
@@ -40,5 +40,21 @@
 @media (min-width: 1024px) {
   .wrapper-invitation {
     background-image: url("../../../public/flower-border-desktop.png");
+
+    .welcome-title {
+      font-size: 3rem;
+    }
+
+    .sub-title {
+      font-size: 2.3rem;
+    }
+
+    .welcome-text {
+      font-size: 2rem;
+    }
+
+    .welcome-span {
+      font-size: 2rem;
+    }
   }
 }

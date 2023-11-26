@@ -1,6 +1,6 @@
-import { PreviousAndNextBtn } from "./previousAndNextBtn"
-import "./styles/saveTheDate.scss"
-import Image from "next/image"
+import { pagination } from "./pagination";
+import "./styles/saveTheDate.scss";
+import Image from "next/image";
 
 export default function SaveTheDate() {
   return (
@@ -40,5 +40,5 @@ export default function SaveTheDate() {
         </article>
       </section>
     </>
-  )
+  );
 }

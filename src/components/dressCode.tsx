@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import "./styles/dressCode.scss";
-import { PreviousAndNextBtn } from "./previousAndNextBtn";
+import { pagination } from "./pagination";
 
 export default function DressCode() {
   return (

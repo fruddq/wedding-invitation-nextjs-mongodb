@@ -1,6 +1,6 @@
-import Image from "next/image"
-import "./styles/outro.scss"
-import { PreviousAndNextBtn } from "./previousAndNextBtn"
+import Image from "next/image";
+import "./styles/outro.scss";
+import { pagination } from "./pagination";
 
 export default function Outro() {
   return (
@@ -21,5 +21,5 @@ export default function Outro() {
         </article>
       </section>
     </>
-  )
+  );
 }

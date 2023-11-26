@@ -1,4 +1,3 @@
-import { PreviousAndNextBtn } from "./previousAndNextBtn";
 import "./styles/welcomePage.scss";
 import { GuestInterface } from "@/app/invitation/[inviteCode]/page";
 

@@ -1,4 +1,4 @@
-import { PreviousAndNextBtn } from "./previousAndNextBtn";
+import { pagination } from "./pagination";
 import "./styles/additional-info.scss";
 
 export default function AdditionalInfo() {
