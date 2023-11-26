@@ -15,7 +15,6 @@ export default function DressCode() {
         </h1>
         <h3>Dressy casual / semi-formal attire</h3>
         <div className="tips">
-          {/* TODO: ADD READING LINKS */}
           <p>Here are some reading tips:</p>
           <Link
             href="https://www.thespruce.com/semi-formal-attire-guidelines-1216504"
