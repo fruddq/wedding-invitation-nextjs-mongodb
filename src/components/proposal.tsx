@@ -1,17 +1,23 @@
-import Image from "next/image"
-import "./styles/proposal.scss"
-import { PreviousAndNextBtn } from "./previousAndNextBtn"
+import Image from "next/image";
+import "./styles/proposal.scss";
 
 export default function Proposal() {
   return (
     <div className="container-proposal">
       <section className="wrapper-proposal-left">
         <div className="info">
-          <h1>Frudd proposed</h1>
-          <p>
-            On august 3rd 2023, <br /> Frudd got down on one knee in the
-            restaurant Spagio infront of the Balliagio fountain and asked Nani
-            to marry him... and she said yes!
+          <h1 className="proposal-title">Frudd proposed</h1>
+          <p className="proposal-text top-border">
+            On August 3rd, 2023, at the enchanting Spagio restaurant in Las Vegas, against
+            the backdrop of the majestic Bellagio fountain.
+          </p>
+          <p className="proposal-text">
+            Before dessert arrived, in a moment filled with anticipation, Frudd knelt down
+            on one knee and asked Nani the most important question of his life — 'Will you
+            marry me?'
+          </p>
+          <p className="proposal-text bottom-border">
+            Stunned and choked with emotion, she responded with a heartfelt 'Yes!'
           </p>
         </div>
       </section>
@@ -25,5 +31,5 @@ export default function Proposal() {
         />
       </section>
     </div>
-  )
+  );
 }
