@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function TheBigDay() {
   return (
     <section className="big-day-container">
-      <h1>The big day!</h1>
+      <h1 className="big-day-title">The big day!</h1>
       <article className="evening-info">
         <p className="evenining-text">
           Our evening will commence with a selection of hors d'oeuvres, followed by a main

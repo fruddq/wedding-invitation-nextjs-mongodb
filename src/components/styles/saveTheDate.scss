@@ -9,7 +9,10 @@
 
   .savedate-img {
     margin-top: 100px;
+    width: 300px;
+    height: 320px;
   }
+
   .info {
     display: flex;
     flex-direction: column;
@@ -80,10 +83,17 @@
 @media (min-width: 870px) {
   .wrapper-savedate {
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+
+    .savedate-img {
+      width: 420px;
+    }
 
     .info {
-      width: 50%;
+      max-width: 550px;
+
       .info-date {
         height: 15vh;
       }

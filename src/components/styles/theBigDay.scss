@@ -1,9 +1,13 @@
 .big-day-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 5%;
 
-  h1 {
+  .big-day-title {
     font-size: 2.5rem;
     margin-bottom: 0;
+    margin-top: 0;
     // margin-top: 60px;
   }
 
@@ -12,8 +16,8 @@
     border-radius: 15px;
     color: rgb(128, 72, 72);
 
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
     padding-top: 1px;
     padding-bottom: 10px;
 
@@ -31,26 +35,17 @@
 }
 
 @media (min-width: 800px) {
-  .container {
-    background-size: 30%;
-
-    h1 {
+  .big-day-container {
+    .big-day-title {
       font-size: 3rem;
       margin-bottom: 20px;
     }
 
-    .big-day-wrapper {
-      max-height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
     .evening-info {
       font-size: 1.3rem;
-      min-height: 40vh;
-      max-height: 50vh;
-      max-width: 1000px;
+      overflow: unset;
+      max-width: 700px;
+      max-height: 520px;
     }
   }
 }

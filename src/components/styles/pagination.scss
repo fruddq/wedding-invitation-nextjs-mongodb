@@ -38,5 +38,14 @@
 @media (min-width: 1024px) {
   .wrapper-btns {
     height: auto;
+    margin-bottom: 20px;
+
+    .previous-btn,
+    .next-btn {
+      width: 200px;
+      height: 45px;
+      font-size: 3rem;
+      border-radius: 25px;
+    }
   }
 }

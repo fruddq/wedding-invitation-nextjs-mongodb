@@ -1,7 +1,7 @@
 .contacts {
   margin-top: -70px;
 
-  h1 {
+  .contatcs-title {
     font-size: 3rem;
     color: #034a44;
     text-align: center;
@@ -53,8 +53,7 @@
           text-align: center;
         }
 
-        h3,
-        h4 {
+        .contacts-subtitle {
           color: #034a44;
           text-transform: uppercase;
           margin-bottom: 0;
@@ -80,10 +79,6 @@
       }
     }
   }
-  // .btns {
-  //   position: relative;
-  //   bottom: 0;
-  // }
 }
 
 @media (min-width: 1024px) {
@@ -94,31 +89,20 @@
     justify-content: center;
     align-items: center;
 
-    h1 {
+    .contatcs-title {
       font-size: 3rem;
       color: #034a44;
       text-align: center;
       margin: 0;
-      margin-top: 250px;
     }
 
     p.info {
-      // padding: 15px;
       text-align: center;
       margin: 0;
       font-size: 1.2rem;
     }
 
     .wrapper-contacts {
-      // background-image: url("../../../public/frame-desktop.png");
-      // background-size: cover;
-      // background-repeat: no-repeat;
-      // background-position: center;
-      // background-size: 90%;
-      // min-height: auto;
-      // max-height: 60vh;
-      // max-width: 1200px;
-      // min-height: 70vh;
       background-image: none;
       max-height: 100vh;
 
@@ -127,6 +111,7 @@
         justify-content: center;
         margin: 0;
         gap: 40%;
+        overflow: unset;
 
         hr {
           display: none;
