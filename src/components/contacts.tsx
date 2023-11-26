@@ -34,7 +34,7 @@ export default function Contacts() {
             </div>
             <div className="wrapper-toast">
               <h4 className="contacts-subtitle">E-mail</h4>
-              <p className="email">Nfz2A@example.com</p>
+              <p className="email">susanna.charboti@outlook.com</p>
             </div>
           </article>
           <hr />
@@ -58,7 +58,7 @@ export default function Contacts() {
             </div>
             <div className="wrapper-toast">
               <h4 className="contacts-subtitle">E-mail</h4>
-              <p className="email">Nfz2A@example.com</p>
+              <p className="email">davidtran1990@gmail.com</p>
             </div>
           </article>
         </div>
