@@ -23,11 +23,13 @@
     border-color: #e2b96a;
     background-color: transparent;
     font-size: 1.5rem;
+    color: #4d3e25;
     transition: ease-in-out 0.3s;
     cursor: pointer;
 
     &:hover {
-      background-color: grey;
+      background-color: #4d3e25;
+      color: #e2b96a;
     }
   }
 }
