@@ -5,17 +5,11 @@
   padding-left: 15px;
   padding-right: 15px;
   height: 100vh;
-  // margin-top: 10px;
   overflow: scroll;
 
-  h1 {
+  .additional-title {
     font-size: 2rem;
     margin-bottom: 5px;
-    // margin-top: 100px;
-  }
-
-  .speech {
-    // margin-top: -95px;
   }
 
   div.gift-info,
@@ -37,12 +31,15 @@
     justify-content: center;
     padding: 30px;
     gap: 30px;
+    overflow: unset;
   }
 
-  article {
+  .gift,
+  .speech {
     flex: 1;
 
-    div {
+    .gift-info,
+    .speech-info {
       height: 450px;
 
       &.gift-info {
@@ -58,7 +55,7 @@
 
         padding: 10px;
 
-        p {
+        .additional-text {
           font-size: 1.3rem;
           padding: 0 10px;
         }
@@ -79,7 +76,7 @@
         transition: ease-in-out 0.3s;
         cursor: none;
 
-        p {
+        .additional-text {
           font-size: 1.3rem;
           padding: 0 10px;
         }
