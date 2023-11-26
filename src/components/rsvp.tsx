@@ -213,7 +213,7 @@ export default function Rsvp({
                       <input
                         type="radio"
                         id={`additional-guest-not-attending-${index + 1}`}
-                        name={`additional-guest-attending`}
+                        name={`additional-guest-attending-${index + 1}`}
                         value="false"
                         disabled={guest.hasResponded}
                         defaultChecked={!additionalGuest.attending}
