@@ -3,7 +3,6 @@ import Link from "next/link";
 import Image from "next/image";
 
 import "./styles/dressCode.scss";
-import { pagination } from "./pagination";
 
 export default function DressCode() {
   return (
@@ -13,7 +12,7 @@ export default function DressCode() {
           Wedding <br />
           dress code
         </h1>
-        <h3>Dressy casual / semi-formal attire</h3>
+        <h3>Semi-formal attire</h3>
         <div className="tips">
           <p>Here are some reading tips:</p>
           <Link

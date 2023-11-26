@@ -1,4 +1,3 @@
-import { pagination } from "./pagination";
 import "./styles/saveTheDate.scss";
 import Image from "next/image";
 
@@ -10,8 +9,8 @@ export default function SaveTheDate() {
           className="savedate-img"
           src="/save-the-date.png"
           alt="Two people with a save the date banner"
-          width={320}
-          height={300}
+          width={420}
+          height={400}
         />
         <article className="info">
           <div className="info-date">
