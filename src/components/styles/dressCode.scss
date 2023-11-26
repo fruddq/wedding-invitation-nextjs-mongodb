@@ -3,17 +3,17 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  // background-color: #fbdfbd;
   background-size: 60vh;
   height: 100vh;
-  padding: 5%;
+  // padding: 5%;
   margin-top: -70px;
+  padding: 15px;
 
   .dress-code {
     background-color: #fff2e292;
     border-radius: 15px;
     padding: 5%;
-    height: 70vh;
+    height: 40vh;
     margin-top: 100px;
 
     .dress-code-title {
@@ -23,7 +23,7 @@
     }
 
     .tips {
-      margin-top: 30%;
+      margin-top: 40px;
 
       a {
         text-decoration: none;
@@ -41,12 +41,15 @@
     background-image: none;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
 
     .dress-code {
-      max-height: 50%;
+      height: 300px;
+      max-width: 400px;
 
-      h1 {
+      .dress-code-title {
         font-size: 3rem;
       }
     }
@@ -54,6 +57,7 @@
     .hide-mobile {
       display: block;
       margin-top: 90px;
+      max-width: 300px;
     }
   }
 }
