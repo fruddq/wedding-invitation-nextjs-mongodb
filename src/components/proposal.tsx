@@ -28,8 +28,8 @@ export default function Proposal() {
           className="hide-mobile"
           src="/proposal-people 1.png"
           alt="Champagne glass with popped champagne bottle"
-          width={400}
-          height={400}
+          width={500}
+          height={500}
         />
       </section>
     </div>
