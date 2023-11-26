@@ -1,3 +1,5 @@
+@import "./constants.scss";
+
 .wrapper-outro {
   display: flex;
   flex-direction: column;
@@ -13,12 +15,15 @@
 
     .outro-title {
       font-size: 2rem;
+      font-family: "Header";
       color: #034a44;
       margin-top: 100px;
     }
 
     .outro-text {
-      font-size: 1.1rem;
+      font-size: 1.4rem;
+      font-family: "PoiretOne";
+      font-weight: 500;
       color: #8e630e;
     }
   }

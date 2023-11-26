@@ -1,3 +1,5 @@
+@import "./constants.scss";
+
 .big-day-container {
   display: flex;
   flex-direction: column;
@@ -8,13 +10,15 @@
     font-size: 2.5rem;
     margin-bottom: 0;
     margin-top: 0;
-    // margin-top: 60px;
+    font-family: "Header";
+    color: #034a44;
   }
 
   .evening-info {
     background-color: #fbda9c81;
     border-radius: 15px;
     color: rgb(128, 72, 72);
+    font-family: "Plain text";
 
     padding-left: 15px;
     padding-right: 15px;

@@ -1,3 +1,5 @@
+@import "./constants.scss";
+
 .wrapper-additionalinfo {
   display: flex;
   flex-direction: column;
@@ -10,6 +12,8 @@
   .additional-title {
     font-size: 2rem;
     margin-bottom: 5px;
+    font-family: "Header";
+    color: #034a44;
   }
 
   div.gift-info,
@@ -21,6 +25,8 @@
 
     .additional-text {
       font-size: 1.1rem;
+      font-family: "Plain text";
+      font-weight: 500;
     }
   }
 }
@@ -58,6 +64,7 @@
         .additional-text {
           font-size: 1.3rem;
           padding: 0 10px;
+          font-weight: bold;
         }
 
         &:hover {
@@ -79,6 +86,7 @@
         .additional-text {
           font-size: 1.3rem;
           padding: 0 10px;
+          font-weight: bold;
         }
 
         &:hover {
