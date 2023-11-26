@@ -1,9 +1,4 @@
-@font-face {
-  font-family: "PoiretOne";
-  src: url("../../../public/fonts/PoiretOne-Regular.ttf"),;
-  font-weight: 400;
-  font-style: normal;
-}
+@import "./constants.scss";
 
 .wrapper-invitation {
   display: flex;
@@ -21,29 +16,26 @@
   padding: 15px;
 
   .welcome-title {
-    margin: 200px 0 0;
-    font-size: 2rem;
-    font-family: "PoiretOne"; // HÄR ÄLSKLING
-  }
-
-  
-  .welcome-event-title {
-    margin: 200px 0 0;
-    font-size: 2rem;
-    font-family: "PoiretOne"; // HÄR ÄLSKLING
+    margin: 170px 0 0;
+    font-size: 2.2rem;
+    font-family: "Header";
+    color: #034a44;
   }
 
   .sub-title {
     font-size: 1.5rem;
     margin: 0;
+    font-family: "Plain text";
   }
 
   .welcome-text {
     font-size: 1.5rem;
+    font-family: "Plain text";
   }
 
   .welcome-span {
     font-size: 1.5rem;
+    font-family: "Plain text";
 
     ul {
       margin: 0;

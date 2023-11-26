@@ -12,17 +12,17 @@ export default function SaveTheDate() {
           width={420}
           height={400}
         />
-        <article className="info">
+        <article className="info-save-the-date">
           <div className="info-date">
             <div className="info-day">
-              <h3>
+              <h3 className="info-day-title">
                 Saturday
-                <br /> <span>16:00-00:00</span>
+                <br /> <span className="info-span">16:00-00:00</span>
               </h3>
             </div>
-            <hr />
+            <hr className="info-hr" />
             <p className="info-month">
-              June <br /> <span>29th</span>
+              June <br /> <span className="info-span">29th</span>
             </p>
             <hr className="info-hr" />
             <div className="info-year-container">

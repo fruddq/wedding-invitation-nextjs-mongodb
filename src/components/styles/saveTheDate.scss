@@ -1,19 +1,21 @@
+@import "./constants.scss";
+
 .wrapper-savedate {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 5%;
-  // background-color: #e2b96a;
   margin-top: -70px;
   height: 100vh;
 
   .savedate-img {
-    margin-top: 100px;
+    margin-top: 70px;
+    margin-bottom: 20px;
     width: 300px;
-    height: 320px;
+    height: 300px;
   }
 
-  .info {
+  .info-save-the-date {
     display: flex;
     flex-direction: column;
 
@@ -28,11 +30,12 @@
         display: flex;
         flex-direction: column;
 
-        h3 {
+        .info-day-title {
           text-align: center;
           font-size: 2rem;
+          font-family: "Overpass";
 
-          span {
+          .info-span {
             font-size: 1rem;
           }
         }
@@ -42,15 +45,14 @@
         font-size: 2rem;
         text-align: center;
 
-        span {
+        .info-span {
           font-size: 1rem;
         }
       }
-      hr {
-        border: 1px solid #e2b96a;
-      }
+
       .info-hr {
-        margin-right: 0;
+        border: 1px solid #e2b96a;
+        margin-left: 10px;
       }
 
       .info-year-container {
@@ -60,6 +62,7 @@
         .info-year {
           transform: rotate(90deg);
           font-size: 2rem;
+          font-family: "Overpass";
         }
       }
     }
@@ -72,6 +75,8 @@
       text-align: center;
       border-radius: 15px;
       padding: 10px;
+      font-family: "ZenKakuGothicNew";
+      font-size: 1.2rem;
 
       p:last-child {
         margin-top: 0;
@@ -89,9 +94,11 @@
 
     .savedate-img {
       width: 420px;
+      height: 370px;
+      margin-top: 0;
     }
 
-    .info {
+    .info-save-the-date {
       max-width: 550px;
 
       .info-date {

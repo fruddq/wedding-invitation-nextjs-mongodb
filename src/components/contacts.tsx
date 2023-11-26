@@ -16,7 +16,7 @@ export default function Contacts() {
           <article className="toastmadame">
             <Image
               className="pic"
-              src="/toastmadame.png"
+              src="/toastmadame-profile-pic.png"
               alt="Toastmasdame"
               width={150}
               height={150}
@@ -34,14 +34,14 @@ export default function Contacts() {
             </div>
             <div className="wrapper-toast">
               <h4 className="contacts-subtitle">E-mail</h4>
-              <p className="email">Nfz2A@example.com</p>
+              <p className="email">susanna.charboti@outlook.com</p>
             </div>
           </article>
           <hr />
           <article className="toastmaster">
             <Image
               className="pic"
-              src="/toastmaster.png"
+              src="/toastmaster-profile-pic.png"
               alt="Toastmaster"
               width={150}
               height={150}
@@ -58,7 +58,7 @@ export default function Contacts() {
             </div>
             <div className="wrapper-toast">
               <h4 className="contacts-subtitle">E-mail</h4>
-              <p className="email">Nfz2A@example.com</p>
+              <p className="email">davidtran1990@gmail.com</p>
             </div>
           </article>
         </div>

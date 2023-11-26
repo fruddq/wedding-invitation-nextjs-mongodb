@@ -1,3 +1,5 @@
+@import "./constants.scss";
+
 .container-rsvp {
   margin-top: -130px;
   height: 100vh;
@@ -12,9 +14,11 @@
   }
 
   .title-rsvp {
-    font-size: 2rem;
+    font-size: 2.2rem;
     text-align: center;
     padding-top: 120px;
+    font-family: "Header";
+    color: #034a44;
   }
 
   .form-rsvp {
