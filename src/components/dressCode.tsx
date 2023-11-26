@@ -20,7 +20,7 @@ export default function DressCode() {
             href="https://www.thespruce.com/semi-formal-attire-guidelines-1216504"
             target="_blank"
           >
-            What Is Semiformal Attire?
+            What Is Semiformal Attire
           </Link>{" "}
           <br />
           <Link
