@@ -1,5 +1,5 @@
-import "./styles/welcomePage.scss";
-import { GuestInterface } from "@/app/invitation/[inviteCode]/page";
+import "./styles/welcomePage.scss"
+import { GuestInterface } from "@/app/invitation/[inviteCode]/page"
 
 export default function WelcomePage({ guest }: { guest: GuestInterface }) {
   return (
@@ -25,5 +25,5 @@ export default function WelcomePage({ guest }: { guest: GuestInterface }) {
         </span>
       </section>
     </>
-  );
+  )
 }
