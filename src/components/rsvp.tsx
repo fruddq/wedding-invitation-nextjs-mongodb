@@ -1,6 +1,8 @@
 import { GuestInterface } from "@/app/invitation/[inviteCode]/page"
 import "./styles/rsvp.scss"
 import updateGuest from "@/utils/updateGuest"
+import { useState } from "react"
+import ClipLoader from "react-spinners/ClipLoader"
 
 export interface FormValues {
   attending: boolean
@@ -22,6 +24,7 @@ export default function Rsvp({
   guest: GuestInterface
   setGuest: (guest: GuestInterface | null) => void
 }) {
+  const [loading, setLoading] = useState(false)
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
 
@@ -33,12 +36,14 @@ export default function Rsvp({
       formValues[key] = value
     })
 
+    setLoading(true)
     const updatedGuest = await updateGuest(formValues, guest)
 
     if (updatedGuest) {
       localStorage.setItem("guest", JSON.stringify(updatedGuest))
       setGuest(updatedGuest)
     }
+    setLoading(false)
   }
 
   return (
@@ -294,11 +299,22 @@ export default function Rsvp({
               </>
             )}
 
-          {!guest.hasResponded && (
+          {!guest.hasResponded && !loading ? (
             <div className="submit-btn-container">
               <button className="submit-btn" type="submit">
                 Send
               </button>
+            </div>
+          ) : (
+            <div className="loader-container">
+              {/* Replace this with your loader component */}
+              <ClipLoader
+                color="orange"
+                loading={loading}
+                size={100}
+                aria-label="Loading Spinner"
+                data-testid="loader"
+              />
             </div>
           )}
         </form>

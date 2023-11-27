@@ -166,7 +166,6 @@ export default function InvitationMenu({
   }
 
   const handleLogout = () => {
-    console.log("logging out")
     localStorage.setItem("guest", JSON.stringify(null))
     setGuest(null)
   }

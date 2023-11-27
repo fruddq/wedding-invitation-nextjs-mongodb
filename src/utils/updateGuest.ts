@@ -6,7 +6,7 @@ import prisma from "@/db";
 const updateGuest = async (guestInfo: FormValues, { id, additionalGuests }: GuestInterface) => {
     const {
         attending,
-        phoneNumber: phoneNumberString,
+        phoneNumber,
         email,
         diet,
         allergies,
@@ -22,7 +22,7 @@ const updateGuest = async (guestInfo: FormValues, { id, additionalGuests }: Gues
         where: { id },
         data: {
             email,
-            phoneNumber: Number(phoneNumberString),
+            phoneNumber,
             diet,
             comments,
             allergies,

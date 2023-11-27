@@ -14,6 +14,7 @@ import Outro from "@/components/outro"
 import Header from "@/components/header"
 import "./style.scss"
 import { Pagination } from "@/components/pagination"
+import ClipLoader from "react-spinners/ClipLoader"
 
 export type AdditionalGuest = {
   firstName: string
@@ -63,10 +64,20 @@ export default function Invitation() {
   }, [guest, setGuest, setLoading])
 
   if (loading) {
-    return <div>Loading...</div> // Show loading indicator while fetching guest
+    return (
+      <div className="loading-container">
+        <ClipLoader
+          color="orange"
+          loading={loading}
+          size={200}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
+      </div>
+    )
   }
 
-  if (!guest) {
+  if (!guest && !loading) {
     return <LoginForm setGuest={setGuest} />
   }
 

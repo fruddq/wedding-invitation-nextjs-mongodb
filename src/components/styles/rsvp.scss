@@ -5,6 +5,12 @@
   height: 100vh;
   padding: 5%;
 
+  .loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .guest-info {
     background-color: #fbdfbd;
     // padding-left: 11%;
