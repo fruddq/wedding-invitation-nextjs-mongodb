@@ -46,6 +46,8 @@
       font-family: "Plain text";
 
       .form-wrapper {
+        width: 100%;
+
         label {
           font-size: 1.2rem;
           margin-bottom: 5px;
@@ -86,6 +88,7 @@
       }
     }
   }
+
   .login-wrapper-right {
     .login-img {
       display: none;
@@ -118,7 +121,10 @@
       .form-container {
         width: 70%;
 
-        .login-btn {
+        .form-wrapper {
+          .login-input {
+            width: 91%;
+          }
         }
       }
     }
