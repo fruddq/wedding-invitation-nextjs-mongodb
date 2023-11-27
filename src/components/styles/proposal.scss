@@ -22,11 +22,14 @@
       }
 
       .proposal-wrapper {
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 15px;
+
         .proposal-text {
           background-color: $containerBackground;
           font-size: 1.3rem;
           text-align: center;
-          margin: 0 10px;
+          margin: 0;
           padding: 10px;
           font-family: "Plain text";
 
