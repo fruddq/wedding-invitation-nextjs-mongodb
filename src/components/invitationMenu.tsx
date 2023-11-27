@@ -1,3 +1,4 @@
+import { GuestInterface } from "@/app/invitation/[inviteCode]/page"
 import "./styles/invitationMenu.scss"
 import { useState } from "react"
 type InvitationMenuProps = {
@@ -19,6 +20,7 @@ type InvitationMenuProps = {
   setShowRsvp: (value: boolean) => void
   showSeeYou: boolean
   setShowSeeYou: (value: boolean) => void
+  setGuest: (value: GuestInterface | null) => void
 }
 export default function InvitationMenu({
   showWelcomePage,
@@ -39,6 +41,7 @@ export default function InvitationMenu({
   setShowRsvp,
   showSeeYou,
   setShowSeeYou,
+  setGuest,
 }: InvitationMenuProps) {
   const [isHamburgerMenuOpen, setHamburgerMenuOpen] = useState(false)
 
@@ -162,6 +165,12 @@ export default function InvitationMenu({
     setHamburgerMenuOpen(!isHamburgerMenuOpen)
   }
 
+  const handleLogout = () => {
+    console.log("logging out")
+    localStorage.setItem("guest", JSON.stringify(null))
+    setGuest(null)
+  }
+
   return (
     <>
       <div
@@ -221,6 +230,7 @@ export default function InvitationMenu({
         <button onClick={handleSeeYou} className={showSeeYou ? "active" : ""}>
           See you
         </button>
+        <button onClick={handleLogout}>Logout</button>
       </div>
       {isHamburgerMenuOpen && (
         <div className="overlay" onClick={toggleHamburgerMenu} />
