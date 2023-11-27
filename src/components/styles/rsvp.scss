@@ -14,11 +14,11 @@
   }
 
   .title-rsvp {
-    font-size: 2.2rem;
+    font-size: 3rem;
     text-align: center;
     padding-top: 120px;
     font-family: "Header";
-    color: #034a44;
+    color: $headerColor-greenish;
   }
 
   .form-rsvp {
@@ -34,7 +34,11 @@
       gap: 10px;
       margin-top: 20px;
     }
-
+    .guest-container {
+      gap: 7px;
+      display: flex;
+      flex-direction: column;
+    }
     .guest-name-container,
     .attending,
     .diet,
@@ -70,15 +74,15 @@
       padding: 20px;
 
       .submit-btn {
-        margin-top: 5%;
+        width: 100%;
         height: 50px;
-        width: 90vw;
-        padding: 10px;
+        background-color: #e2b96a;
+        color: #fff;
+        font-size: 1.2rem;
+        border: none;
         border-radius: 5px;
-        font-size: 1.4rem;
         cursor: pointer;
-        background-color: #7bb07b;
-        transition: ease-in-out 0.3s;
+        transition: background-color 0.3s ease;
         &:hover {
           background-color: #5f895f;
         }
@@ -89,25 +93,25 @@
 
 @media (min-width: 1024px) {
   .container-rsvp {
+    padding: 0%;
+    margin-top: -90px;
     .form-rsvp {
       display: flex;
       align-items: center;
 
-      .guest-name-container,
-      .attending,
-      .diet,
-      .allergies,
-      .comments,
-      .email,
-      .phoneNumber {
-        .text-input {
-          width: 70%;
-        }
-      }
-
       .submit-btn-container {
+        width: 300px;
+
         .submit-btn {
-          width: 10vw;
+          width: 100%;
+          height: 50px;
+          background-color: #e2b96a;
+          color: #fff;
+          font-size: 1.2rem;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
         }
       }
     }
