@@ -1,48 +1,47 @@
 /* eslint-disable react/no-unescaped-entities */
-import { GuestInterface } from "@/app/invitation/[inviteCode]/page"
-import checkGuestCredentials from "@/utils/checkGuestCredentials"
-import "./styles/loginForm.scss"
-import Image from "next/image"
-import { useState } from "react"
-import ClipLoader from "react-spinners/ClipLoader"
+import { GuestInterface } from "@/app/invitation/[inviteCode]/page";
+import checkGuestCredentials from "@/utils/checkGuestCredentials";
+import "./styles/loginForm.scss";
+import Image from "next/image";
+import { useState } from "react";
+import { PacmanLoader } from "react-spinners";
 
 interface LoginFormProps {
-  setGuest: (guest: GuestInterface | null) => void
+  setGuest: (guest: GuestInterface | null) => void;
 }
 export const LoginForm: React.FC<LoginFormProps> = ({ setGuest }) => {
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    const formData = new FormData(e.currentTarget)
-    const firstName = formData.get("firstName") as string
-    const lastName = formData.get("lastName") as string
-    const password = formData.get("password") as string // Add this line
+    const formData = new FormData(e.currentTarget);
+    const firstName = formData.get("firstName") as string;
+    const lastName = formData.get("lastName") as string;
+    const password = formData.get("password") as string; // Add this line
 
-    setLoading(true)
-    const guest = await checkGuestCredentials({ firstName, lastName, password })
+    setLoading(true);
+    const guest = await checkGuestCredentials({ firstName, lastName, password });
 
     if (guest) {
-      localStorage.setItem("guest", JSON.stringify(guest))
-      setGuest(guest)
+      localStorage.setItem("guest", JSON.stringify(guest));
+      setGuest(guest);
     }
-    console.log(loading)
-    setLoading(false)
-  }
+    console.log(loading);
+    setLoading(false);
+  };
 
   return (
     <section className="login-container">
       {!loading ? (
         <div className="login-wrapper-left">
           <h1 className="login-title">
-            Welcome to <br />{" "}
-            <span className="login-span">Nani & Fruddi's</span> <br />
+            Welcome to <br /> <span className="login-span">Nani & Fruddi's</span> <br />
             wedding reception
           </h1>
           <article className="login-text-wrapper">
             <p className="login-text">
-              Please enter your first name, last name, and password below for
-              more wedding details.
+              Please enter your first name, last name, and password below for more wedding
+              details.
             </p>
           </article>
           <form className="form-container" onSubmit={handleLogin}>
@@ -84,7 +83,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ setGuest }) => {
           </form>
         </div>
       ) : (
-        <ClipLoader
+        <PacmanLoader
           color="orange"
           loading={loading}
           size={150}
@@ -95,16 +94,11 @@ export const LoginForm: React.FC<LoginFormProps> = ({ setGuest }) => {
 
       <div className="login-wrapper-right">
         <article className="login-img">
-          <Image
-            src="/champagne-and-bottle.png"
-            alt="logo"
-            width={600}
-            height={900}
-          />
+          <Image src="/champagne-and-bottle.png" alt="logo" width={600} height={900} />
         </article>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default LoginForm
+export default LoginForm;
