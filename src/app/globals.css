@@ -1,11 +1,12 @@
 :root {
-  background-color: #E2B96A;
+  background-color: #fbdfbd;
   color: #9B5050;
 }
 
 body {
   margin: 0;
-  width: 100%;
+  width: 100vw;
+  height: 100vh;
 }
   /* --max-width: 1100px;
   --border-radius: 12px;

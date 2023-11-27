@@ -1,0 +1,56 @@
+@import "./constants.scss";
+
+.big-day-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5%;
+
+  .big-day-title {
+    font-size: 2.5rem;
+    margin-bottom: 0;
+    margin-top: 0;
+    font-family: "Header";
+    color: #034a44;
+  }
+
+  .evening-info {
+    background-color: #fbda9c81;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 15px;
+    color: rgb(128, 72, 72);
+    font-family: "Plain text";
+
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 1px;
+    padding-bottom: 10px;
+
+    height: 70vh;
+    overflow: scroll;
+
+    .evenining-text {
+      font-size: 1.1rem;
+    }
+
+    .plate-img {
+      text-align: center;
+    }
+  }
+}
+
+@media (min-width: 800px) {
+  .big-day-container {
+    .big-day-title {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .evening-info {
+      font-size: 1.3rem;
+      overflow: unset;
+      max-width: 700px;
+      max-height: 520px;
+    }
+  }
+}

@@ -1,10 +1,18 @@
 .header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: auto;
+  background-color: transparent;
+  text-align: center;
+  z-index: 100;
 }
+
+// .header img {
+//   padding: 10px;
+// }
 
 // @media (min-width: 1024px) {
 //   .header {
+//     img {
+//       width: 500px;
+//     }
 //   }
 // }

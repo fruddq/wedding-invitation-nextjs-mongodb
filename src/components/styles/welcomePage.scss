@@ -1,0 +1,67 @@
+@import "./constants.scss";
+
+.wrapper-invitation {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: 100vh;
+  background-image: url("../../../public/flower-border-mobile.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position-y: -58px;
+  // background-color: #fbdfbd;
+  margin-top: -85px;
+
+  padding: 15px;
+
+  .welcome-title {
+    margin: 170px 0 0;
+    font-size: 2.2rem;
+    font-family: "Header";
+    color: #034a44;
+  }
+
+  .sub-title {
+    font-size: 1.5rem;
+    margin: 0;
+    font-family: "Plain text";
+  }
+
+  .welcome-text {
+    font-size: 1.5rem;
+    font-family: "Plain text";
+  }
+
+  .welcome-span {
+    font-size: 1.5rem;
+    font-family: "Plain text";
+
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .wrapper-invitation {
+    background-image: url("../../../public/flower-border-desktop.png");
+
+    .welcome-title {
+      font-size: 3rem;
+    }
+
+    .sub-title {
+      font-size: 2.3rem;
+    }
+
+    .welcome-text {
+      font-size: 2rem;
+    }
+
+    .welcome-span {
+      font-size: 2rem;
+    }
+  }
+}

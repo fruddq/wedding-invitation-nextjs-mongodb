@@ -1,0 +1,55 @@
+@import "./constants.scss";
+
+.wrapper-outro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  margin-top: -70px;
+
+  .text-container {
+    padding: 25px;
+    text-align: center;
+    border-radius: 15px;
+
+    .outro-title {
+      font-size: 2rem;
+      font-family: "Header";
+      color: #034a44;
+      margin-top: 100px;
+    }
+
+    .outro-text {
+      font-size: 1.4rem;
+      font-family: "PoiretOne";
+      font-weight: 500;
+      color: #8e630e;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .wrapper-outro {
+    flex-direction: row;
+    justify-content: center;
+    gap: 40px;
+
+    .outro-pic {
+      width: 80%;
+      height: 65%;
+    }
+
+    .text-container {
+      .outro-title {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        margin-top: 0;
+      }
+
+      .outro-text {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}

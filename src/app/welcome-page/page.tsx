@@ -1,5 +1,4 @@
-import Image from "next/image";
-import "./style.scss";
+import "./style.scss"
 
 export default function WelcomePage() {
   return (
@@ -13,5 +12,5 @@ export default function WelcomePage() {
         </p>
       </section>
     </>
-  );
+  )
 }
