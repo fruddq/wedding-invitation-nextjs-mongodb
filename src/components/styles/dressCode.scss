@@ -15,7 +15,7 @@
     background-color: #fff2e2af;
     border-radius: 15px;
     padding: 25px;
-    height: 40vh;
+    height: auto;
     margin-top: 100px;
 
     .dress-code-title {
@@ -30,7 +30,9 @@
     }
 
     .tips {
-      margin-top: 100px;
+      position: relative;
+      bottom: 0;
+      margin-top: 10px;
       font-family: "Plain text";
       font-size: 1.1rem;
 
@@ -66,6 +68,10 @@
 
       .dress-code-title {
         font-size: 3rem;
+      }
+
+      .tips {
+        margin-top: 30px;
       }
     }
 
