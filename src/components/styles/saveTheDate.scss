@@ -25,6 +25,7 @@
       flex-direction: row;
       background-color: #e9ca8f;
       border-radius: 15px;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.19);
 
       .info-day {
         display: flex;
@@ -77,6 +78,7 @@
       padding: 10px;
       font-family: "ZenKakuGothicNew";
       font-size: 1.2rem;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.19);
 
       p:last-child {
         margin-top: 0;

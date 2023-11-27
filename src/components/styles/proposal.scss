@@ -18,12 +18,12 @@
         font-size: 2.5rem;
         text-align: center;
         font-family: "Header";
-        color: #034a44;
+        color: $headerColor-greenish;
       }
 
       .proposal-wrapper {
         .proposal-text {
-          background-color: #f9f0e64f;
+          background-color: $containerBackground;
           font-size: 1.3rem;
           text-align: center;
           margin: 0 10px;
