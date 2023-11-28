@@ -6,6 +6,7 @@ const nextConfig = {
     basePath: '/github-pages',
     reactStrictMode: true,
     output: 'export',
+    trailingSlash: true,
 
 }
 
