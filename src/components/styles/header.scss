@@ -1,18 +1,22 @@
 .header {
-  height: auto;
   background-color: transparent;
   text-align: center;
+  margin-top: 10px;
   z-index: 100;
+
+  .header-desktop {
+    display: none;
+  }
 }
 
-// .header img {
-//   padding: 10px;
-// }
+@media (min-width: 1024px) {
+  .header {
+    .header-mobile {
+      display: none;
+    }
 
-// @media (min-width: 1024px) {
-//   .header {
-//     img {
-//       width: 500px;
-//     }
-//   }
-// }
+    .header-desktop {
+      display: block;
+    }
+  }
+}
