@@ -1,5 +1,19 @@
 @import "./constants.scss";
 
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
 .login-container {
   background-image: url("../../../public/champagne-and-bottle.png");
   background-size: cover;
