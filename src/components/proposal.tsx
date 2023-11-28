@@ -14,11 +14,12 @@ export default function Proposal() {
             </p>
             <p className="proposal-text">
               Before dessert arrived, in a moment filled with anticipation, Frudd knelt down
-              on one knee and asked Nani the most important question of his life — 'Will you
-              marry me?'
+              on one knee and asked Nani the most important question of his life —
+              &apos;Will you marry me?&apos;
             </p>
             <p className="proposal-text bottom-border">
-              Stunned and choked with emotion, she responded with a heartfelt 'Yes!'
+              Stunned and choked with emotion, she responded with a heartfelt
+              &apos;Yes!&apos;
             </p>
           </div>
         </div>
