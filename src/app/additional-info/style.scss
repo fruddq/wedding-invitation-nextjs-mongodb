@@ -1,0 +1,83 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 10px;
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+  }
+
+  div {
+    background-color: #fbdfbd6d;
+    padding: 2px 10px 5px 10px;
+    border-radius: 15px;
+    max-width: 1000px;
+
+    p {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .wrapper {
+    flex-direction: row;
+    justify-content: center;
+    padding: 30px;
+    gap: 30px;
+  }
+
+  article {
+    flex: 1;
+
+    div {
+      height: 450px;
+
+      &.gift-info {
+        background-image: url("/gifts.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: 160px;
+
+        padding: 10px;
+        transition: ease-in-out 0.3s;
+        cursor: none;
+
+        padding: 10px;
+
+        p {
+          font-size: 1.3rem;
+          padding: 0 10px;
+        }
+
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+
+      &.speech-info {
+        background-image: url("/cheers.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: 250px;
+
+        padding: 10px;
+        transition: ease-in-out 0.3s;
+        cursor: none;
+
+        p {
+          font-size: 1.3rem;
+          padding: 0 10px;
+        }
+
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+}

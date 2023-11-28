@@ -23,24 +23,33 @@ model Event {
   RSVPDate           DateTime?
   eventPlannerUserId String           @db.ObjectId
   eventPlannerUser   EventPlannerUser @relation(fields: [eventPlannerUserId], references: [id])
-  password           String
-  inviteLink         String
+  password           String?
+  inviteLink         String?
   guestlist          Guest[]
 }
 
+type AdditionalGuests {
+  firstName String
+  lastName  String
+  comments  String?
+  diet      String?
+  allergies String?
+  attending Boolean @default(false)
+}
+
 model Guest {
-  id              String   @id @default(auto()) @map("_id") @db.ObjectId
-  firstName       String
-  lastName        String
-  email           String?
-  phoneNumber     Int?
-  diet            String?
-  comments        String?
-  eventId         String   @db.ObjectId
-  event           Event    @relation(fields: [eventId], references: [id])
-  additionalGuest Int      @default(0)
-  RSVPDate        DateTime
-  attending       Boolean  @default(false)
-  hasResponded    Boolean  @default(false)
-  inviteSent      Boolean  @default(false)
+  id               String             @id @default(auto()) @map("_id") @db.ObjectId
+  firstName        String
+  lastName         String
+  email            String?
+  phoneNumber      String?
+  diet             String?
+  comments         String?
+  allergies        String?
+  eventId          String             @db.ObjectId
+  event            Event              @relation(fields: [eventId], references: [id])
+  additionalGuests AdditionalGuests[]
+  attending        Boolean            @default(false)
+  hasResponded     Boolean            @default(false)
+  inviteSent       Boolean            @default(false)
 }

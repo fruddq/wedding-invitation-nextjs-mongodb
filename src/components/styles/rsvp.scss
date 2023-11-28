@@ -1,0 +1,151 @@
+@import "./constants.scss";
+
+.container-rsvp {
+  margin-top: -130px;
+  height: 100vh;
+  padding: 5%;
+  font-family: "Overpass";
+
+  .loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  .guest-info {
+    // background-color: #fbdfbd;
+    border-radius: 15px;
+    color: $plainTextColor-redish;
+    font-size: 1.2rem;
+  }
+
+  .title-rsvp {
+    font-size: 3rem;
+    text-align: center;
+    padding-top: 120px;
+    font-family: "Header";
+    color: $headerColor-greenish;
+  }
+
+  .form-rsvp {
+    margin-top: -10px;
+    font-size: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    background-image: url("../../../public/cherry-blossom.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+
+    min-height: 53vh;
+
+    .additional-guest {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .guest-container {
+      gap: 7px;
+      display: flex;
+      flex-direction: column;
+    }
+    .guest-name-container,
+    .attending,
+    .diet,
+    .allergies,
+    .comments,
+    .email,
+    .phoneNumber {
+      display: flex;
+      flex-direction: row;
+
+      .checkbox-option {
+        font-size: 1.3rem;
+        color: rgb(71, 71, 71);
+      }
+
+      .text-input {
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid grey;
+        font-size: 1.3rem;
+        width: 100%;
+        height: auto;
+        color: rgb(71, 71, 71);
+      }
+
+      .guest-label {
+        margin-right: 7px;
+      }
+    }
+
+    .submit-btn-container {
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+
+      .submit-btn {
+        width: 100%;
+        height: 50px;
+        background-color: #e2b96a;
+        color: #fff;
+        font-size: 1.2rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        &:hover {
+          background-color: #5f895f;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-rsvp {
+    padding: 0%;
+    margin-top: -90px;
+
+    background-image: url("../../../public/cherry-blossom.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 30%;
+    .form-rsvp {
+      display: flex;
+      align-items: center;
+
+      background-image: none;
+
+      .submit-btn-container {
+        width: 300px;
+
+        .submit-btn {
+          width: 100%;
+          height: 50px;
+          background-color: #e2b96a;
+          color: #fff;
+          font-size: 1.2rem;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+        }
+      }
+    }
+  }
+}
