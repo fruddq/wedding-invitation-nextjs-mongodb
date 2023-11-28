@@ -5,7 +5,7 @@
   "homepage": "https://fruddq.github.io/wedding-invitation-nextjs-mongodb",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npx prisma generate && next build",
     "start": "next start",
     "lint": "next lint",
     "export": "next export", 
