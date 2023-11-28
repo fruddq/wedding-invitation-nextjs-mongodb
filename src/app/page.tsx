@@ -1,7 +1,9 @@
 // pages/login.js
 
-import Link from "next/link"
-import "../app/loginPage.scss"
+import Link from "next/link";
+import "../app/loginPage.scss";
+import Contacts from "@/components/contacts";
+import AdditionalInfo from "./additional-info/page";
 
 export default async function LoginPage() {
   return (
@@ -10,10 +12,10 @@ export default async function LoginPage() {
         <section className="container">
           <article className="welcome-text">
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Doloremque minus minima, vel autem, tempore, veniam saepe aliquid
-              mollitia laboriosam officiis possimus quibusdam deleniti
-              accusantium reiciendis itaque? Neque ex nemo possimus?
+              <b>
+                THIS IS ADMIN PAGE. <br />
+              </b>
+              If you are a wedding guest, please re-check so that you have the correct URL
             </p>
           </article>
           <article className="login">
@@ -33,5 +35,5 @@ export default async function LoginPage() {
         </section>
       </div>
     </>
-  )
+  );
 }

@@ -1,0 +1,116 @@
+@import "./constants.scss";
+
+.wrapper-savedate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5%;
+  margin-top: -70px;
+  height: 100vh;
+
+  .savedate-img {
+    margin-top: 70px;
+    margin-bottom: 20px;
+    width: 300px;
+    height: 300px;
+  }
+
+  .info-save-the-date {
+    display: flex;
+    flex-direction: column;
+
+    .info-date {
+      padding: 5%;
+      display: flex;
+      flex-direction: row;
+      background-color: #e9ca8f;
+      border-radius: 15px;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.19);
+
+      .info-day {
+        display: flex;
+        flex-direction: column;
+
+        .info-day-title {
+          text-align: center;
+          font-size: 2rem;
+          font-family: "Overpass";
+
+          .info-span {
+            font-size: 1rem;
+          }
+        }
+      }
+
+      .info-month {
+        font-size: 2rem;
+        text-align: center;
+
+        .info-span {
+          font-size: 1rem;
+        }
+      }
+
+      .info-hr {
+        border: 1px solid #e2b96a;
+        margin-left: 10px;
+      }
+
+      .info-year-container {
+        text-align: center;
+        width: 15%;
+
+        .info-year {
+          transform: rotate(90deg);
+          font-size: 2rem;
+          font-family: "Overpass";
+        }
+      }
+    }
+
+    .info-address {
+      margin-top: 5%;
+      display: flex;
+      flex-direction: column;
+      background-color: #e9ca8f;
+      text-align: center;
+      border-radius: 15px;
+      padding: 10px;
+      font-family: "ZenKakuGothicNew";
+      font-size: 1.2rem;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.19);
+
+      p:last-child {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+@media (min-width: 870px) {
+  .wrapper-savedate {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+
+    .savedate-img {
+      width: 420px;
+      height: 370px;
+      margin-top: 0;
+    }
+
+    .info-save-the-date {
+      max-width: 550px;
+
+      .info-date {
+        height: 15vh;
+      }
+
+      .info-address {
+        font-size: 1.5rem;
+        height: 15vh;
+      }
+    }
+  }
+}
