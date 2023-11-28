@@ -1,10 +1,12 @@
-import Image from "next/image";
+import HeaderSvgDesktop from "./headerSvgDesktop";
+import HeaderSvgMobile from "./headerSvgMobile";
 import "./styles/header.scss";
 
 const Header = () => {
   return (
     <header className="header">
-      <Image src="/header.png" alt="Nani & Frudd" width={250} height={80} />
+      <HeaderSvgDesktop />
+      <HeaderSvgMobile />
     </header>
   );
 };
