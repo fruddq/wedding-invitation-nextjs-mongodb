@@ -7,10 +7,10 @@ export default function BigDay() {
       <h1>The big day!</h1>
       <article className="evening-info">
         <p>
-          Our evening will commence with a selection of hors d'oeuvres, followed by a main
-          dish and a mouthwatering cake for dessert. Each course will be thoughtfully paired
-          with fine wines. Rest assured, our vegetarian guests will be catered to with
-          equally delectable alternatives.
+          Our evening will commence with a selection of hors d&apos;oeuvres, followed by a
+          main dish and a mouthwatering cake for dessert. Each course will be thoughtfully
+          paired with fine wines. Rest assured, our vegetarian guests will be catered to
+          with equally delectable alternatives.
         </p>
         <p>
           The enchanting atmosphere will be accentuated by the soothing melodies of music,
