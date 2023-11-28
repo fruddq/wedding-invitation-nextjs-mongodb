@@ -2,6 +2,7 @@
   background-color: transparent;
   text-align: center;
   margin-top: 10px;
+  margin-bottom: 20px;
   z-index: 100;
 
   .header-desktop {
@@ -11,6 +12,8 @@
 
 @media (min-width: 1024px) {
   .header {
+    margin-top: 0;
+
     .header-mobile {
       display: none;
     }

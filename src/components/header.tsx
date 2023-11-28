@@ -8,7 +8,7 @@ const Header = () => {
         <Image src="/header.svg" alt="logo" width={280} height={70} />
       </div>
       <div className="header-desktop">
-        <Image src="/header.svg" alt="logo" width={580} height={200} />
+        <Image src="/header.svg" alt="logo" width={380} height={200} />
       </div>
     </header>
   );

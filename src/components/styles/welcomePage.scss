@@ -11,7 +11,7 @@
   background-position: center;
   background-position-y: -58px;
   // background-color: #fbdfbd;
-  margin-top: -85px;
+  margin-top: -105px;
 
   padding: 15px;
 
@@ -47,6 +47,7 @@
 @media (min-width: 1024px) {
   .wrapper-invitation {
     background-image: url("../../../public/flower-border-desktop.png");
+    margin-top: -225px;
 
     .welcome-title {
       font-size: 3rem;
