@@ -1,7 +1,7 @@
 import InviteSentButton from "@/components/inviteSentButton"
 import prisma from "@/db"
 import getEvent from "@/utils/getEvent"
-import updateInviteSent from "@/utils/updateInviteSent"
+import { Guest } from "@prisma/client"
 
 export default async function Event({
   params: { eventName },
@@ -174,7 +174,7 @@ export default async function Event({
         >
           <h2>Number of invited Guests: {guestlist.length}</h2>
 
-          {guestlist.map((guest, index) => (
+          {guestlist.map((guest: Guest, index) => (
             <div
               key={index}
               style={{
