@@ -1,18 +1,25 @@
 .header {
-  height: auto;
   background-color: transparent;
   text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
   z-index: 100;
+
+  .header-desktop {
+    display: none;
+  }
 }
 
-// .header img {
-//   padding: 10px;
-// }
+@media (min-width: 1024px) {
+  .header {
+    margin-top: 0;
 
-// @media (min-width: 1024px) {
-//   .header {
-//     img {
-//       width: 500px;
-//     }
-//   }
-// }
+    .header-mobile {
+      display: none;
+    }
+
+    .header-desktop {
+      display: block;
+    }
+  }
+}

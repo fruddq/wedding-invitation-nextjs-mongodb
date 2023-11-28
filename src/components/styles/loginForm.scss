@@ -60,8 +60,6 @@
       font-family: "Plain text";
 
       .form-wrapper {
-        width: 100%;
-
         label {
           font-size: 1.2rem;
           margin-bottom: 5px;
@@ -134,12 +132,6 @@
 
       .form-container {
         width: 70%;
-
-        .form-wrapper {
-          .login-input {
-            width: 91%;
-          }
-        }
       }
     }
 
