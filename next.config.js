@@ -4,8 +4,8 @@ const nextConfig = {
       serverActions: true,
     },
     basePath: '/github-pages',
-    reactStrictMode: true,
-    trailingSlash: true,
+    // reactStrictMode: true,
+    // trailingSlash: true,
   };
   
   module.exports = nextConfig;
