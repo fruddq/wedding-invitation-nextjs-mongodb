@@ -3,7 +3,7 @@ const nextConfig = {
     experimental: {
       serverActions: true,
     },
-    basePath: '/github-pages',
+    // basePath: '/github-pages',
     // reactStrictMode: true,
     // trailingSlash: true,
   };
