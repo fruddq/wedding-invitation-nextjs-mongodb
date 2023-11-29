@@ -14,7 +14,6 @@ import Outro from "@/components/outro"
 import Header from "@/components/header"
 import "./style.scss"
 import { Pagination } from "@/components/pagination"
-import { PacmanLoader } from "react-spinners"
 
 export type AdditionalGuest = {
   firstName: string

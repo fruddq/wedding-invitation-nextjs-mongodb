@@ -1,63 +1,52 @@
 import { GuestInterface } from "@/app/invitation/[inviteCode]/page"
 import InviteSentButton from "@/components/inviteSentButton"
-import prisma from "@/db"
 import getEvent from "@/utils/getEvent"
+import inviteGuest from "@/utils/inviteGuest"
+import updateEventPassword from "@/utils/updateEventPassword"
+import updateRsvpDate from "@/utils/updateRsvpDate"
+import "./style.scss"
 
 export default async function Event({
-  params: { eventName },
+  params: { eventName: eventNameParam },
 }: {
   readonly params: { readonly eventName: string }
 }) {
-  // Nextjs har en bugg som visar fel param( I detta fall filer, söker efter filer med ".")
-  if (eventName.includes(".")) {
+  if (eventNameParam.includes(".")) {
     return null
   }
 
-  const event = await getEvent(eventName)
+  const event = await getEvent(eventNameParam)
 
-  if (event) {
-    const {
-      guestlist,
-      RSVPDate,
-      id,
-      eventName,
-      eventDate,
-      password,
-      inviteLink,
-    } = event
+  if (!event) {
+    return null
+  }
 
-    // await prisma.event.update({
-    //   where: {
-    //     id,
-    //   },
-    //   data: {
-    //     inviteLink: "NaniFruddWedding2024",
-    //   },
-    // })
-    return (
-      <div>
-        <h1>Event: {eventName}</h1>
+  const {
+    guestlist,
+    RSVPDate,
+    id,
+    eventName,
+    eventDate,
+    password,
+    inviteLink,
+  } = event
 
-        <p>Event Date: {eventDate.toLocaleDateString()}</p>
-        <p>RSVP Date: {RSVPDate?.toLocaleDateString() || "N/A"}</p>
-        <p>Invite Link: {inviteLink}</p>
+  return (
+    <div>
+      <h1 className="event-name"> {eventName}</h1>
+      <div className="event-settings">
+        <div className="event-info">
+          <p>Event Date: {eventDate.toLocaleDateString()}</p>
+          <p>RSVP Date: {RSVPDate?.toLocaleDateString() || "N/A"}</p>
+          <p>Invite Link: {inviteLink}</p>
+        </div>
 
         <form
+          className="login-form"
           action={async (data: FormData) => {
             "use server"
-
-            const password = data.get("password") as string
-
-            await prisma.event.update({
-              where: {
-                id,
-              },
-              data: {
-                password,
-              },
-            })
+            await updateEventPassword(data, id)
           }}
-          className="login-form"
         >
           <div className="form-field">
             <label htmlFor="password">Password:</label>
@@ -71,18 +60,7 @@ export default async function Event({
         <form
           action={async (data: FormData) => {
             "use server"
-
-            const date = data.get("rsvp-date") as string
-            const RSVPDate = new Date(date)
-
-            await prisma.event.update({
-              where: {
-                id,
-              },
-              data: {
-                RSVPDate,
-              },
-            })
+            await updateRsvpDate(data, id)
           }}
           className="login-form"
         >
@@ -98,34 +76,7 @@ export default async function Event({
         <form
           action={async (data: FormData) => {
             "use server"
-            const firstName = data.get("first-name") as string
-            const lastName = data.get("last-name") as string
-            const additionalGuestFirstName = data.get(
-              "additional-guest-first-name"
-            ) as string
-            const additionalGuestLastName = data.get(
-              "additional-guest-last-name"
-            ) as string
-
-            const additionalGuests = {
-              firstName: additionalGuestFirstName,
-              lastName: additionalGuestLastName,
-            }
-
-            await prisma.event.update({
-              where: { id }, // Replace with the actual ID of the event you want to update
-              data: {
-                guestlist: {
-                  create: [
-                    {
-                      firstName,
-                      lastName,
-                      additionalGuests,
-                    },
-                  ],
-                },
-              },
-            })
+            await inviteGuest(data, id)
           }}
           className="login-form"
         >
@@ -161,88 +112,93 @@ export default async function Event({
 
           <button type="submit">Invite guest</button>
         </form>
-
-        <br />
-
-        <div
-          style={{
-            fontFamily: "Arial, sans-serif",
-            margin: "20px",
-            padding: "10px",
-            border: "1px solid #ccc",
-          }}
-        >
-          <h2>Number of invited Guests: {guestlist.length}</h2>
-
-          {guestlist.map((guest: GuestInterface, index) => (
-            <div
-              key={index}
-              style={{
-                border: "1px solid #ddd",
-                padding: "10px",
-                marginBottom: "10px",
-              }}
-            >
-              <p style={{ fontWeight: "bold", margin: 0 }}>
-                First Name: {guest.firstName}
-              </p>
-              <hr style={{ borderTop: "1px solid #ddd", margin: "5px 0" }} />{" "}
-              {/* Add line after First Name */}
-              <p style={{ margin: 0 }}>Last Name: {guest.lastName}</p>
-              <hr
-                style={{ borderTop: "1px solid #ddd", margin: "5px 0" }}
-              />{" "}
-              {/* Add line after Last Name */}
-              <p style={{ margin: 0 }}>Email: {guest.email || "N/A"}</p>
-              <hr
-                style={{ borderTop: "1px solid #ddd", margin: "5px 0" }}
-              />{" "}
-              {/* Add line after Email */}
-              <p style={{ margin: 0 }}>
-                Phone Number: {guest.phoneNumber || "N/A"}
-              </p>
-              <hr style={{ borderTop: "1px solid #ddd", margin: "5px 0" }} />{" "}
-              {/* Add line after Phone Number */}
-              <p style={{ margin: 0 }}>Diet: {guest.diet || "N/A"}</p>
-              <hr
-                style={{ borderTop: "1px solid #ddd", margin: "5px 0" }}
-              />{" "}
-              {/* Add line after Diet */}
-              <p style={{ margin: 0 }}>Comments: {guest.comments || "N/A"}</p>
-              <hr
-                style={{ borderTop: "1px solid #ddd", margin: "5px 0" }}
-              />{" "}
-              <hr style={{ borderTop: "1px solid #ddd", margin: "5px 0" }} />{" "}
-              {/* Add line after Additional Guests */}
-              <p style={{ margin: 0 }}>
-                Attending: {guest.attending ? "Yes" : "No"}
-              </p>
-              <hr style={{ borderTop: "1px solid #ddd", margin: "5px 0" }} />{" "}
-              {/* Add line after Attending */}
-              <p style={{ margin: 0 }}>
-                Has Responded: {guest.hasResponded ? "Yes" : "No"}
-              </p>
-              <hr style={{ borderTop: "1px solid #ddd", margin: "5px 0" }} />{" "}
-              Invite Sent: <InviteSentButton guest={guest} />
-              {guest.additionalGuests.length > 0 && (
-                <div>
-                  <p style={{ fontWeight: "bold", margin: 0 }}>
-                    Additional Guests:
-                  </p>
-                  {guest.additionalGuests.map((additionalGuest, index) => (
-                    <ul key={index}>
-                      <li>First Name: {additionalGuest.firstName}</li>
-                      <li>Last Name: {additionalGuest.lastName}</li>
-                      <li>Diet: {additionalGuest.diet || "N/A"}</li>
-                      <li>Comment: {additionalGuest.comments || "N/A"}</li>
-                    </ul>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
       </div>
-    )
-  }
+
+      <div className="guestlist-container">
+        <h2 className="guestlist-header">
+          Number of invited Guests: {guestlist.length}
+        </h2>
+
+        {guestlist.map((guest: GuestInterface, index) => (
+          <div key={index} className="guest-container">
+            <div className="guest-info">
+              <p className="guest-info-item guest-info-name">
+                <span className="guest-info-label">First Name:</span>{" "}
+                {guest.firstName}
+              </p>
+              <hr />
+              <p className="guest-info-item guest-info-lastname">
+                <span className="guest-info-label">Last Name:</span>{" "}
+                {guest.lastName}
+              </p>
+              <hr />
+              <p className="guest-info-item guest-info-email">
+                <span className="guest-info-label">Email:</span>{" "}
+                {guest.email || "N/A"}
+              </p>
+              <hr />
+              <p className="guest-info-item guest-info-phone">
+                <span className="guest-info-label">Phone Number:</span>{" "}
+                {guest.phoneNumber || "N/A"}
+              </p>
+              <hr />
+              <p className="guest-info-item guest-info-diet">
+                <span className="guest-info-label">Diet:</span>{" "}
+                {guest.diet || "N/A"}
+              </p>
+              <hr />
+              <p className="guest-info-item guest-info-comments">
+                <span className="guest-info-label">Comments:</span>{" "}
+                {guest.comments || "N/A"}
+              </p>
+              <hr />
+            </div>
+
+            <p className="guest-attendance-status">
+              <span className="attendance-label">Attending:</span>{" "}
+              {guest.attending ? "Yes" : "No"}
+            </p>
+            <hr />
+            <p className="guest-response-status">
+              <span className="response-label">Has Responded:</span>{" "}
+              {guest.hasResponded ? "Yes" : "No"}
+            </p>
+            <hr />
+            <div className="guest-invite-action">
+              <span className="invite-label">Invite Sent:</span>{" "}
+              <InviteSentButton guest={guest} />
+            </div>
+
+            {guest.additionalGuests.length > 0 && (
+              <div className="additional-guests-container">
+                <p className="additional-guests-header">Additional Guests:</p>
+                {guest.additionalGuests.map((additionalGuest, index) => (
+                  <div key={index} className="additional-guest">
+                    <ul className="additional-guest-details">
+                      <li className="additional-guest-detail-item">
+                        <span className="detail-label">First Name:</span>{" "}
+                        {additionalGuest.firstName}
+                      </li>
+                      <li className="additional-guest-detail-item">
+                        <span className="detail-label">Last Name:</span>{" "}
+                        {additionalGuest.lastName}
+                      </li>
+                      <li className="additional-guest-detail-item">
+                        <span className="detail-label">Diet:</span>{" "}
+                        {additionalGuest.diet || "N/A"}
+                      </li>
+                      <li className="additional-guest-detail-item">
+                        <span className="detail-label">Comment:</span>{" "}
+                        {additionalGuest.comments || "N/A"}
+                      </li>
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  )
 }
