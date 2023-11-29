@@ -1,0 +1,20 @@
+@import "./constants.scss";
+
+.invite-sent-button,
+.loader-container {
+  width: 50px; // Smaller width
+  height: 20px; // Adjust height accordingly
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px; // Smaller font size
+  cursor: pointer;
+  margin-left: auto; // Pushes the button to the right within a flex container
+}
+
+.invite-sent-button {
+  background-color: #007bff; /* Example color for the button */
+}
