@@ -7,8 +7,8 @@ export default function Outro() {
       <section className="wrapper-outro">
         <article className="text-container">
           <h1 className="outro-title">
-            See you on our <br />
-            big day!
+            See you on <br />
+            the 29/6 2024!
           </h1>
           <p className="outro-text">Your presence will mean so much to us</p>
         </article>

@@ -14,48 +14,71 @@
     align-items: center;
     transform: translateX(0);
     background-color: rgba(0, 0, 0, 0.6);
-    padding: 20px;
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-  }
 
-  button {
-    margin: 10px;
-    padding: 12px 24px;
-    border: 2px solid #bf9965;
-    background-color: #f0d3ab;
-    color: #4d4b5e;
-    font-size: 16px;
-    font-weight: bold;
-    text-transform: uppercase;
-    width: 300px;
-    cursor: pointer;
-    border-radius: 15px;
-    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+    .menu-wrapper {
+      width: 100%;
+      height: 80%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
 
-    &:hover {
-      background-color: #ddb071;
-      border-color: #e4af64;
-      box-shadow: 0 4px 8px rgba(194, 185, 207, 0.4);
-    }
+      overflow: auto;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-color: #bf9965 #f0d3ab; // For Firefox
+      scrollbar-width: thin;
 
-    &.active {
-      background-color: #d18c2d;
-      border-color: #d18c2d;
-      color: #fff;
-    }
+      button {
+        margin: 10px;
+        padding: 12px 24px;
+        border: 2px solid #bf9965;
+        background-color: #f0d3ab;
+        color: #4d4b5e;
+        font-size: 16px;
+        font-weight: bold;
+        text-transform: uppercase;
+        width: 300px;
+        cursor: pointer;
+        border-radius: 15px;
+        transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
 
-    &.logout-btn {
-      background-color: rgb(243, 146, 146);
-      border: rgb(243, 146, 146);
+        &:hover {
+          background-color: #ddb071;
+          border-color: #e4af64;
+          box-shadow: 0 4px 8px rgba(194, 185, 207, 0.4);
+        }
 
-      &:hover {
-        background-color: rgb(175, 88, 88);
-        color: whitesmoke;
+        &.active {
+          background-color: #d18c2d;
+          border-color: #d18c2d;
+          color: #fff;
+        }
+
+        &.logout-btn {
+          background-color: rgb(243, 146, 146);
+          border: rgb(243, 146, 146);
+
+          &:hover {
+            background-color: rgb(175, 88, 88);
+            color: whitesmoke;
+          }
+        }
       }
+    }
+
+    .menu-wrapper::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    .menu-wrapper::-webkit-scrollbar-thumb {
+      background-color: #bf9965;
+      border-radius: 6px;
     }
   }
 }
@@ -108,6 +131,14 @@
 }
 
 @media (min-width: 800px) {
+  .menu {
+    &.open {
+      .menu-wrapper {
+        overflow: unset;
+      }
+    }
+  }
+
   .hamburger-menu {
     width: 50px;
     height: 50px;

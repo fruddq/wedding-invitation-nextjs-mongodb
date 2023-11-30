@@ -14,7 +14,16 @@ export default function DressCode() {
         </h1>
         <h3 className="dress-code-subtitle">Semi-formal attire</h3>
         <div className="tips">
-          <p className="tips-text">Here are some reading tips:</p>
+          <div className="img-wrapper">
+            <Image
+              className="thesrpuce-img"
+              src={"/the-spruce-attire.webp"}
+              alt="The Spruce Attire guidelines"
+              width={330}
+              height={240}
+            />
+          </div>
+          <h4 className="tips-header">Here are some reading tips:</h4>
           <Link
             href="https://www.thespruce.com/semi-formal-attire-guidelines-1216504"
             target="_blank"
@@ -38,7 +47,14 @@ export default function DressCode() {
         </div>
       </article>
       <article className="hide-mobile">
-        <Image src="/dresscode.png" alt="Dress code" width={500} height={600} />
+        {/* <Image src="/dresscode.png" alt="Dress code" width={500} height={600} /> */}
+        <Image
+          className="spruce-img-desktop"
+          src={"/the-spruce-attire.webp"}
+          alt="The Spruce Attire guidelines"
+          width={650}
+          height={450}
+        />
       </article>
     </section>
   );
