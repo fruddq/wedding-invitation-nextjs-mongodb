@@ -9,7 +9,7 @@
     color: #034a44;
     text-align: center;
     margin: 0;
-    padding-top: 90px;
+    padding-top: 50px;
   }
 
   p.info {
@@ -40,19 +40,29 @@
       height: 76%;
       overflow: scroll;
 
-      hr {
-        border: 1px solid #f9d4a6;
-        width: 200px;
-        margin: 10px 0 10px 0;
-        padding: 0;
+      .contacts-container {
+        .contacts-hr-top {
+          border: 1px solid #f9d4a6;
+          width: 200px;
+          margin-top: 20px;
+          margin-bottom: 20px;
+          padding: 0;
+        }
       }
 
       .toastmadame,
-      .toastmaster {
+      .toastmaster,
+      .bride-groom {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
+        .contacts-hr-bottom {
+          border: 1px solid #f9d4a6;
+          width: 200px;
+          padding: 0;
+        }
 
         .wrapper-toast {
           text-align: center;
@@ -101,11 +111,13 @@
       color: #034a44;
       text-align: center;
       margin: 0;
+      padding: 0;
     }
 
     p.info {
       text-align: center;
       margin: 0;
+      padding: 0;
       font-size: 1.2rem;
     }
 
@@ -114,45 +126,56 @@
       max-height: 100vh;
 
       .bg {
-        flex-direction: row;
+        flex-direction: column;
         justify-content: center;
-        margin: 0;
-        gap: 40%;
         overflow: unset;
 
-        hr {
-          display: none;
-        }
-
-        .toastmadame,
-        .toastmaster {
+        .contacts-container {
           display: flex;
-          flex-direction: column;
+          flex-direction: row;
           justify-content: center;
-          align-items: center;
+          align-items: baseline;
+          gap: 15%;
 
-          .wrapper-toast {
-            height: auto;
-            // width: 100%;
-          }
-          h3 {
-            font-size: 1.7rem;
-          }
-          h4 {
-            font-size: 1.5rem;
+          .contacts-hr-top {
+            display: none;
           }
 
-          p.name {
-            font-size: 3rem;
-          }
+          .toastmadame,
+          .toastmaster {
+            margin: 0;
+            padding: 0;
 
-          p.phone,
-          p.email {
-            font-size: 1.2rem;
-          }
-          .pic {
-            width: 150px;
-            height: 150px;
+            .contacts-hr-bottom {
+              display: none;
+            }
+
+            .wrapper-toast {
+              height: auto;
+              // width: 100%;
+            }
+
+            h3 {
+              font-size: 1.7rem;
+            }
+
+            h4 {
+              font-size: 1.5rem;
+            }
+
+            p.name {
+              font-size: 3rem;
+            }
+
+            p.phone,
+            p.email {
+              font-size: 1.2rem;
+            }
+
+            .pic {
+              width: 150px;
+              height: 150px;
+            }
           }
         }
       }
