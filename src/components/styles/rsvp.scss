@@ -2,7 +2,6 @@
 
 .container-rsvp {
   margin-top: -130px;
-  height: 100vh;
   padding: 5%;
   font-family: "Overpass";
 
@@ -22,7 +21,6 @@
   }
 
   .guest-info {
-    // background-color: #fbdfbd;
     border-radius: 15px;
     color: $plainTextColor-redish;
     font-size: 1.2rem;
@@ -31,7 +29,7 @@
   .title-rsvp {
     font-size: 3rem;
     text-align: center;
-    padding-top: 120px;
+    padding-top: 60px;
     font-family: "Header";
     color: $headerColor-greenish;
   }
