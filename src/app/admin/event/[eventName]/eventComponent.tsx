@@ -9,6 +9,7 @@ import "./style.scss"
 import { Event } from "./page"
 import { useState } from "react"
 import { PasswordFormComponent } from "./passwordForm"
+import PacmanLoader from "react-spinners/PacmanLoader"
 
 interface EventComponentProps {
   event: Event
@@ -17,6 +18,7 @@ export default function EventComponent({
   event: eventDB,
 }: EventComponentProps) {
   const [event, setEvent] = useState<Event>(eventDB)
+  const [loading, setLoading] = useState(false)
 
   const {
     guestlist,
@@ -28,8 +30,21 @@ export default function EventComponent({
     inviteLink,
   } = event
 
+  console.log(loading)
   return (
     <div>
+      {loading && (
+        <div className="loader-container">
+          <PacmanLoader
+            color="orange"
+            loading={loading}
+            size={20}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+          />
+        </div>
+      )}
+
       <h1 className="event-name"> {eventName}</h1>
       <div className="event-settings">
         <div className="event-info">
@@ -38,7 +53,11 @@ export default function EventComponent({
           <p>Invite Link: {inviteLink}</p>
         </div>
 
-        <PasswordFormComponent event={event} setEvent={setEvent} />
+        <PasswordFormComponent
+          event={event}
+          setEvent={setEvent}
+          setLoading={setLoading}
+        />
         {/* 
         <form
           className="password-form"

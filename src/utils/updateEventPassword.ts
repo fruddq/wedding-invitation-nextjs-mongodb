@@ -9,7 +9,6 @@ async function updateEventPassword(data: FormData, id: string) {
         data: { password },
     });
 
-    console.log("succes")
     return result.password
 }
 
