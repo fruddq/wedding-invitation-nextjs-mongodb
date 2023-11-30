@@ -181,39 +181,41 @@ export default function InvitationMenu({
         <div className="line"></div>
       </div>
       <div className={`menu ${isHamburgerMenuOpen ? "open" : ""}`}>
-        <button onClick={handleWelcomePage} className={showWelcomePage ? "active" : ""}>
-          Welcome page
-        </button>
-        <button onClick={handleProposal} className={showTheProposal ? "active" : ""}>
-          THE PROPOSAL
-        </button>
-        <button onClick={handleSaveTheDate} className={showSaveTheDate ? "active" : ""}>
-          Save The date
-        </button>
-        <button onClick={handleTheBigDay} className={showTheBigDay ? "active" : ""}>
-          THE BIG DAY
-        </button>
-        <button onClick={handleDressCode} className={showDressCode ? "active" : ""}>
-          Dress code
-        </button>
-        <button
-          onClick={handleAdditionalInfo}
-          className={showAdditionalInformation ? "active" : ""}
-        >
-          Additional information
-        </button>
-        <button onClick={handleContacts} className={showContacts ? "active" : ""}>
-          Contacts
-        </button>
-        <button onClick={handleRSVP} className={showRsvp ? "active" : ""}>
-          RSVP
-        </button>
-        <button onClick={handleSeeYou} className={showSeeYou ? "active" : ""}>
-          See you
-        </button>
-        <button className="logout-btn" onClick={handleLogout}>
-          Logout
-        </button>
+        <div className="menu-wrapper">
+          <button onClick={handleWelcomePage} className={showWelcomePage ? "active" : ""}>
+            Welcome page
+          </button>
+          <button onClick={handleProposal} className={showTheProposal ? "active" : ""}>
+            THE PROPOSAL
+          </button>
+          <button onClick={handleSaveTheDate} className={showSaveTheDate ? "active" : ""}>
+            Save The date
+          </button>
+          <button onClick={handleTheBigDay} className={showTheBigDay ? "active" : ""}>
+            THE BIG DAY
+          </button>
+          <button onClick={handleDressCode} className={showDressCode ? "active" : ""}>
+            Dress code
+          </button>
+          <button
+            onClick={handleAdditionalInfo}
+            className={showAdditionalInformation ? "active" : ""}
+          >
+            Additional information
+          </button>
+          <button onClick={handleContacts} className={showContacts ? "active" : ""}>
+            Contacts
+          </button>
+          <button onClick={handleRSVP} className={showRsvp ? "active" : ""}>
+            RSVP
+          </button>
+          <button onClick={handleSeeYou} className={showSeeYou ? "active" : ""}>
+            See you
+          </button>
+          <button className="logout-btn" onClick={handleLogout}>
+            Logout
+          </button>
+        </div>
       </div>
       {isHamburgerMenuOpen && <div className="overlay" onClick={toggleHamburgerMenu} />}
     </>
