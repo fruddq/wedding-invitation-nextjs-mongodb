@@ -6,10 +6,11 @@ import inviteGuest from "@/utils/inviteGuest"
 import updateEventPassword from "@/utils/updateEventPassword"
 import updateRsvpDate from "@/utils/updateRsvpDate"
 import "./style.scss"
-import { Event } from "./page"
 import { useState } from "react"
 import { PasswordFormComponent } from "./passwordForm"
 import PacmanLoader from "react-spinners/PacmanLoader"
+import { Event } from "@/interface/interface"
+import { InviteGuestForm } from "./inviteGuestForm"
 
 interface EventComponentProps {
   event: Event
@@ -58,24 +59,10 @@ export default function EventComponent({
           setEvent={setEvent}
           setLoading={setLoading}
         />
-        {/* 
-        <form
-          className="password-form"
-          action={async (data: FormData) => {
-            "use server"
-            await updateEventPassword(data, id)
-          }}
-        >
-          <div className="form-field">
-            <label htmlFor="password">Password:</label>
-            <input id="password" name="password" placeholder={password || ""} />
-          </div>
-          <button type="submit">Change Password</button>
-        </form> */}
 
         <br />
-        {/* 
-        <form
+
+        {/* <form
           action={async (data: FormData) => {
             "use server"
             await updateRsvpDate(data, id)
@@ -87,11 +74,16 @@ export default function EventComponent({
             <input type="date" id="rsvp-date" name="rsvp-date" />
           </div>
           <button type="submit">Change RSVP Date</button>
-        </form>
+        </form> */}
 
         <br />
 
-        <form
+        <InviteGuestForm
+          event={event}
+          setEvent={setEvent}
+          setLoading={setLoading}
+        />
+        {/* <form
           action={async (data: FormData) => {
             "use server"
             await inviteGuest(data, id)

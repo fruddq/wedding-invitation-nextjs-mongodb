@@ -1,3 +1,4 @@
+"use server"
 import prisma from "@/db";
 
 async function inviteGuest(data: FormData, id: string) {

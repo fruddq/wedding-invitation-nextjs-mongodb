@@ -1,17 +1,12 @@
+import { Event } from "@/interface/interface"
+import { updateEventProps } from "@/interface/props.ts/props"
 import updateEventPassword from "@/utils/updateEventPassword"
-import { Event } from "./page"
-
-interface passwordFormProps {
-  event: Event
-  setEvent: React.Dispatch<React.SetStateAction<Event>>
-  setLoading: React.Dispatch<React.SetStateAction<boolean>>
-}
 
 export const PasswordFormComponent = ({
   event,
   setEvent,
   setLoading,
-}: passwordFormProps) => {
+}: updateEventProps) => {
   const { id, password } = event
 
   const handleUpdatePassword = async (data: FormData) => {
