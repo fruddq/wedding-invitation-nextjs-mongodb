@@ -78,11 +78,11 @@ export default function EventComponent({
 
         <br />
 
-        <InviteGuestForm
+        {/* <InviteGuestForm
           event={event}
           setEvent={setEvent}
           setLoading={setLoading}
-        />
+        /> */}
         {/* <form
           action={async (data: FormData) => {
             "use server"

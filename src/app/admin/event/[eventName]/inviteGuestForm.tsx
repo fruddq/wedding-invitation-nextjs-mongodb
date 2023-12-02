@@ -8,13 +8,16 @@ export const InviteGuestForm = ({
 }: updateEventProps) => {
   const { id } = event
 
-  const handleInviteGuest = async (data: FormData) => {
+  const handleInviteGuest = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
     setTimeout(() => setLoading(true), 0)
+
+    const data = new FormData(e.currentTarget)
     await inviteGuest(data, id)
   }
 
   return (
-    <form action={handleInviteGuest}>
+    <form onSubmit={handleInviteGuest}>
       <div className="form-field">
         <label htmlFor="first-name">First Name: </label>
         <input id="first-name" name="first-name" />

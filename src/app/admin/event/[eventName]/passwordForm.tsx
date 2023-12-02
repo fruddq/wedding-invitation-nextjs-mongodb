@@ -9,8 +9,11 @@ export const PasswordFormComponent = ({
 }: updateEventProps) => {
   const { id, password } = event
 
-  const handleUpdatePassword = async (data: FormData) => {
+  const handleUpdatePassword = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
     setTimeout(() => setLoading(true), 0)
+
+    const data = new FormData(e.currentTarget)
 
     const newPassword = await updateEventPassword(data, id)
 
@@ -21,7 +24,7 @@ export const PasswordFormComponent = ({
   }
 
   return (
-    <form className="password-form" action={handleUpdatePassword}>
+    <form className="password-form" onSubmit={handleUpdatePassword}>
       <div className="form-field">
         <label htmlFor="password">Password:</label>
         <input id="password" name="password" placeholder={password || ""} />
