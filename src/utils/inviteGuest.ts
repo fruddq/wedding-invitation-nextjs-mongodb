@@ -16,10 +16,10 @@ async function inviteGuest(data: FormData, id: string) {
         lastName: additionalGuestLastName,
     }
 
-    await prisma.event.update({
+    const result = await prisma.event.update({
         where: { id }, // Replace with the actual ID of the event you want to update
         data: {
-            guestlist: {
+            guestList: {
                 create: [
                     {
                         firstName,
@@ -30,6 +30,8 @@ async function inviteGuest(data: FormData, id: string) {
             },
         },
     })
+
+    console.log(result)
 }
 
 export default inviteGuest;

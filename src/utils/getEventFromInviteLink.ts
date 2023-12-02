@@ -7,7 +7,7 @@ const getEventFromInviteLink = async () => {
         where: {
             inviteLink: "NaniFruddWedding2024"
         },
-        include: { guestlist: true },
+        include: { guestList: true },
     })
 
     if (event) {

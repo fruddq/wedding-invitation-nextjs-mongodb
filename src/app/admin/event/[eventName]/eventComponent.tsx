@@ -22,7 +22,7 @@ export default function EventComponent({
   const [loading, setLoading] = useState(false)
 
   const {
-    guestlist,
+    guestList,
     RSVPDate,
     id,
     eventName,
@@ -31,7 +31,6 @@ export default function EventComponent({
     inviteLink,
   } = event
 
-  console.log(loading)
   return (
     <div>
       {loading && (
@@ -49,8 +48,8 @@ export default function EventComponent({
       <h1 className="event-name"> {eventName}</h1>
       <div className="event-settings">
         <div className="event-info">
-          <p>Event Date: {eventDate.toLocaleDateString()}</p>
-          <p>RSVP Date: {RSVPDate?.toLocaleDateString() || "N/A"}</p>
+          {/* <p>Event Date: {eventDate.toLocaleDateString()}</p>
+          <p>RSVP Date: {RSVPDate?.toLocaleDateString() || "N/A"}</p> */}
           <p>Invite Link: {inviteLink}</p>
         </div>
 
@@ -123,10 +122,10 @@ export default function EventComponent({
 
       <div className="guestlist-container">
         <h2 className="guestlist-header">
-          Number of invited Guests: {guestlist.length}
+          Number of invited Guests: {guestList.length}
         </h2>
 
-        {guestlist.map((guest: GuestInterface, index) => (
+        {guestList.map((guest: GuestInterface, index) => (
           <div key={index} className="guest-container">
             <div className="guest-info">
               <p className="guest-info-item guest-info-name">

@@ -31,7 +31,7 @@ import { Event, Guest } from "@prisma/client"
 //   eventPlannerUserId: string; // annotated with @db.ObjectId
 //   password?: string;
 //   inviteLink?: string;
-//   guestlist: Guest[];
+//   guestList: Guest[];
 // }
 
 export default async function Admin() {
@@ -45,7 +45,7 @@ export default async function Admin() {
       where: {
         eventPlannerUserId: id,
       },
-      // include: { guestlist: true },
+      // include: { guestList: true },
     })
 
     console.log(events)

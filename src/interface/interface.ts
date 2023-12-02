@@ -23,7 +23,7 @@ export interface GuestInterface {
 }
 
 export interface Event {
-    guestlist: GuestInterface[]
+    guestList: GuestInterface[]
     RSVPDate: Date | null
     id: string
     eventName: string | null

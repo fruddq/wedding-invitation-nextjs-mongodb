@@ -10,7 +10,7 @@ const getEvent = async (eventName: string) => {
                 eventName,
                 eventPlannerUserId: userId, // Optionally filter by eventPlannerUserId if needed
             },
-            include: { guestlist: true },
+            include: { guestList: true },
         })
 
         if (event) {

@@ -10,10 +10,22 @@ export const InviteGuestForm = ({
 
   const handleInviteGuest = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setTimeout(() => setLoading(true), 0)
+    // setTimeout(() => setLoading(true), 0)
 
     const data = new FormData(e.currentTarget)
-    await inviteGuest(data, id)
+    const newGuest = {
+      firstName: data.get("first-name") as string,
+      lastName: data.get("last-name") as string,
+      additionalGuests: {
+        firstName: data.get("additional-guest-first-name") as string,
+        lastName: data.get("additional-guest-last-name") as string,
+      },
+    }
+
+    // await inviteGuest(data, id)
+    // event.guestlist.push()
+    console.log(event.guestList[0], "Guest 0")
+    // setLoading(false)
   }
 
   return (
