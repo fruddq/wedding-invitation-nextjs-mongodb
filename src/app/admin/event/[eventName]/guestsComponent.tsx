@@ -10,50 +10,12 @@ export const GuestsComponent = ({
   const { guestList } = event
 
   const [editModeId, setEditModeId] = useState<string | null>(null)
-  const [editedValues, setEditedValues] = useState({
-    email: "",
-    phoneNumber: "",
-    diet: "",
-    comments: "",
-    attending: false,
-    hasResponded: false,
-    inviteSent: false,
-    additionalGuest: [],
-  })
 
   const handleEditClick = (guestId: string) => {
     setEditModeId(guestId)
-    const guestToEdit = guestList.find((guest) => guest.id === guestId)
-    // console.log(guestToEdit)
-    // Set the initial values for editing
-    // setEditedValues({
-    //   email: guestToEdit?.email || "",
-    //   phoneNumber: guestToEdit?.phoneNumber || "",
-    //   diet: guestToEdit?.diet || "",
-    //   comments: guestToEdit?.comments || "",
-    //   attending: guestToEdit?.attending || false,
-    //   hasResponded: guestToEdit?.hasResponded || false,
-    //   inviteSent: guestToEdit?.inviteSent || "",
-    //   // additionalGuest: guestToEdit?.additionalGuest || [],
-    // })
   }
 
   const handleSaveClick = () => {
-    // Save the edited values and exit edit mode
-    // setEvent((prevEvent) => ({
-    //   ...prevEvent,
-    //   guestList: prevEvent.guestList.map((guest) =>
-    //     guest.id === editModeId
-    //       ? {
-    //           ...guest,
-    //           email: editedValues.email,
-    //           phoneNumber: editedValues.phoneNumber,
-    //           diet: editedValues.diet,
-    //           comments: editedValues.comments,
-    //         }
-    //       : guest
-    //   ),
-    // }))
     setEditModeId(null)
   }
 
@@ -98,16 +60,7 @@ export const GuestsComponent = ({
             <p className="guest-info-item guest-info-email">
               <span className="guest-info-label">Email:</span>
               {editModeId === guest.id ? (
-                <input
-                  type="text"
-                  value={guest.email || "N/A"}
-                  onChange={(e) =>
-                    setEditedValues({
-                      ...editedValues,
-                      email: e.target.value,
-                    })
-                  }
-                />
+                <input type="text" defaultValue={guest.email || "N/A"} />
               ) : (
                 guest.email || "N/A"
               )}
@@ -117,16 +70,7 @@ export const GuestsComponent = ({
             <p className="guest-info-item guest-info-phone">
               <span className="guest-info-label">Phone Number:</span>
               {editModeId === guest.id ? (
-                <input
-                  type="text"
-                  value={guest.phoneNumber || "N/A"}
-                  onChange={(e) =>
-                    setEditedValues({
-                      ...editedValues,
-                      phoneNumber: e.target.value,
-                    })
-                  }
-                />
+                <input type="text" defaultValue={guest.phoneNumber || "N/A"} />
               ) : (
                 guest.phoneNumber || "N/A"
               )}
@@ -136,13 +80,7 @@ export const GuestsComponent = ({
             <p className="guest-info-item guest-info-diet">
               <span className="guest-info-label">Diet:</span>
               {editModeId === guest.id ? (
-                <input
-                  type="text"
-                  value={guest.diet || "N/A"}
-                  onChange={(e) =>
-                    setEditedValues({ ...editedValues, diet: e.target.value })
-                  }
-                />
+                <input type="text" defaultValue={guest.diet || "N/A"} />
               ) : (
                 guest.diet || "N/A"
               )}
@@ -152,16 +90,7 @@ export const GuestsComponent = ({
             <p className="guest-info-item guest-info-comments">
               <span className="guest-info-label">Comments:</span>
               {editModeId === guest.id ? (
-                <input
-                  type="text"
-                  value={guest.comments || "N/A"}
-                  onChange={(e) =>
-                    setEditedValues({
-                      ...editedValues,
-                      comments: e.target.value,
-                    })
-                  }
-                />
+                <input type="text" defaultValue={guest.comments || "N/A"} />
               ) : (
                 guest.comments || "N/A"
               )}
