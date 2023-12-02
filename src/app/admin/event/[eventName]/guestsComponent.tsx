@@ -1,13 +1,21 @@
 import { updateEventProps } from "@/interface/props.ts/props"
-import inviteGuest from "@/utils/inviteGuest"
 import { Event, GuestInterface } from "@/interface/interface"
 import InviteSentButton from "@/components/inviteSentButton"
+import { useState } from "react"
 export const GuestsComponent = ({
   event,
   setEvent,
   setLoading,
 }: updateEventProps) => {
   const { guestList } = event
+
+  const [editModeId, setEditModeId] = useState(null) // null means no one is in edit mode
+  const [editedValues, setEditedValues] = useState({
+    email: "",
+    phoneNumber: "",
+    diet: "",
+    comments: "",
+  })
 
   return (
     <div className="guestlist-container">
@@ -19,49 +27,49 @@ export const GuestsComponent = ({
         <div key={index} className="guest-container">
           <div className="guest-info">
             <p className="guest-info-item guest-info-name">
-              <span className="guest-info-label">First Name:</span>{" "}
+              <span className="guest-info-label">First Name:</span>
               {guest.firstName}
             </p>
             <hr />
             <p className="guest-info-item guest-info-lastname">
-              <span className="guest-info-label">Last Name:</span>{" "}
+              <span className="guest-info-label">Last Name:</span>
               {guest.lastName}
             </p>
             <hr />
             <p className="guest-info-item guest-info-email">
-              <span className="guest-info-label">Email:</span>{" "}
+              <span className="guest-info-label">Email:</span>
               {guest.email || "N/A"}
             </p>
             <hr />
             <p className="guest-info-item guest-info-phone">
-              <span className="guest-info-label">Phone Number:</span>{" "}
+              <span className="guest-info-label">Phone Number:</span>
               {guest.phoneNumber || "N/A"}
             </p>
             <hr />
             <p className="guest-info-item guest-info-diet">
-              <span className="guest-info-label">Diet:</span>{" "}
+              <span className="guest-info-label">Diet:</span>
               {guest.diet || "N/A"}
             </p>
             <hr />
             <p className="guest-info-item guest-info-comments">
-              <span className="guest-info-label">Comments:</span>{" "}
+              <span className="guest-info-label">Comments:</span>
               {guest.comments || "N/A"}
             </p>
             <hr />
           </div>
 
           <p className="guest-attendance-status">
-            <span className="attendance-label">Attending:</span>{" "}
+            <span className="attendance-label">Attending:</span>
             {guest.attending ? "Yes" : "No"}
           </p>
           <hr />
           <p className="guest-response-status">
-            <span className="response-label">Has Responded:</span>{" "}
+            <span className="response-label">Has Responded:</span>
             {guest.hasResponded ? "Yes" : "No"}
           </p>
           <hr />
           <div className="guest-invite-action">
-            <span className="invite-label">Invite Sent:</span>{" "}
+            <span className="invite-label">Invite Sent:</span>
             <InviteSentButton guest={guest} />
           </div>
 
