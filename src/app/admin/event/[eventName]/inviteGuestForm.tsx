@@ -17,7 +17,7 @@ export const InviteGuestForm = ({
   }
 
   return (
-    <form onSubmit={handleInviteGuest}>
+    <form onSubmit={handleInviteGuest} className="event-settings-form">
       <div className="form-field">
         <label htmlFor="first-name">First Name: </label>
         <input id="first-name" name="first-name" />

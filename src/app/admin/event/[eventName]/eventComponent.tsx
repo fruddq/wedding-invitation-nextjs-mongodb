@@ -49,8 +49,8 @@ export default function EventComponent({
       <h1 className="event-name"> {eventName}</h1>
       <div className="event-settings">
         <div className="event-info">
-          {/* <p>Event Date: {eventDate.toLocaleDateString()}</p> */}
-          {/* <p>RSVP Date: {RSVPDate?.toLocaleDateString() || "N/A"}</p> */}
+          <p>Event Date: {eventDate.toLocaleDateString()}</p>
+          <p>RSVP Date: {RSVPDate?.toLocaleDateString() || "N/A"}</p>
           <p>Invite Link: {inviteLink}</p>
         </div>
 
@@ -59,7 +59,6 @@ export default function EventComponent({
           setEvent={setEvent}
           setLoading={setLoading}
         />
-
         <br />
 
         {/* <form
@@ -76,13 +75,11 @@ export default function EventComponent({
           <button type="submit">Change RSVP Date</button>
         </form> */}
 
-        <br />
-
-        {/* <InviteGuestForm
+        <InviteGuestForm
           event={event}
           setEvent={setEvent}
           setLoading={setLoading}
-        /> */}
+        />
         {/* <form
           action={async (data: FormData) => {
             "use server"

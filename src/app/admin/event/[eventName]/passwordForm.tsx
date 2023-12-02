@@ -24,7 +24,7 @@ export const PasswordFormComponent = ({
   }
 
   return (
-    <form className="password-form" onSubmit={handleUpdatePassword}>
+    <form className="event-settings-form" onSubmit={handleUpdatePassword}>
       <div className="form-field">
         <label htmlFor="password">Password:</label>
         <input id="password" name="password" placeholder={password || ""} />
