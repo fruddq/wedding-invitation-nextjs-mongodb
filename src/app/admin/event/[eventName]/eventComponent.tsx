@@ -11,6 +11,7 @@ import { PasswordFormComponent } from "./passwordForm"
 import PacmanLoader from "react-spinners/PacmanLoader"
 import { Event } from "@/interface/interface"
 import { InviteGuestForm } from "./inviteGuestForm"
+import { GuestsComponent } from "./guestsComponent"
 
 interface EventComponentProps {
   event: Event
@@ -50,7 +51,10 @@ export default function EventComponent({
         <div className="event-info">
           {/* <p>Event Date: {eventDate.toLocaleDateString()}</p>
           <p>RSVP Date: {RSVPDate?.toLocaleDateString() || "N/A"}</p> */}
-          <p>Invite Link: {inviteLink}</p>
+          <p>
+            Invite Link: {process.env.NEXT_PUBLIC_VERCEL_URL}/invitation/
+            {inviteLink}
+          </p>
         </div>
 
         <PasswordFormComponent
@@ -58,6 +62,7 @@ export default function EventComponent({
           setEvent={setEvent}
           setLoading={setLoading}
         />
+
         <br />
 
         {/* <form
@@ -79,48 +84,14 @@ export default function EventComponent({
           setEvent={setEvent}
           setLoading={setLoading}
         />
-        {/* <form
-          action={async (data: FormData) => {
-            "use server"
-            await inviteGuest(data, id)
-          }}
-          className="login-form"
-        >
-          <div className="form-field">
-            <label htmlFor="first-name">First Name: </label>
-            <input id="first-name" name="first-name" />
-          </div>
-
-          <div className="form-field">
-            <label htmlFor="last-name">Last Name: </label>
-            <input id="last-name" name="last-name" />
-          </div>
-
-          <div className="form-field">
-            <label htmlFor="additional-guest-first-name">
-              Additional Guest First name:
-            </label>
-            <input
-              id="additional-guest-first-name"
-              name="additional-guest-first-name"
-            />
-          </div>
-
-          <div className="form-field">
-            <label htmlFor="additional-guest-last-name">
-              Additional Guest Last name:
-            </label>
-            <input
-              id="additional-guest-last-name"
-              name="additional-guest-last-name"
-            />
-          </div>
-
-          <button type="submit">Invite guest</button>
-        </form> */}
       </div>
 
-      <div className="guestlist-container">
+      <GuestsComponent
+        event={event}
+        setEvent={setEvent}
+        setLoading={setLoading}
+      />
+      {/* <div className="guestlist-container">
         <h2 className="guestlist-header">
           Number of invited Guests: {guestList.length}
         </h2>
@@ -204,7 +175,7 @@ export default function EventComponent({
             )}
           </div>
         ))}
-      </div>
+      </div> */}
     </div>
   )
 }

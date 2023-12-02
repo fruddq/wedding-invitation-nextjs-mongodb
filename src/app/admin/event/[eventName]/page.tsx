@@ -1,6 +1,7 @@
 import getEvent from "@/utils/getEvent"
 import "./style.scss"
 import EventComponent from "./eventComponent"
+import { Event } from "@/interface/interface"
 
 export default async function Event({
   params: { eventName: eventNameParam },
@@ -11,7 +12,7 @@ export default async function Event({
     return null
   }
 
-  const event = await getEvent(eventNameParam)
+  const event = (await getEvent(eventNameParam)) as Event
 
   if (!event) {
     return null
