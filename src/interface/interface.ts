@@ -34,7 +34,7 @@ export interface Event {
 }
 
 export interface IGuestSettings {
-    id?: string
+    id: string
     email: string | null
     phoneNumber: string | null
     attending: boolean | null

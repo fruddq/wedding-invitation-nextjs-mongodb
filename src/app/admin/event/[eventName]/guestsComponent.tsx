@@ -16,7 +16,7 @@ export const GuestsComponent = ({
     setEditModeId(guestId)
   }
 
-  const handleSaveClick = (
+  const handleSaveClick = async (
     e: React.FormEvent<HTMLFormElement>,
     guestId: string
   ) => {
@@ -44,7 +44,7 @@ export const GuestsComponent = ({
       "additional-guest-comments"
     ) as string
 
-    const updatedGuest = adminUpdateGuest({
+    const updatedGuest = (await adminUpdateGuest({
       id: guestId,
       email,
       phoneNumber,
@@ -58,9 +58,17 @@ export const GuestsComponent = ({
       additionalGuestDiet,
       additionalGuestAllergies,
       additionalGuestComments,
-    })
+    })) as GuestInterface
 
-    setEditModeId(null)
+    if (updatedGuest) {
+      setEvent((prevEvent) => ({
+        ...prevEvent,
+        guestList: prevEvent.guestList.map((guest) =>
+          guest.id === updatedGuest.id ? updatedGuest : guest
+        ),
+      }))
+      setEditModeId(null)
+    }
   }
 
   const handleCancelClick = () => {

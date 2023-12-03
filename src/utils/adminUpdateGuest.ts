@@ -35,7 +35,14 @@ const adminUpdateGuest = async ({
         additionalGuestComments,
     })
 
-    const [additionalGuestFirstName, additionalGuestLastName] = additionalGuestName.split(' ')
+    let additionalGuestFirstName = ""
+    let additionalGuestLastName = ""
+    if (additionalGuestName) {
+
+        const [tempFirstName, tempLastName] = additionalGuestName.split(' ')
+        additionalGuestFirstName = tempFirstName
+        additionalGuestLastName = tempLastName
+    }
 
     const updatedGuest = await prisma.guest.update({
         where: { id },
@@ -60,9 +67,8 @@ const adminUpdateGuest = async ({
             ],
         }
     });
-    console.log(updatedGuest)
 
-    return 1
+    return updatedGuest
 };
 
 export default adminUpdateGuest;
