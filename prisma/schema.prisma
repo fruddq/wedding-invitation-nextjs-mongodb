@@ -29,8 +29,8 @@ model Event {
 }
 
 type AdditionalGuests {
-  firstName String
-  lastName  String
+  firstName String?
+  lastName  String?
   comments  String?
   diet      String?
   allergies String?

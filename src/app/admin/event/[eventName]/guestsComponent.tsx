@@ -24,36 +24,41 @@ export const GuestsComponent = ({
 
     const formData = new FormData(e.currentTarget)
 
-    const email = formData.get("email")
-    const phoneNumber = formData.get("phone-number")
-    const attending = formData.get("attending")
-    const hasResponded = formData.get("has-responded")
-    const guestDiet = formData.get("guest-diet")
-    const guestAllergies = formData.get("guest-allergies")
-    const guestComments = formData.get("guest-comments")
-    const additionalGuestAttending = formData.get("additional-guest-attending")
-    const additionalGuestDiet = formData.get("additional-guest-diet")
-    const additionalGuestAllergies = formData.get("additional-guest-allergies")
-    const additionalGuestComments = formData.get("additional-guest-comments")
+    const email = formData.get("email") as string
+    const phoneNumber = formData.get("phone-number") as string
+    const attending = Boolean(formData.get("attending"))
+    const hasResponded = Boolean(formData.get("has-responded"))
+    const guestDiet = formData.get("guest-diet") as string
+    const guestAllergies = formData.get("guest-allergies") as string
+    const guestComments = formData.get("guest-comments") as string
 
-    // console.log(email, "email")
-    // console.log(phoneNumber, "phoneNumber")
-    // console.log(attending, "attending")
-    // console.log(hasResponded, "hasResponded")
-    // console.log(additionalGuestDiet, "additional-guest-diet")
-    console.log(additionalGuestAttending, "additionalGuestAttending")
+    const additionalGuestName = formData.get("additional-guest-name") as string
+    const additionalGuestAttending = Boolean(
+      formData.get("additional-guest-attending")
+    )
+    const additionalGuestDiet = formData.get("additional-guest-diet") as string
+    const additionalGuestAllergies = formData.get(
+      "additional-guest-allergies"
+    ) as string
+    const additionalGuestComments = formData.get(
+      "additional-guest-comments"
+    ) as string
 
-    // const updatedGuest = adminUpdateGuest({
-    //   id: guestId,
-    //   email,
-    //   phoneNumber,
-    //   attending,
-    //   hasResponded,
-    //   guestDiet,
-    //   guestComments,
-    //   additionalGuestDiet,
-    //   additionalGuestComments,
-    // })
+    const updatedGuest = adminUpdateGuest({
+      id: guestId,
+      email,
+      phoneNumber,
+      attending,
+      hasResponded,
+      diet: guestDiet,
+      allergies: guestAllergies,
+      comments: guestComments,
+      additionalGuestName,
+      additionalGuestAttending,
+      additionalGuestDiet,
+      additionalGuestAllergies,
+      additionalGuestComments,
+    })
 
     setEditModeId(null)
   }
@@ -170,9 +175,16 @@ export const GuestsComponent = ({
                     <div className="additional-guest">
                       <ul className="additional-guest-details">
                         <li className="additional-guest-detail-item">
-                          <span className="detail-label">Name: </span>
-                          {guest.additionalGuests[0].firstName}{" "}
-                          {guest.additionalGuests[0].lastName}
+                          <span className="detail-label">Name: </span>{" "}
+                          <input
+                            type="text"
+                            name="additional-guest-name"
+                            defaultValue={
+                              guest.additionalGuests[0].firstName +
+                                " " +
+                                guest.additionalGuests[0].lastName || "N/A"
+                            }
+                          />
                         </li>
 
                         <li className="additional-guest-detail-item">
