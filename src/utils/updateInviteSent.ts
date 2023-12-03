@@ -11,7 +11,6 @@ const updateInviteSent = async ({ id, inviteSent }: GuestInterface) => {
         },
     });
 
-    console.log(result.inviteSent)
     return result.inviteSent
 
 };

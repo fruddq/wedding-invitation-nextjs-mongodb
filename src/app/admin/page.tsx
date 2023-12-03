@@ -47,8 +47,6 @@ export default async function Admin() {
       },
       // include: { guestList: true },
     })
-
-    console.log(events)
   }
 
   return (

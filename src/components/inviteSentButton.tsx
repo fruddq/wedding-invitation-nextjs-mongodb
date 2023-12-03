@@ -16,7 +16,6 @@ export default function InviteSentButton({ guest }: { guest: GuestInterface }) {
   const handleInviteSentClick = async () => {
     setloading(true)
     const result = await updateInviteSent(guest)
-    console.log(result)
     setInviteSentStatus(result ? "Yes" : "No")
     setloading(false)
   }
