@@ -1,60 +1,65 @@
-import { GuestInterface } from "@/app/invitation/[inviteCode]/page"
-import "./styles/rsvp.scss"
-import updateGuest from "@/utils/updateGuest"
-import { useState } from "react"
-import { PacmanLoader } from "react-spinners"
+import { GuestInterface } from "@/app/invitation/[inviteCode]/page";
+import "./styles/rsvp.scss";
+import updateGuest from "@/utils/updateGuest";
+import { useState } from "react";
+import { PacmanLoader } from "react-spinners";
 
 export interface FormValues {
-  attending: boolean
-  email: string
-  phoneNumber: string
-  diet: string
-  allergies: string
-  comments: string
-  "additional-guest-attending-1": string
-  "additional-guest-diet-1": string
-  "additional-guest-allergies-1": string
-  "additional-guest-comments-1": string
+  attending: boolean;
+  email: string;
+  phoneNumber: string;
+  diet: string;
+  allergies: string;
+  comments: string;
+  "additional-guest-attending-1": string;
+  "additional-guest-diet-1": string;
+  "additional-guest-allergies-1": string;
+  "additional-guest-comments-1": string;
 }
 
 export default function Rsvp({
   guest,
   setGuest,
 }: {
-  guest: GuestInterface
-  setGuest: (guest: GuestInterface | null) => void
+  guest: GuestInterface;
+  setGuest: (guest: GuestInterface | null) => void;
 }) {
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
   const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault()
+    event.preventDefault();
 
-    const form = event.target as HTMLFormElement
-    const formData = new FormData(form)
-    const formValues: any = {}
+    const form = event.target as HTMLFormElement;
+    const formData = new FormData(form);
+    const formValues: any = {};
 
     formData.forEach((value, key) => {
-      formValues[key] = value
-    })
+      formValues[key] = value;
+    });
 
-    setLoading(true)
-    const updatedGuest = await updateGuest(formValues, guest)
+    setLoading(true);
+    const updatedGuest = await updateGuest(formValues, guest);
 
     if (updatedGuest) {
-      localStorage.setItem("guest", JSON.stringify(updatedGuest))
-      setGuest(updatedGuest)
+      localStorage.setItem("guest", JSON.stringify(updatedGuest));
+      setGuest(updatedGuest);
     }
-    setLoading(false)
-  }
+    setLoading(false);
+  };
 
-  console.log(loading, "loading")
-  console.log(guest.hasResponded, "guest response")
+  console.log(loading, "loading");
+  console.log(guest.hasResponded, "guest response");
 
   return (
     <>
       <section className="container-rsvp">
-        <h1 className="title-rsvp">
-          {guest.hasResponded ? "Response Received" : "Attending?"}
-        </h1>
+        {guest.hasResponded ? (
+          <h1 className="title-rsvp">Response Received</h1>
+        ) : (
+          <>
+            <h1 className="title-rsvp">Attending?</h1>
+            <p className="rsvp-latest">Kindly RSVP by 8th of March.</p>
+          </>
+        )}
         <form className="form-rsvp" onSubmit={handleSubmit}>
           <div className="guest-container">
             <div className="guest-name-container">
@@ -68,12 +73,7 @@ export default function Rsvp({
                   </b>
                 </span>
               ) : (
-                <input
-                  type="text"
-                  name="guest-name"
-                  placeholder="Guest name"
-                  required
-                />
+                <input type="text" name="guest-name" placeholder="Guest name" required />
               )}
             </div>
 
@@ -205,9 +205,7 @@ export default function Rsvp({
                     </div>
 
                     <div className="attending">
-                      <label
-                        htmlFor={`additional-guest-attending-${index + 1}`}
-                      >
+                      <label htmlFor={`additional-guest-attending-${index + 1}`}>
                         Attending:
                       </label>
                       <input
@@ -341,5 +339,5 @@ export default function Rsvp({
         </form>
       </section>
     </>
-  )
+  );
 }
