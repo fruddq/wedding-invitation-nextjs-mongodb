@@ -1,5 +1,5 @@
-import Image from "next/image";
-import "./styles/outro.scss";
+import Image from "next/image"
+import "./styles/outro.scss"
 
 export default function Outro() {
   return (
@@ -23,5 +23,5 @@ export default function Outro() {
         </article>
       </section>
     </>
-  );
+  )
 }

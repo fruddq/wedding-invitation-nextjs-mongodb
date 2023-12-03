@@ -4,12 +4,16 @@ import prisma from "@/db";
 
 const updateInviteSent = async ({ id, inviteSent }: GuestInterface) => {
 
-    await prisma.guest.update({
+    const result = await prisma.guest.update({
         where: { id },
         data: {
             inviteSent: !inviteSent,
         },
     });
+
+    console.log(result.inviteSent)
+    return result.inviteSent
+
 };
 
 export default updateInviteSent;

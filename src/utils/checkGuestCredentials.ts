@@ -14,9 +14,9 @@ const checkGuestCredentials = async ({ firstName, lastName, password: inputPassw
         return false;
     }
 
-    const { guestlist, password } = event;
+    const { guestList, password } = event;
 
-    const matchingGuest = guestlist.find(
+    const matchingGuest = guestList.find(
         (guest) =>
             guest.firstName === firstName &&
             guest.lastName === lastName

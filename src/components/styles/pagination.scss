@@ -28,6 +28,11 @@
     transition: ease-in-out 0.3s;
     cursor: pointer;
 
+    &:disabled {
+      cursor: not-allowed;
+      background-color: #4d3e25;
+    }
+
     &:hover {
       background-color: #4d3e25;
       color: #e2b96a;

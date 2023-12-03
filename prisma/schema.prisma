@@ -25,7 +25,7 @@ model Event {
   eventPlannerUser   EventPlannerUser @relation(fields: [eventPlannerUserId], references: [id])
   password           String?
   inviteLink         String?
-  guestlist          Guest[]
+  guestList          Guest[]
 }
 
 type AdditionalGuests {
