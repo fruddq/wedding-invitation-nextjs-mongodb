@@ -1,21 +1,20 @@
 "use server"
 import { GuestInterface } from "@/app/invitation/[inviteCode]/page";
-import { FormValues } from "@/components/rsvp";
 import prisma from "@/db";
 
-const updateGuest = async (guestInfo: FormValues, { id, additionalGuests }: GuestInterface) => {
-    const {
-        attending,
-        phoneNumber,
-        email,
-        diet,
-        allergies,
-        comments,
-        'additional-guest-attending-1': additionalGuestAttending,
-        'additional-guest-diet-1': additionalGuestDiet,
-        'additional-guest-allergies-1': additionalGuestAllergies,
-        'additional-guest-comments-1': additionalGuestComments
-    } = guestInfo;
+const adminUpdateGuest = async () => {
+    // const {
+    //     attending,
+    //     phoneNumber,
+    //     email,
+    //     diet,
+    //     allergies,
+    //     comments,
+    //     'additional-guest-attending-1': additionalGuestAttending,
+    //     'additional-guest-diet-1': additionalGuestDiet,
+    //     'additional-guest-allergies-1': additionalGuestAllergies,
+    //     'additional-guest-comments-1': additionalGuestComments
+    // } = guestInfo;
 
 
     // const updatedGuest = await prisma.guest.update({
@@ -44,4 +43,4 @@ const updateGuest = async (guestInfo: FormValues, { id, additionalGuests }: Gues
     return 1
 };
 
-export default updateGuest;
+export default adminUpdateGuest;

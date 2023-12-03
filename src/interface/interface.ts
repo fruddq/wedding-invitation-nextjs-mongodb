@@ -34,6 +34,7 @@ export interface Event {
 }
 
 export interface IGuestSettings {
+    id?: string
     email: string
     phoneNumber: string
     attending: boolean
@@ -41,8 +42,8 @@ export interface IGuestSettings {
     diet: string
     allergies: string
     comments: string
-    "additional-guest-attending-1": string
-    "additional-guest-diet-1": string
-    "additional-guest-allergies-1": string
-    "additional-guest-comments-1": string
+    additionalGuestAttending: boolean
+    additionalGuestDiet: string
+    additionalGuestAllergies: string
+    additionalGuestComments: string
 }

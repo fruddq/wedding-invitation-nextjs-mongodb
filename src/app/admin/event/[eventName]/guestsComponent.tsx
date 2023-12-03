@@ -2,6 +2,7 @@ import { updateEventProps } from "@/interface/props.ts/props"
 import { Event, GuestInterface } from "@/interface/interface"
 import InviteSentButton from "@/components/inviteSentButton"
 import { useState } from "react"
+import adminUpdateGuest from "@/utils/adminUpdateGuest"
 export const GuestsComponent = ({
   event,
   setEvent,
@@ -28,8 +29,11 @@ export const GuestsComponent = ({
     const attending = formData.get("attending")
     const hasResponded = formData.get("has-responded")
     const guestDiet = formData.get("guest-diet")
+    const guestAllergies = formData.get("guest-allergies")
     const guestComments = formData.get("guest-comments")
+    const additionalGuestAttending = formData.get("additional-guest-attending")
     const additionalGuestDiet = formData.get("additional-guest-diet")
+    const additionalGuestAllergies = formData.get("additional-guest-allergies")
     const additionalGuestComments = formData.get("additional-guest-comments")
 
     // console.log(email, "email")
@@ -37,7 +41,19 @@ export const GuestsComponent = ({
     // console.log(attending, "attending")
     // console.log(hasResponded, "hasResponded")
     // console.log(additionalGuestDiet, "additional-guest-diet")
-    console.log(guestComments, "guestComments")
+    console.log(additionalGuestAttending, "additionalGuestAttending")
+
+    // const updatedGuest = adminUpdateGuest({
+    //   id: guestId,
+    //   email,
+    //   phoneNumber,
+    //   attending,
+    //   hasResponded,
+    //   guestDiet,
+    //   guestComments,
+    //   additionalGuestDiet,
+    //   additionalGuestComments,
+    // })
 
     setEditModeId(null)
   }
@@ -63,16 +79,10 @@ export const GuestsComponent = ({
                 </button>
 
                 <p className="guest-info-item guest-info-name">
-                  <span className="guest-info-label">First Name:</span>{" "}
-                  {guest.firstName}
+                  <span className="guest-info-label">Name: </span>
+                  {guest.firstName} {guest.lastName}
                 </p>
 
-                <hr />
-
-                <p className="guest-info-item guest-info-lastname">
-                  <span className="guest-info-label">Last Name:</span>{" "}
-                  {guest.lastName}
-                </p>
                 <hr />
 
                 <p className="guest-info-item guest-info-email">
@@ -132,6 +142,16 @@ export const GuestsComponent = ({
                 </p>
                 <hr />
 
+                <p className="guest-info-item guest-info-allergies">
+                  <span className="guest-info-label">Allergies: </span>
+                  <input
+                    type="text"
+                    defaultValue={guest.allergies || "N/A"}
+                    name="guest-allergies"
+                  />
+                </p>
+                <hr />
+
                 <p className="guest-info-item guest-info-comments">
                   <span className="guest-info-label">Comments:</span>
                   <input
@@ -154,6 +174,18 @@ export const GuestsComponent = ({
                           {guest.additionalGuests[0].firstName}{" "}
                           {guest.additionalGuests[0].lastName}
                         </li>
+
+                        <li className="additional-guest-detail-item">
+                          <span className="detail-label">Attending:</span>
+                          <select
+                            name="additional-guest-attending"
+                            defaultValue={guest.additionalGuests[0].attending.toString()}
+                          >
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
+                          </select>
+                        </li>
+
                         <li className="additional-guest-detail-item">
                           <span className="detail-label">Diet: </span>
                           <input
@@ -161,6 +193,17 @@ export const GuestsComponent = ({
                             name="additional-guest-diet"
                             defaultValue={
                               guest.additionalGuests[0].diet || "N/A"
+                            }
+                          />
+                        </li>
+
+                        <li className="additional-guest-detail-item">
+                          <span className="detail-label">Allergies: </span>
+                          <input
+                            type="text"
+                            name="additional-guest-allergies"
+                            defaultValue={
+                              guest.additionalGuests[0].allergies || "N/A"
                             }
                           />
                         </li>
@@ -185,51 +228,51 @@ export const GuestsComponent = ({
                 <button onClick={() => handleEditClick(guest.id)}>Edit</button>
 
                 <p className="guest-info-item guest-info-name">
-                  <span className="guest-info-label">First Name:</span>{" "}
-                  {guest.firstName}
+                  <span className="guest-info-label">Name:</span>{" "}
+                  {guest.firstName} {guest.lastName}
                 </p>
 
-                <hr />
-
-                <p className="guest-info-item guest-info-lastname">
-                  <span className="guest-info-label">Last Name:</span>{" "}
-                  {guest.lastName}
-                </p>
                 <hr />
 
                 <p className="guest-info-item guest-info-email">
-                  <span className="guest-info-label">Email:</span>
+                  <span className="guest-info-label">Email:</span>{" "}
                   {guest.email || "N/A"}
                 </p>
 
                 <hr />
 
                 <p className="guest-info-item guest-info-phone">
-                  <span className="guest-info-label">Phone Number:</span>
+                  <span className="guest-info-label">Phone Number:</span>{" "}
                   {guest.phoneNumber || "N/A"}
                 </p>
                 <hr />
 
                 <p className="guest-attendance-status">
-                  <span className="attendance-label">Attending:</span>
+                  <span className="attendance-label">Attending:</span>{" "}
                   {guest.attending ? "Yes" : "No"}
                 </p>
                 <hr />
 
                 <p className="guest-response-status">
-                  <span className="response-label">Has Responded:</span>
+                  <span className="response-label">Has Responded:</span>{" "}
                   {guest.hasResponded ? "Yes" : "No"}
                 </p>
                 <hr />
 
                 <p className="guest-info-item guest-info-diet">
-                  <span className="guest-info-label">Diet:</span>
+                  <span className="guest-info-label">Diet:</span>{" "}
                   {guest.diet || "N/A"}
                 </p>
                 <hr />
 
+                <p className="guest-info-item guest-info-allergies">
+                  <span className="guest-info-label">Allergies: </span>{" "}
+                  {guest.allergies || "N/A"}
+                </p>
+                <hr />
+
                 <p className="guest-info-item guest-info-comments">
-                  <span className="guest-info-label">Comments:</span>
+                  <span className="guest-info-label">Comments:</span>{" "}
                   {guest.comments || "N/A"}
                 </p>
                 <hr />
@@ -246,9 +289,20 @@ export const GuestsComponent = ({
                           {guest.additionalGuests[0].firstName}{" "}
                           {guest.additionalGuests[0].lastName}
                         </li>
+
+                        <li className="additional-guest-detail-item">
+                          <span className="detail-label">Attending: </span>
+                          {guest.additionalGuests[0].attending ? "Yes" : "No"}
+                        </li>
+
                         <li className="additional-guest-detail-item">
                           <span className="detail-label">Diet: </span>
                           {guest.additionalGuests[0].diet || "N/A"}
+                        </li>
+
+                        <li className="additional-guest-detail-item">
+                          <span className="detail-label">Allergies: </span>
+                          {guest.additionalGuests[0].allergies || "N/A"}
                         </li>
 
                         <li className="additional-guest-detail-item">
