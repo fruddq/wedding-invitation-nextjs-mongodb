@@ -33,3 +33,16 @@ export interface Event {
     eventPlannerUserId: string
 }
 
+export interface IGuestSettings {
+    email: string
+    phoneNumber: string
+    attending: boolean
+    hasResponded?: boolean
+    diet: string
+    allergies: string
+    comments: string
+    "additional-guest-attending-1": string
+    "additional-guest-diet-1": string
+    "additional-guest-allergies-1": string
+    "additional-guest-comments-1": string
+}

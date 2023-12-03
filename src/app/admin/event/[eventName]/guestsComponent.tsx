@@ -12,24 +12,32 @@ export const GuestsComponent = ({
   const [editModeId, setEditModeId] = useState<string | null>(null)
 
   const handleEditClick = (guestId: string) => {
-    console.log("edit", guestId)
     setEditModeId(guestId)
   }
 
-  const handleSaveClick = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSaveClick = (
+    e: React.FormEvent<HTMLFormElement>,
+    guestId: string
+  ) => {
     e.preventDefault()
 
     const formData = new FormData(e.currentTarget)
 
     const email = formData.get("email")
-    const attending = formData.get("attending")
     const phoneNumber = formData.get("phone-number")
+    const attending = formData.get("attending")
     const hasResponded = formData.get("has-responded")
+    const guestDiet = formData.get("guest-diet")
+    const guestComments = formData.get("guest-comments")
+    const additionalGuestDiet = formData.get("additional-guest-diet")
+    const additionalGuestComments = formData.get("additional-guest-comments")
 
-    console.log(email, "email")
-    console.log(phoneNumber, "phoneNumber")
-    console.log(attending, "attending")
-    console.log(hasResponded, "hasResponded")
+    // console.log(email, "email")
+    // console.log(phoneNumber, "phoneNumber")
+    // console.log(attending, "attending")
+    // console.log(hasResponded, "hasResponded")
+    // console.log(additionalGuestDiet, "additional-guest-diet")
+    console.log(guestComments, "guestComments")
 
     setEditModeId(null)
   }
@@ -48,7 +56,7 @@ export const GuestsComponent = ({
         <div key={guest.id} className="guest-container">
           <div className="guest-info">
             {editModeId === guest.id ? (
-              <form onSubmit={handleSaveClick}>
+              <form onSubmit={(e) => handleSaveClick(e, guest.id)}>
                 <button type="submit">Save</button>
                 <button type="button" onClick={handleCancelClick}>
                   Cancel
@@ -114,6 +122,26 @@ export const GuestsComponent = ({
                 </p>
                 <hr />
 
+                <p className="guest-info-item guest-info-diet">
+                  <span className="guest-info-label">Diet:</span>
+                  <input
+                    type="text"
+                    defaultValue={guest.diet || "N/A"}
+                    name="guest-diet"
+                  />
+                </p>
+                <hr />
+
+                <p className="guest-info-item guest-info-comments">
+                  <span className="guest-info-label">Comments:</span>
+                  <input
+                    type="text"
+                    defaultValue={guest.comments || "N/A"}
+                    name="guest-comments"
+                  />
+                </p>
+                <hr />
+
                 {guest.additionalGuests[0].firstName.length > 0 && (
                   <div className="additional-guests-container">
                     <p className="additional-guests-header">
@@ -130,6 +158,7 @@ export const GuestsComponent = ({
                           <span className="detail-label">Diet: </span>
                           <input
                             type="text"
+                            name="additional-guest-diet"
                             defaultValue={
                               guest.additionalGuests[0].diet || "N/A"
                             }
@@ -137,9 +166,10 @@ export const GuestsComponent = ({
                         </li>
 
                         <li className="additional-guest-detail-item">
-                          <span className="detail-label">Comment: </span>
+                          <span className="detail-label">Comments: </span>
                           <input
                             type="text"
+                            name="additional-guest-comments"
                             defaultValue={
                               guest.additionalGuests[0].comments || "N/A"
                             }
@@ -192,6 +222,18 @@ export const GuestsComponent = ({
                 </p>
                 <hr />
 
+                <p className="guest-info-item guest-info-diet">
+                  <span className="guest-info-label">Diet:</span>
+                  {guest.diet || "N/A"}
+                </p>
+                <hr />
+
+                <p className="guest-info-item guest-info-comments">
+                  <span className="guest-info-label">Comments:</span>
+                  {guest.comments || "N/A"}
+                </p>
+                <hr />
+
                 {guest.additionalGuests[0].firstName.length > 0 && (
                   <div className="additional-guests-container">
                     <p className="additional-guests-header">
@@ -210,7 +252,7 @@ export const GuestsComponent = ({
                         </li>
 
                         <li className="additional-guest-detail-item">
-                          <span className="detail-label">Comment: </span>
+                          <span className="detail-label">Comments: </span>
                           {guest.additionalGuests[0].comments || "N/A"}
                         </li>
                       </ul>
