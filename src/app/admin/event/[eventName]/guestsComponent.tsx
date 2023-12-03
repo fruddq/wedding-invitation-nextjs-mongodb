@@ -1,52 +1,39 @@
-import { updateEventProps } from "@/interface/props.ts/props"
-import { Event, GuestInterface } from "@/interface/interface"
-import InviteSentButton from "@/components/inviteSentButton"
-import { useState } from "react"
-import adminUpdateGuest from "@/utils/adminUpdateGuest"
-export const GuestsComponent = ({
-  event,
-  setEvent,
-  setLoading,
-}: updateEventProps) => {
-  const { guestList } = event
+import { updateEventProps } from "@/interface/props.ts/props";
+import { Event, GuestInterface } from "@/interface/interface";
+import InviteSentButton from "@/components/inviteSentButton";
+import { useState } from "react";
+import adminUpdateGuest from "@/utils/adminUpdateGuest";
+export const GuestsComponent = ({ event, setEvent, setLoading }: updateEventProps) => {
+  const { guestList } = event;
 
-  const [editModeId, setEditModeId] = useState<string | null>(null)
+  const [editModeId, setEditModeId] = useState<string | null>(null);
 
   const handleEditClick = (guestId: string) => {
-    setEditModeId(guestId)
-  }
+    setEditModeId(guestId);
+  };
 
-  const handleSaveClick = async (
-    e: React.FormEvent<HTMLFormElement>,
-    guestId: string
-  ) => {
-    e.preventDefault()
+  const handleSaveClick = async (e: React.FormEvent<HTMLFormElement>, guestId: string) => {
+    e.preventDefault();
 
-    const formData = new FormData(e.currentTarget)
+    const formData = new FormData(e.currentTarget);
 
-    const inviteSent = formData.get("invite-sent") as string
-    const email = formData.get("email") as string
-    const phoneNumber = formData.get("phone-number") as string
-    const attending = formData.get("attending") as string
-    const hasResponded = formData.get("has-responded") as string
-    const guestDiet = formData.get("guest-diet") as string
-    const guestAllergies = formData.get("guest-allergies") as string
-    const guestComments = formData.get("guest-comments") as string
+    const inviteSent = formData.get("invite-sent") as string;
+    const email = formData.get("email") as string;
+    const phoneNumber = formData.get("phone-number") as string;
+    const attending = formData.get("attending") as string;
+    const hasResponded = formData.get("has-responded") as string;
+    const guestDiet = formData.get("guest-diet") as string;
+    const guestAllergies = formData.get("guest-allergies") as string;
+    const guestComments = formData.get("guest-comments") as string;
 
-    const additionalGuestName = formData.get("additional-guest-name") as string
-    const additionalGuestAttending = formData.get(
-      "additional-guest-attending"
-    ) as string
+    const additionalGuestName = formData.get("additional-guest-name") as string;
+    const additionalGuestAttending = formData.get("additional-guest-attending") as string;
 
-    const additionalGuestDiet = formData.get("additional-guest-diet") as string
-    const additionalGuestAllergies = formData.get(
-      "additional-guest-allergies"
-    ) as string
-    const additionalGuestComments = formData.get(
-      "additional-guest-comments"
-    ) as string
+    const additionalGuestDiet = formData.get("additional-guest-diet") as string;
+    const additionalGuestAllergies = formData.get("additional-guest-allergies") as string;
+    const additionalGuestComments = formData.get("additional-guest-comments") as string;
 
-    setLoading(true)
+    setLoading(true);
     const updatedGuest = await adminUpdateGuest({
       id: guestId,
       inviteSent,
@@ -62,7 +49,7 @@ export const GuestsComponent = ({
       additionalGuestDiet,
       additionalGuestAllergies,
       additionalGuestComments,
-    })
+    });
 
     if (updatedGuest) {
       setEvent(
@@ -73,29 +60,29 @@ export const GuestsComponent = ({
               guest.id === updatedGuest.id ? updatedGuest : guest
             ),
           } as Event)
-      )
-      setLoading(false)
+      );
+      setLoading(false);
     }
-    setEditModeId(null)
-  }
+    setEditModeId(null);
+  };
 
   const handleCancelClick = () => {
-    setEditModeId(null)
-  }
+    setEditModeId(null);
+  };
 
   return (
     <div className="guestlist-container">
-      <h2 className="guestlist-header">
-        Number of invited Guests: {guestList.length}
-      </h2>
+      <h2 className="guestlist-header">Number of invited Guests: {guestList.length}</h2>
 
       {guestList.map((guest: GuestInterface) => (
         <div key={guest.id} className="guest-container">
           <div className="guest-info">
             {editModeId === guest.id ? (
               <form onSubmit={(e) => handleSaveClick(e, guest.id)}>
-                <button type="submit">Save</button>
-                <button type="button" onClick={handleCancelClick}>
+                <button type="submit" className="save-btn">
+                  Save
+                </button>
+                <button type="button" onClick={handleCancelClick} className="cancel-btn">
                   Cancel
                 </button>
 
@@ -108,10 +95,7 @@ export const GuestsComponent = ({
                 {/* @ TODO fix class names */}
                 <p className="guest-info-item guest-info-name">
                   <span className="guest-info-label">Invite sent:</span>{" "}
-                  <select
-                    name="invite-sent"
-                    defaultValue={guest.inviteSent.toString()}
-                  >
+                  <select name="invite-sent" defaultValue={guest.inviteSent.toString()}>
                     <option value="true">Yes</option>
                     <option value="false">No</option>
                   </select>
@@ -120,11 +104,7 @@ export const GuestsComponent = ({
 
                 <p className="guest-info-item guest-info-email">
                   <span className="guest-info-label">Email: </span>{" "}
-                  <input
-                    type="text"
-                    name="email"
-                    defaultValue={guest.email || "N/A"}
-                  />
+                  <input type="text" name="email" defaultValue={guest.email || "N/A"} />
                 </p>
 
                 <hr />
@@ -141,10 +121,7 @@ export const GuestsComponent = ({
 
                 <p className="guest-attendance-status">
                   <span className="attendance-label">Attending:</span>
-                  <select
-                    name="attending"
-                    defaultValue={guest.attending.toString()}
-                  >
+                  <select name="attending" defaultValue={guest.attending.toString()}>
                     <option value="true">Yes</option>
                     <option value="false">No</option>
                   </select>
@@ -155,10 +132,7 @@ export const GuestsComponent = ({
                 <p className="guest-response-status">
                   <span className="response-label">Has Responded:</span>
 
-                  <select
-                    name="has-responded"
-                    defaultValue={guest.hasResponded.toString()}
-                  >
+                  <select name="has-responded" defaultValue={guest.hasResponded.toString()}>
                     <option value="true">Yes</option>
                     <option value="false">No</option>
                   </select>
@@ -167,11 +141,7 @@ export const GuestsComponent = ({
 
                 <p className="guest-info-item guest-info-diet">
                   <span className="guest-info-label">Diet:</span>
-                  <input
-                    type="text"
-                    defaultValue={guest.diet || "N/A"}
-                    name="guest-diet"
-                  />
+                  <input type="text" defaultValue={guest.diet || "N/A"} name="guest-diet" />
                 </p>
                 <hr />
 
@@ -197,9 +167,7 @@ export const GuestsComponent = ({
 
                 {guest.additionalGuests[0].firstName.length > 0 && (
                   <div className="additional-guests-container">
-                    <p className="additional-guests-header">
-                      Additional Guests:
-                    </p>
+                    <p className="additional-guests-header">Additional Guests:</p>
                     <div className="additional-guest">
                       <ul className="additional-guest-details">
                         <li className="additional-guest-detail-item">
@@ -231,9 +199,7 @@ export const GuestsComponent = ({
                           <input
                             type="text"
                             name="additional-guest-diet"
-                            defaultValue={
-                              guest.additionalGuests[0].diet || "N/A"
-                            }
+                            defaultValue={guest.additionalGuests[0].diet || "N/A"}
                           />
                         </li>
 
@@ -242,9 +208,7 @@ export const GuestsComponent = ({
                           <input
                             type="text"
                             name="additional-guest-allergies"
-                            defaultValue={
-                              guest.additionalGuests[0].allergies || "N/A"
-                            }
+                            defaultValue={guest.additionalGuests[0].allergies || "N/A"}
                           />
                         </li>
 
@@ -253,9 +217,7 @@ export const GuestsComponent = ({
                           <input
                             type="text"
                             name="additional-guest-comments"
-                            defaultValue={
-                              guest.additionalGuests[0].comments || "N/A"
-                            }
+                            defaultValue={guest.additionalGuests[0].comments || "N/A"}
                           />
                         </li>
                       </ul>
@@ -265,11 +227,13 @@ export const GuestsComponent = ({
               </form>
             ) : (
               <>
-                <button onClick={() => handleEditClick(guest.id)}>Edit</button>
+                <button className="edit-btn" onClick={() => handleEditClick(guest.id)}>
+                  Edit
+                </button>
 
                 <p className="guest-info-item guest-info-name">
-                  <span className="guest-info-label">Name:</span>{" "}
-                  {guest.firstName} {guest.lastName}
+                  <span className="guest-info-label">Name:</span> {guest.firstName}{" "}
+                  {guest.lastName}
                 </p>
                 <hr />
 
@@ -280,8 +244,7 @@ export const GuestsComponent = ({
                 <hr />
 
                 <p className="guest-info-item guest-info-email">
-                  <span className="guest-info-label">Email:</span>{" "}
-                  {guest.email || "N/A"}
+                  <span className="guest-info-label">Email:</span> {guest.email || "N/A"}
                 </p>
 
                 <hr />
@@ -305,8 +268,7 @@ export const GuestsComponent = ({
                 <hr />
 
                 <p className="guest-info-item guest-info-diet">
-                  <span className="guest-info-label">Diet:</span>{" "}
-                  {guest.diet || "N/A"}
+                  <span className="guest-info-label">Diet:</span> {guest.diet || "N/A"}
                 </p>
                 <hr />
 
@@ -324,9 +286,7 @@ export const GuestsComponent = ({
 
                 {guest.additionalGuests[0].firstName.length > 0 && (
                   <div className="additional-guests-container">
-                    <p className="additional-guests-header">
-                      Additional Guests:
-                    </p>
+                    <p className="additional-guests-header">Additional Guests:</p>
                     <div className="additional-guest">
                       <ul className="additional-guest-details">
                         <li className="additional-guest-detail-item">
@@ -364,5 +324,5 @@ export const GuestsComponent = ({
         </div>
       ))}
     </div>
-  )
-}
+  );
+};

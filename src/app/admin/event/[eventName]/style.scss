@@ -14,22 +14,26 @@
 }
 
 .event-name {
-  font-size: 2rem; // Large size for the title
-  text-align: center; // Center align the title
-  color: #333; // A dark color for better readability
-  margin-bottom: 20px; // Spacing between the title and the content below
-  padding: 10px 0; // Padding for better visual spacing
-  border-bottom: 2px solid #eee; // A subtle line to separate the title from the content
+  font-size: 3rem;
+  text-align: center;
+  color: #034a44;
+  margin-bottom: 20px;
+  padding: 10px 0;
 }
 
 .event-settings {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #f7e7d0;
+
   margin: 20px;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.139);
 
   .event-info {
     margin-bottom: 20px;
@@ -83,11 +87,11 @@
 
 .guestlist-container {
   max-width: 800px;
-  margin: auto;
+  margin-top: 50px;
   padding: 20px;
-  background-color: #f9f9f9;
+  background-color: #efbf7d;
   border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.139);
 
   .guestlist-header {
     text-align: center;
@@ -97,12 +101,32 @@
 
   .guest-container {
     padding: 15px;
-    background-color: #fff;
-    border: 1px solid #ddd;
+    background-color: #f7e7d0;
+    // border: 1px solid #ddd;
     border-radius: 8px;
     margin-bottom: 20px;
 
     .guest-info {
+      button {
+        width: 70px;
+        padding: 5px;
+        margin: 5px;
+        border-radius: 15px;
+        color: white;
+
+        &.save-btn {
+          background-color: rgb(96, 177, 96);
+        }
+
+        &.cancel-btn {
+          background-color: rgb(184, 21, 21);
+        }
+
+        &.edit-btn {
+          background-color: rgb(138, 138, 255);
+        }
+      }
+
       .guest-info-item {
         margin: 10px 0;
         font-size: 16px;
@@ -115,7 +139,7 @@
       }
 
       hr {
-        border-top: 1px solid #eee;
+        border-top: 1px solid #e4af64;
       }
     }
 
@@ -147,7 +171,7 @@
       }
 
       .additional-guest {
-        background-color: #eef;
+        background-color: #f7d5a5;
         padding: 10px;
         border-radius: 5px;
         margin-bottom: 10px;
@@ -167,5 +191,18 @@
         }
       }
     }
+  }
+}
+
+@media (min-width: 1024px) {
+  .event-settings {
+    max-width: 800px;
+    margin: auto;
+    margin-top: 50px;
+  }
+
+  .guestlist-container {
+    margin: auto;
+    margin-top: 60px;
   }
 }
