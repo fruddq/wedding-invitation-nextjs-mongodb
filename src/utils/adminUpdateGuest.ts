@@ -5,6 +5,7 @@ import { IGuestSettings } from "@/interface/interface";
 
 const adminUpdateGuest = async ({
     id,
+    inviteSent,
     email,
     phoneNumber,
     attending,
@@ -19,22 +20,6 @@ const adminUpdateGuest = async ({
     additionalGuestComments,
 }: IGuestSettings) => {
 
-    console.table({
-        id,
-        email,
-        phoneNumber,
-        attending,
-        hasResponded,
-        diet,
-        allergies,
-        comments,
-        additionalGuestName,
-        additionalGuestAttending,
-        additionalGuestDiet,
-        additionalGuestAllergies,
-        additionalGuestComments,
-    })
-
     let additionalGuestFirstName = ""
     let additionalGuestLastName = ""
     if (additionalGuestName) {
@@ -47,13 +32,14 @@ const adminUpdateGuest = async ({
     const updatedGuest = await prisma.guest.update({
         where: { id },
         data: {
+            inviteSent: inviteSent === "true",
             email,
             phoneNumber,
             diet,
             comments,
             allergies,
-            attending: Boolean(attending),
-            hasResponded: true,
+            attending: attending === "true",
+            hasResponded: hasResponded === "true",
             // @TODO Fix schema: Make additional guest single, not an array
             additionalGuests: [
                 {
@@ -61,7 +47,7 @@ const adminUpdateGuest = async ({
                     lastName: additionalGuestLastName,
                     comments: additionalGuestComments,
                     diet: additionalGuestDiet,
-                    attending: Boolean(additionalGuestAttending),
+                    attending: additionalGuestAttending === "true",
                     allergies: additionalGuestAllergies
                 }
             ],

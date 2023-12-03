@@ -5,7 +5,7 @@ import { useState } from "react"
 import { PacmanLoader } from "react-spinners"
 
 export interface FormValues {
-  attending: boolean
+  attending: string
   email: string
   phoneNumber: string
   diet: string

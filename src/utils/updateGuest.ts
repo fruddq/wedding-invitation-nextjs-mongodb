@@ -18,6 +18,7 @@ const updateGuest = async (guestInfo: FormValues, { id, additionalGuests }: Gues
     } = guestInfo;
 
 
+
     const updatedGuest = await prisma.guest.update({
         where: { id },
         data: {
@@ -26,7 +27,7 @@ const updateGuest = async (guestInfo: FormValues, { id, additionalGuests }: Gues
             diet,
             comments,
             allergies,
-            attending: Boolean(attending),
+            attending: attending === "true",
             hasResponded: true,
             additionalGuests: [
                 {
@@ -34,7 +35,7 @@ const updateGuest = async (guestInfo: FormValues, { id, additionalGuests }: Gues
                     lastName: additionalGuests[0].lastName,
                     comments: additionalGuestComments,
                     diet: additionalGuestDiet,
-                    attending: Boolean(additionalGuestAttending),
+                    attending: additionalGuestAttending === "true",
                     allergies: additionalGuestAllergies
                 }
             ],

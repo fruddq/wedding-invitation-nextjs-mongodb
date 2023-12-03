@@ -24,18 +24,20 @@ export const GuestsComponent = ({
 
     const formData = new FormData(e.currentTarget)
 
+    const inviteSent = formData.get("invite-sent") as string
     const email = formData.get("email") as string
     const phoneNumber = formData.get("phone-number") as string
-    const attending = Boolean(formData.get("attending"))
-    const hasResponded = Boolean(formData.get("has-responded"))
+    const attending = formData.get("attending") as string
+    const hasResponded = formData.get("has-responded") as string
     const guestDiet = formData.get("guest-diet") as string
     const guestAllergies = formData.get("guest-allergies") as string
     const guestComments = formData.get("guest-comments") as string
 
     const additionalGuestName = formData.get("additional-guest-name") as string
-    const additionalGuestAttending = Boolean(
-      formData.get("additional-guest-attending")
-    )
+    const additionalGuestAttending = formData.get(
+      "additional-guest-attending"
+    ) as string
+
     const additionalGuestDiet = formData.get("additional-guest-diet") as string
     const additionalGuestAllergies = formData.get(
       "additional-guest-allergies"
@@ -44,8 +46,9 @@ export const GuestsComponent = ({
       "additional-guest-comments"
     ) as string
 
-    const updatedGuest = (await adminUpdateGuest({
+    const updatedGuest = await adminUpdateGuest({
       id: guestId,
+      inviteSent,
       email,
       phoneNumber,
       attending,
@@ -58,17 +61,20 @@ export const GuestsComponent = ({
       additionalGuestDiet,
       additionalGuestAllergies,
       additionalGuestComments,
-    })) as GuestInterface
+    })
 
     if (updatedGuest) {
-      setEvent((prevEvent) => ({
-        ...prevEvent,
-        guestList: prevEvent.guestList.map((guest) =>
-          guest.id === updatedGuest.id ? updatedGuest : guest
-        ),
-      }))
-      setEditModeId(null)
+      setEvent(
+        (prevEvent) =>
+          ({
+            ...prevEvent,
+            guestList: prevEvent.guestList.map((guest) =>
+              guest.id === updatedGuest.id ? updatedGuest : guest
+            ),
+          } as Event)
+      )
     }
+    setEditModeId(null)
   }
 
   const handleCancelClick = () => {
@@ -96,6 +102,18 @@ export const GuestsComponent = ({
                   {guest.firstName} {guest.lastName}
                 </p>
 
+                <hr />
+                {/* @ TODO fix class names */}
+                <p className="guest-info-item guest-info-name">
+                  <span className="guest-info-label">Invite sent:</span>{" "}
+                  <select
+                    name="invite-sent"
+                    defaultValue={guest.inviteSent.toString()}
+                  >
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                  </select>
+                </p>
                 <hr />
 
                 <p className="guest-info-item guest-info-email">
@@ -251,7 +269,12 @@ export const GuestsComponent = ({
                   <span className="guest-info-label">Name:</span>{" "}
                   {guest.firstName} {guest.lastName}
                 </p>
+                <hr />
 
+                <p className="guest-info-item guest-info-invite-sent">
+                  <span className="guest-info-label">Invite sent:</span>{" "}
+                  {guest.inviteSent ? "Yes" : "No"}
+                </p>
                 <hr />
 
                 <p className="guest-info-item guest-info-email">

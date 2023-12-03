@@ -35,15 +35,16 @@ export interface Event {
 
 export interface IGuestSettings {
     id: string
+    inviteSent: boolean | null | string
     email: string | null
     phoneNumber: string | null
-    attending: boolean | null
-    hasResponded?: boolean | null
+    attending: boolean | null | string
+    hasResponded?: boolean | null | string
     diet: string | null
     allergies: string | null
     comments: string | null
     additionalGuestName: string
-    additionalGuestAttending: boolean | null
+    additionalGuestAttending: boolean | null | string
     additionalGuestDiet: string | null
     additionalGuestAllergies: string | null
     additionalGuestComments: string | null
