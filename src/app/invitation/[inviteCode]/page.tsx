@@ -14,6 +14,7 @@ import Outro from "@/components/outro"
 import Header from "@/components/header"
 import "./style.scss"
 import { Pagination } from "@/components/pagination"
+import PacmanLoader from "react-spinners/PacmanLoader"
 
 export type AdditionalGuest = {
   firstName: string
@@ -39,6 +40,7 @@ export interface GuestInterface {
   additionalGuests: AdditionalGuest[]
 }
 export default function Invitation() {
+  const [loading, setLoading] = useState(true)
   const [guest, setGuest] = useState<GuestInterface | null>(null)
   const [showWelcomePage, setShowWelcomePage] = useState(true)
   const [showTheProposal, setShowTheProposal] = useState(false)
@@ -58,7 +60,22 @@ export default function Invitation() {
     if (storedGuest && !guest) {
       setGuest(storedGuest)
     }
+    setLoading(false)
   }, [guest, setGuest])
+
+  if (loading) {
+    return (
+      <div className="loader-container">
+        <PacmanLoader
+          color="orange"
+          loading={loading}
+          size={20}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
+      </div>
+    )
+  }
 
   if (!guest) {
     return <LoginForm setGuest={setGuest} />
