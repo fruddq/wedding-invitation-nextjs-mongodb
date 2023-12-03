@@ -66,7 +66,7 @@ export default function Contacts() {
             </article>
           </div>
           <article className="bride-groom">
-            <h4 className="contacts-subtitle">Bride & Groom</h4>
+            <h4 className="contacts-subtitle bride-groom-title">Bride & Groom</h4>
             <p>
               Nani Dam: +46 70 016 51 44 <br /> Frudd Dinh: +46 70 200 19 33
             </p>

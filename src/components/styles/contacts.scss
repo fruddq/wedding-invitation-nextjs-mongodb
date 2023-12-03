@@ -150,9 +150,20 @@
               display: none;
             }
 
+            .bride-groom {
+              padding-bottom: 10px;
+
+              .bride-groom-title {
+                margin-top: 0;
+              }
+            }
+
             .wrapper-toast {
               height: auto;
-              // width: 100%;
+
+              .contacts-subtitle {
+                margin-top: 5px;
+              }
             }
 
             h3 {
