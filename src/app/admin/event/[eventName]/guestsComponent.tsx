@@ -46,6 +46,7 @@ export const GuestsComponent = ({
       "additional-guest-comments"
     ) as string
 
+    setLoading(true)
     const updatedGuest = await adminUpdateGuest({
       id: guestId,
       inviteSent,
@@ -73,6 +74,7 @@ export const GuestsComponent = ({
             ),
           } as Event)
       )
+      setLoading(false)
     }
     setEditModeId(null)
   }
