@@ -52,9 +52,11 @@ export default function EventComponent({
           {/* <p>Event Date: {eventDate.toLocaleDateString()}</p>
           <p>RSVP Date: {RSVPDate?.toLocaleDateString() || "N/A"}</p> */}
           <p>
-            Inloggninguppgifter är ditt förnamn och efternamn med stor första
-            bokstav. Lösenordet är {password}. <br />
-            Invite Link: e-invite.vercel.app/invitation/
+            Inloggninguppgifterna är ditt för- och efternamn med stor första
+            bokstav. <br />
+            Lösenordet är {password} <br />
+            Osa senast 8 mars 2024. <br />
+            Inbjudan: e-invite.vercel.app/invitation/
             {inviteLink}
           </p>
         </div>
