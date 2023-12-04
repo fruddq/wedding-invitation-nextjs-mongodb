@@ -1,26 +1,36 @@
-"use client";
-import { GuestInterface } from "@/app/invitation/[inviteCode]/page";
-import InviteSentButton from "@/components/inviteSentButton";
-import getEvent from "@/utils/getEvent";
-import inviteGuest from "@/utils/inviteGuest";
-import updateEventPassword from "@/utils/updateEventPassword";
-import updateRsvpDate from "@/utils/updateRsvpDate";
-import "./style.scss";
-import { useState } from "react";
-import { PasswordFormComponent } from "./passwordForm";
-import PacmanLoader from "react-spinners/PacmanLoader";
-import { Event } from "@/interface/interface";
-import { InviteGuestForm } from "./inviteGuestForm";
-import { GuestsComponent } from "./guestsComponent";
+"use client"
+import { GuestInterface } from "@/app/invitation/[inviteCode]/page"
+import InviteSentButton from "@/components/inviteSentButton"
+import getEvent from "@/utils/getEvent"
+import inviteGuest from "@/utils/inviteGuest"
+import updateEventPassword from "@/utils/updateEventPassword"
+import updateRsvpDate from "@/utils/updateRsvpDate"
+import "./style.scss"
+import { useState } from "react"
+import { PasswordFormComponent } from "./passwordForm"
+import PacmanLoader from "react-spinners/PacmanLoader"
+import { Event } from "@/interface/interface"
+import { InviteGuestForm } from "./inviteGuestForm"
+import { GuestsComponent } from "./guestsComponent"
 
 interface EventComponentProps {
-  event: Event;
+  event: Event
 }
-export default function EventComponent({ event: eventDB }: EventComponentProps) {
-  const [event, setEvent] = useState<Event>(eventDB);
-  const [loading, setLoading] = useState(false);
+export default function EventComponent({
+  event: eventDB,
+}: EventComponentProps) {
+  const [event, setEvent] = useState<Event>(eventDB)
+  const [loading, setLoading] = useState(false)
 
-  const { guestList, RSVPDate, id, eventName, eventDate, password, inviteLink } = event;
+  const {
+    guestList,
+    RSVPDate,
+    id,
+    eventName,
+    eventDate,
+    password,
+    inviteLink,
+  } = event
 
   return (
     <div>
@@ -42,12 +52,18 @@ export default function EventComponent({ event: eventDB }: EventComponentProps) 
           {/* <p>Event Date: {eventDate.toLocaleDateString()}</p>
           <p>RSVP Date: {RSVPDate?.toLocaleDateString() || "N/A"}</p> */}
           <p>
+            Inloggninguppgifter är ditt förnamn och efternamn med stor första
+            bokstav. Lösenordet är {password}. <br />
             Invite Link: e-invite.vercel.app/invitation/
             {inviteLink}
           </p>
         </div>
 
-        <PasswordFormComponent event={event} setEvent={setEvent} setLoading={setLoading} />
+        <PasswordFormComponent
+          event={event}
+          setEvent={setEvent}
+          setLoading={setLoading}
+        />
 
         <br />
 
@@ -65,10 +81,18 @@ export default function EventComponent({ event: eventDB }: EventComponentProps) 
           <button type="submit">Change RSVP Date</button>
         </form> */}
 
-        <InviteGuestForm event={event} setEvent={setEvent} setLoading={setLoading} />
+        <InviteGuestForm
+          event={event}
+          setEvent={setEvent}
+          setLoading={setLoading}
+        />
       </div>
 
-      <GuestsComponent event={event} setEvent={setEvent} setLoading={setLoading} />
+      <GuestsComponent
+        event={event}
+        setEvent={setEvent}
+        setLoading={setLoading}
+      />
     </div>
-  );
+  )
 }
