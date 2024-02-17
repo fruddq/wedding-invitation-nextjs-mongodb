@@ -31,10 +31,9 @@ export default function SaveTheDate() {
           </div>
           <div className="info-address">
             <p>
-              Music restaurang, <br />
-              Hemvärnsgatan 15, Solna Strand
+              Stora Henriksvik, <br />
+              Långholmsmuren 21, Stockholm
             </p>
-            <p>Parking available outside</p>
           </div>
         </article>
       </section>
